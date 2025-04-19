@@ -200,7 +200,7 @@ struct ProfileView: View {
                                     ForEach(groups, id: \.id) { item in
                                         HStack{
                                             if let singular = item.attributes.nameSingular {
-                                                Text("✅ \(singular): ").foregroundStyle(.secondary)
+                                                Text("\(singular): ").foregroundStyle(.secondary)
                                             }
 
                                             if let plural = item.attributes.namePlural {
@@ -229,7 +229,7 @@ struct ProfileView: View {
                                             ForEach(groups, id: \.id) { item in
                                                 NavigationLink(value: item) {
                                                     if let badgeName = item.attributes.name {
-                                                        Text("🎖️ \(badgeName)")
+                                                        Text("\(badgeName)")
                                                             .bold()
                                                             .foregroundColor(Color.white)
                                                             .font(.system(size: 12))
@@ -263,20 +263,46 @@ struct ProfileView: View {
                         .listRowInsets(EdgeInsets())
                         .listRowSeparator(.hidden)
 
-                        Section{
-                            HStack {
-                                Spacer()
-                                Button(action: {
-                                    saveProfile()
-                                }) {
-                                    Text("Change Profile")
-                                        .bold()
+                            Section {
+                                HStack {
+                                    // 使用 NavigationLink 实现跳转
+                                    NavigationLink {
+                                        APPInfoView()
+                                    } label: {
+                                        Text("App Info")
+                                            .bold()
+                                    }
                                 }
-                                .disabled(true) //Need your Api keys to do so
-                                Spacer()
+                                HStack {
+                                    // 使用 NavigationLink 实现跳转
+                                    NavigationLink {
+                                        BugsView()
+                                    } label: {
+                                        Text("Bugs")
+                                            .bold()
+                                    }
+                                }
+                            }
+                            Section{
+                                HStack {
+                                    Button(action: {
+                                        UIApplication.shared.open(URL(string: "https://afdian.com/a/leonmmcoset")!)
+                                    }) {
+                                        Text(NSLocalizedString("moneyauthor", comment: ""))
+                                    }
+                                    .disabled(false)
+                                }
+                                HStack {
+                                    Button(action: {
+                                        openAppSettings()
+                                    }) {
+                                        Text("打开应用设置")
+                                            .bold()
+                                    }
+                                    .disabled(false)
+                                }
                             }
                         }
-                    }
                     .textSelection(.enabled)
                 }
                 .sheet(isPresented: $showChangeProfilePage) {
@@ -414,6 +440,12 @@ struct ProfileView: View {
             print("Invalid user Data!" ,error)
         }
     }
+    // MARK: - Open APP settings
+    func openAppSettings() {
+        if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
+            if UIApplication.shared.canOpenURL(settingsURL) {
+                UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
+            }
+        }
+    }
 }
-
-

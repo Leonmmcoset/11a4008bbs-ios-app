@@ -60,7 +60,7 @@
 "🎀 Last seen at:" = "Last seen at:";
 "🎉 Join Time:" = "Join Time:";
 "🎎 DisplayName: " = "Display Name:";
-"💰 money: " = "money: ";
+"💰 money: " = "Money: ";
 "🎊 Username: " = "Username:";
 "🏖️ Discussion Count: " = "Discussion Count:";
 "🧬 Comment Count: " = "Comment Count:";
@@ -71,8 +71,8 @@
 "Earned Badges" = "Earned Badges";
 "No Badges Earned Yet" = "No Badges Earned Yet";
 "🍾 In" = "In";
-"username" = "username";
-"password" = "password";
+"username" = "Username";
+"password" = "Password";
 "copy_in_contextMenu" = "Copy the comment";
 "Text Copied" = "Text Copied";
 "post_tags_exceed_limit" = "Selected tags exceed the limit!";
@@ -106,8 +106,44 @@
 /* LeonMMcoset */
 "此APP原作者为Romantic D" = "This APP's author is Romantic D";
 "由LeonMMcoset修改" = "Modify by LeonMMcoset";
-"原GitHub页面" = "GitHub Page (Chinese)";
-"隐私政策" = "Privacy Policy";
+"原GitHub页面" = "GitHub Page";
+"隐私政策" = "Privacy Policy (Chinese)";
 "使用此APP代表您同意隐私条款" = "By using this APP, you agree to the privacy terms.";
-"LeonMMcoset论坛" = "LeonMMcoset BBS";
+"LeonMMcoset论坛" = "11A4008 BBS";
+"请允许隐私条款中的内容以使用此APP" = "Please allow the content in the Privacy Policy to use this APP";
+"欢迎使用LeonMMcoset论坛APP" = "Welcome using 11A4008BBS APP";
+"请注意" = "Please Note";
+"此APP并不支持IPad，只是对Ipad屏幕做适配，对于Ipad的Bug不修！" = "This APP does not support IPad, but only adapts to the Ipad's screen, and does not fix the Ipad's bug!";
+"打开应用设置" = "Open APP Settings";
+"继续" = "Continue";
+"同意" = "Agree";
+"用户名(登录用 数字或字母组合)" = "Username";
+"密码" = "Password";
+"确认密码" = "Password again";
+"邮箱" = "E-Mail";
+"注册成功，请及时完成邮件及统一平台认证" = "Sign up complete, please varify your e-mail";
+"注册" = "Sign Up";
+"注册成功，即将返回登录页" = "Sign up complete, going back to login page";
+"确定" = "OK";
+"注册失败" = "Sign up failed";
+"**[隐私政策](http://leonmmcoset.jjmm.ink:1000/web/bbs/public/p/3-yinsizhengce)**" = "**[Privacy Policy (Chinese)](https://brt.arw.pub/p/2-privacyagreement)**";
+"请输入用户名" = "Please enter your username";
+"请输入密码" = "Please enter your password";
+"两次输入的密码不匹配" = "Two passwords is not the same";
+"请输入有效的邮箱地址" = "Please enter a regular e-mail";
+"·注册" = "·Sign Up";
+"moneyauthor" = "Buy me a coffee";
+"如有Bug，请在论坛汇报并@LeonMMcoset" = "If there are any bugs, please report them on the BBS and @LeonMMcoset";
+// MARK: BugsView
+// Button
+"Bugs" = "Bugs";
+// Page
+"在发送帖子时无法选择标签" = "The tags cannot be selected when posting";
+"注册只能用户名和昵称一样" = "When you sign up, username and nickname are the same";
+"无法查看资产记录" = "Unable to view money records";
+"有些按钮无法点击" = "Some buttons can't be clicked";
 //"" = "";
+// MARK: - Version 1.6
+// This is a UI update
+"New Post" = "New Post";
+"New Reply" = "New Reply";

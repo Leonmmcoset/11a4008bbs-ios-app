@@ -20,77 +20,74 @@ struct newReply: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                VStack {
-                    HStack {
-                        Image(systemName: "bubble.left.and.bubble.right.fill")
-                            .font(.system(size: 18))
-                            .foregroundColor(.blue)
-                            .frame(width: 30, height: 30)
-                            .opacity(0.8)
-                        
-                        Text("Comment")
-                            .font(.headline)
-                            .opacity(0.8)
-                        
-                        Spacer()
-                    }
-                    .padding(.top)
-                    .padding(.leading)
-                    
-                    TextField("Say something here...", text: $newReplyContent, axis: .vertical)
-                        .foregroundColor(.gray)
-                        .frame(height: 100)
-                        .padding()
-                        .background(Color.black.opacity(0.05))
-                        .cornerRadius(10)
-                        .disableAutocorrection(true)
-                        .onTapGesture {
-                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+            ScrollView {
+                VStack(spacing: 20) {
+                    // 标题部分
+                    VStack(alignment:.leading, spacing: 5) {
+                        HStack {
+                            Image(systemName: "bubble.left.and.bubble.right.fill")
+                               .font(.system(size: 20))
+                               .foregroundColor(.blue)
+                               .frame(width: 30, height: 30)
+                            Text("Comment")
+                               .font(.headline)
+                               .opacity(0.8)
+                            Spacer()
                         }
-                }
-                
-                ZStack {
+                       .padding(.top, 10)
+                       .padding(.leading)
+                    }
+                    // 内容输入部分
+                    VStack(alignment:.leading, spacing: 5) {
+                        TextEditor(text: $newReplyContent)
+                           .frame(minHeight: 150)
+                           .cornerRadius(8)
+                           .overlay(
+                                RoundedRectangle(cornerRadius: 8)
+                                   .stroke(Color.gray.opacity(0.5), lineWidth: 1)
+                            )
+                           .padding(.horizontal)
+                           .disableAutocorrection(true)
+                           .onTapGesture {
+                                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                            }
+                    }
+                    // 发布按钮
                     Button(action: {
-                        // 调用 saveReply 函数，并在回调闭包中处理请求完成后的操作
                         saveReply { success in
                             if success {
+                                // 这里可以根据成功情况进行更多处理，比如更新UI等
                                 newReplyContent = ""
                                 replyContent = ""
-                            } else {
-                                // 请求失败，可以执行其他操作或显示错误信息
                             }
                         }
                     }) {
                         HStack {
                             Text(NSLocalizedString("post_button_text", comment: ""))
-                                .bold()
-                            
+                               .bold()
                             if isReplying{
                                 ProgressView().padding(.leading)
                             }
                         }
                     }
-                    .disabled(isReplying)
-                    .foregroundColor(.white)
-                    .frame(width: 350, height: 50)
-                    .background(Color(hex: "565dd9"))
-                    .cornerRadius(10)
-                    .opacity(0.8)
-                    .padding(.bottom)
+                   .buttonStyle(.borderedProminent)
+                   .tint(Color(hex: "565dd9"))
+                   .padding(.horizontal)
+                   .disabled(isReplying)
                 }
             }
-            .scrollDismissesKeyboard(.interactively)
-            .onAppear{
+           .scrollDismissesKeyboard(.interactively)
+           .onAppear{
                 newReplyContent = replyContent
             }
-            .alert(isPresented: $succeessfullyReply) {
+           .alert(isPresented: $succeessfullyReply) {
                 Alert(title: Text("Reply successfully posted"),
                       message: nil,
                       dismissButton: .default(Text("OK"), action: {
                     dismiss()
                 }))
             }
+           .navigationTitle("New Reply")
         }
     }
     
@@ -106,6 +103,10 @@ struct newReply: View {
             
             if success {
                 // 请求成功时可以执行其他操作
+                DispatchQueue.main.async {
+                    succeessfullyReply = true
+                    appSettings.refreshComment()
+                }
             } else {
                 // 请求失败时可以执行其他操作或显示错误信息
             }
@@ -173,18 +174,8 @@ struct newReply: View {
                         return
                     }
                     
-                    DispatchQueue.main.async {
-                        succeessfullyReply = true
-                        replyContent = ""
-                        appSettings.refreshComment()
-                        completion(true) // 请求成功时调用回调闭包并传递成功状态
-                    }
+                    completion(true) // 请求成功时调用回调闭包并传递成功状态
                 }.resume()
     }
 
 }
-
-
-//#Preview {
-//    newReply()
-//}

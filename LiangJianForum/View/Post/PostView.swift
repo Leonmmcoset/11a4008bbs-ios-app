@@ -84,7 +84,7 @@ struct PostView: View {
                                                   }
                                                   .foregroundColor(.white)
                                                   .frame(width: 350, height: 50)
-                                                  .background(Color(hex: "787de1").gradient)
+                                                  .background(Color(hex: "A1C9CE").gradient)
                                                   .cornerRadius(10)
                                                   
                                                   Spacer()
@@ -209,7 +209,7 @@ struct PostView: View {
                                   .searchable(text: $searchTerm, prompt: "Search")
                                   .sheet(isPresented: $showingPostingArea) {
                                       newPostView().environmentObject(appsettings)
-                                          .presentationDetents([.medium, .large])
+                                          .presentationDetents([.large])
                                   }
                                   .navigationTitle(selectedSortingOption)
                                   .navigationBarTitleDisplayMode(.inline)

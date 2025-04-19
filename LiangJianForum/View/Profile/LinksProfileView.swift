@@ -198,7 +198,7 @@ struct LinksProfileView: View {
                             ForEach(groups, id: \.id) { item in
                                 HStack{
                                     if let singular = item.attributes.nameSingular {
-                                        Text("✅ \(singular): ").foregroundStyle(.secondary)
+                                        Text("\(singular): ").foregroundStyle(.secondary)
                                     }
 
                                     if let plural = item.attributes.namePlural {
@@ -229,7 +229,7 @@ struct LinksProfileView: View {
                                             Button(action: {
                                             }) {
                                                 if let badgeName = item.attributes.name {
-                                                    Text("🎖️ \(badgeName)")
+                                                    Text("\(badgeName)")
                                                         .bold()
                                                         .foregroundColor(Color.white)
                                                         .font(.system(size: 12))

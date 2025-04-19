@@ -175,7 +175,7 @@ struct TagDetail: View {
 //                    .searchable(text: $searchTerm, prompt: "Search")
                     .sheet(isPresented: $showingPostingArea) {
                         newPostView().environmentObject(appsettings)
-                            .presentationDetents([.medium, .large])
+                            .presentationDetents([.large])
                     }
                     .toolbarBackground(.visible, for: .navigationBar)
                     .navigationTitle(self.selectedTag.attributes.name)

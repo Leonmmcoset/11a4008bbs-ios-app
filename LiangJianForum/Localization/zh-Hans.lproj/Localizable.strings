@@ -33,7 +33,7 @@
 "Latest" = "最新";
 "Title" = "标题";
 "Content" = "内容";
-"Select Tags" = "选择版块（有Bug）";
+"Select Tags" = "选择版块";
 "Enter a title" = "输入标题";
 "Enter the content of your discussion" = "输入您的讨论内容";
 "Comment" = "评论";
@@ -85,7 +85,7 @@
 "minutes later" = "%d 分钟后";
 "very soon" = "几秒后";
 "like_in_contextMenu" = "点赞这条评论";
-"pay_to_read_message" = "支付量见币购买";
+"pay_to_read_message" = "支付论坛币购买";
 "tabbar_operations" = "选项";
 "choose_to_quit" = "退出登录";
 "start_new_discussion_message" = "发表新帖";
@@ -98,7 +98,7 @@
 "continuous_days" = "连续签到天数";
 "Flarum Level" = "论坛等级";
 "Bio" = "个性签名";
-"money_ranking_list" = "量见币排行榜";
+"money_ranking_list" = "论坛币排行榜";
 "group_list" = "用户群组";
 "statistics_page" = "统计页面";
 "follow_success_message" = "关注成功!";
@@ -106,7 +106,45 @@
 /* LeonMMcoset */
 "此APP原作者为Romantic D" = "此APP原作者为Romantic D";
 "由LeonMMcoset修改" = "由LeonMMcoset修改";
-"原GitHub页面" = "原GitHub页面（大陆用户可能访问不进）";
+"原GitHub页面" = "原GitHub页面";
 "隐私政策" = "隐私政策";
 "使用此APP代表您同意隐私条款" = "使用此APP代表您同意隐私条款";
+"LeonMMcoset论坛" = "11A4008深论坛";
+"请允许隐私条款中的内容以使用此APP" = "请允许隐私条款中的内容以使用此APP";
+"欢迎使用LeonMMcoset论坛APP" = "欢迎使用11A4008深论坛APP";
+"请注意" = "请注意";
+"此APP并不支持IPad，只是对Ipad屏幕做适配，对于Ipad的Bug不修！" = "此APP并不支持IPad，只是对Ipad屏幕做适配，对于Ipad的Bug不修！";
+"打开应用设置" = "打开应用设置";
+"继续" = "继续";
+"同意" = "同意";
+"moneyauthor" = "捐赠作者（自定义金额）";
+"如有Bug，请在论坛汇报并@LeonMMcoset" = "如有Bug，请在论坛汇报并@LeonMMcoset";
+// MARK: - RegistrationView
+"用户名(登录用 数字或字母组合)" = "用户名(登录用 数字或字母组合)";
+"密码" = "密码";
+"确认密码" = "确认密码";
+"邮箱" = "邮箱";
+"注册成功，请及时完成邮件及统一平台认证" = "注册成功，请及时完成邮件及统一平台认证";
+"注册" = "注册";
+"注册成功，即将返回登录页" = "注册成功，即将返回登录页";
+"确定" = "确定";
+"注册失败" = "注册失败";
+"**[隐私政策](http://leonmmcoset.jjmm.ink:1000/web/bbs/public/p/3-yinsizhengce)**" = "**[隐私政策](https://brt.arw.pub/p/2-privacyagreement)**";
+"请输入用户名" = "请输入用户名";
+"请输入密码" = "请输入密码";
+"两次输入的密码不匹配" = "两次输入的密码不匹配";
+"请输入有效的邮箱地址" = "请输入有效的邮箱地址";
+"注册" = "注册";
+// MARK: - BugsView
+// Button
+"Bugs" = "APP已知现存Bug";
+// Page
+"在发送帖子时无法选择标签" = "在发送帖子时无法选择标签";
+"注册只能用户名和昵称一样" = "注册只能用户名和昵称一样";
+"无法查看资产记录" = "无法查看资产记录";
+"有些按钮无法点击" = "有些按钮无法点击";
 //"" = "";
+// MARK: - Version 1.6
+// This is a UI update
+"New Post" = "发布新帖";
+"New Reply" = "回复";

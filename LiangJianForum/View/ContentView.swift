@@ -22,20 +22,20 @@ struct ContentView: View {
         if appsettings.isLoggedIn {
             TabView(selection: $selection) {
                 PostView()
-                    .tabItem { Label("Home", systemImage: "house.fill") }
+                    .tabItem { Label("Home", systemImage: "house") }
                     .tag(Tab.post)
                     .environmentObject(appsettings)
                 
                 TagField()
-                    .tabItem { Label("Tag", systemImage: "tag.square") }
+                    .tabItem { Label("Tag", systemImage: "tag") }
                     .tag(Tab.tag)
                 
                 NoticeView()
-                    .tabItem { Label("Message", systemImage: "bell.fill") }
+                    .tabItem { Label("Message", systemImage: "bell") }
                     .tag(Tab.notice)
                 
                 ProfileView()
-                    .tabItem { Label("Me", systemImage: "person.crop.rectangle.stack") }
+                    .tabItem { Label("Me", systemImage: "person") }
                     .tag(Tab.profile)
             }
             .onAppear{

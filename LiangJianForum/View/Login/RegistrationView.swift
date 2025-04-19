@@ -31,17 +31,17 @@ struct RegistrationView: View {
     var body: some View {
         ZStack {
             if colorScheme == .dark{
-                Color(hex: "134780")
+                Color(hex: "A1C9CE")
                     .ignoresSafeArea(.all, edges: .bottom)
             }else{
-                Color.blue
+                Color.flarumTheme2
                     .ignoresSafeArea(.all, edges: .bottom)
             }
             
             Circle()
                 .scaleEffect(isAnimating ? 1.7 : 0.3)
                     .animation(.easeInOut(duration: 0.6), value: isAnimating)
-                    .foregroundColor(colorScheme == .dark ? Color(hex: "0f3966") : Color(hex: "258eff"))
+                    .foregroundColor(colorScheme == .dark ? Color(hex: "A1C9CE") : Color(hex: "A1C9CE"))
             
             Circle()
                 .scaleEffect(isAnimating ? 1.35 : 0)
@@ -49,7 +49,7 @@ struct RegistrationView: View {
                     .foregroundColor(colorScheme == .dark ? Color(hex: "0b2b4d") : Color(hex: "d3e8ff"))
             
             VStack {
-                Text("\(appSettings.FlarumName)·注册")
+                Text(NSLocalizedString("\(appSettings.FlarumName)·注册", comment: ""))
                     .font(.system(size: 30, weight: .bold, design: .default))
                     .foregroundColor(colorScheme == .dark ? Color(hex: "EFEFEF") : .black)
                     .padding(.bottom, 30)
@@ -61,15 +61,15 @@ struct RegistrationView: View {
                         }
                     }
                 
-                TextFieldWithIcon(iconName: "person.fill", inputText: $username, label: "用户名(登录用 数字或字母组合)", isAnimating: $isAnimating, wrongInputRedBorder: $wrongUsername)
+                TextFieldWithIcon(iconName: "person.fill", inputText: $username, label: NSLocalizedString("用户名(登录用 数字或字母组合)", comment: ""), isAnimating: $isAnimating, wrongInputRedBorder: $wrongUsername)
                 
 //                TextFieldWithIcon(iconName: "person.crop.square.filled.and.at.rectangle", inputText: $displayname, label: "昵称(对外显示)", isAnimating: $isAnimating, wrongInputRedBorder: $wrongDisplayrname)
                 
-                SecureFieldWithIcon(passwordIconName: "key.fill", inputPassword: $password , passwordLabel: "密码", isAnimatingNow: $isAnimating, wrongPasswordRedBorder: $wrongPassword)
+                SecureFieldWithIcon(passwordIconName: "key.fill", inputPassword: $password , passwordLabel: NSLocalizedString("密码", comment: ""), isAnimatingNow: $isAnimating, wrongPasswordRedBorder: $wrongPassword)
            
-                SecureFieldWithIcon(passwordIconName: nil, inputPassword: $repeatPassword , passwordLabel: "确认密码", isAnimatingNow: $isAnimating, wrongPasswordRedBorder: $wrongRepeatPassword)
+                SecureFieldWithIcon(passwordIconName: nil, inputPassword: $repeatPassword , passwordLabel: NSLocalizedString("确认密码", comment: ""), isAnimatingNow: $isAnimating, wrongPasswordRedBorder: $wrongRepeatPassword)
                 
-                TextFieldWithIcon(iconName: "envelope.fill", inputText: $email, label: "邮箱", isAnimating: $isAnimating, wrongInputRedBorder: $wrongEmail)
+                TextFieldWithIcon(iconName: "envelope.fill", inputText: $email, label: NSLocalizedString("邮箱", comment: ""), isAnimating: $isAnimating, wrongInputRedBorder: $wrongEmail)
                     .padding(.bottom)
                 
                 Button(action: {
@@ -78,7 +78,7 @@ struct RegistrationView: View {
                     sendRegistrationRequest(inputFieldValid: vertificationResult) { success in
                         if success{
                             registrationSuccess = true
-                            showAlert(message: "注册成功，请及时完成邮件及统一平台认证")
+                            showAlert(message: NSLocalizedString("注册成功，请及时完成邮件及统一平台认证", comment: ""))
                         }else{
                             showAlert(message: errors.joined(separator: "\n"))
                         }
@@ -89,7 +89,7 @@ struct RegistrationView: View {
                 }
                 .foregroundColor(.white)
                 .frame(width: 350, height: 50)
-                .background(Color.blue)
+                .background(Color(hex: "A1C9CE"))
                 .cornerRadius(10)
                 .opacity(isAnimating ? 0.9 : 0)
                 .animation(.easeInOut(duration: 1.5), value: isAnimating)
@@ -118,7 +118,7 @@ struct RegistrationView: View {
                 NavigationLink(destination: LoginPageView().navigationBarBackButtonHidden(true), isActive: $backToLoginPage) {}
                 
                 VStack {
-                    Text("**服务条款** 和 **[隐私政策](https://www.apple.com/legal/privacy/szh/)**").font(.system(size: 12))
+                    Text("**[隐私政策](http://leonmmcoset.jjmm.ink:1000/web/bbs/public/p/3-yinsizhengce)**").font(.system(size: 12))
                         .animation(.easeInOut(duration: 1.5), value: isAnimating)
                 }
                 .frame(width: 350)
@@ -203,23 +203,23 @@ struct RegistrationView: View {
             let isEmailValid = emailPredicate.evaluate(with: email)
             
             if username.isEmpty {
-                errors.append("请输入用户名")
+                errors.append(NSLocalizedString("请输入用户名", comment: ""))
                 wrongUsername = 2
             }
             
             if password.isEmpty {
-                errors.append("请输入密码")
+                errors.append(NSLocalizedString("请输入密码", comment: ""))
                 wrongPassword = 2
             }
             
             if repeatPassword != password && !password.isEmpty{
-                errors.append("两次输入的密码不匹配")
+                errors.append(NSLocalizedString("两次输入的密码不匹配", comment: ""))
                 wrongPassword = 2
                 wrongRepeatPassword = 2
             }
             
             if !isEmailValid {
-                errors.append("请输入有效的邮箱地址")
+                errors.append(NSLocalizedString("请输入有效的邮箱地址", comment: ""))
                 wrongEmail = 2
             }
             

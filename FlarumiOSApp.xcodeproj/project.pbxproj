@@ -71,6 +71,9 @@
 		07F2E4082AC05E6A0081343C /* BadgeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F2E4072AC05E6A0081343C /* BadgeDetail.swift */; };
 		42ED96A8F2F8C2C4783C8159 /* UserCommentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ED924319C2DF3E476F3CD1 /* UserCommentData.swift */; };
 		42ED9C4F27CBEA016712891E /* DiscussionDataWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ED9B9C42BCB58DB6FFFFE5 /* DiscussionDataWithId.swift */; };
+		F643CF7A2D673C2F00F43A31 /* APPInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F643CF792D673C2F00F43A31 /* APPInfoView.swift */; };
+		F6F132302D699BF6005FD2B5 /* BugsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F1322F2D699BE9005FD2B5 /* BugsView.swift */; };
+		F6FBC9562D660804008D2D1E /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6FBC9552D660804008D2D1E /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,7 +88,7 @@
 		072DA5202AAC8438000B2F1F /* LikedCommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedCommentsView.swift; sourceTree = "<group>"; };
 		072DA5222AAD5033000B2F1F /* CheckinButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinButton.swift; sourceTree = "<group>"; };
 		072DA5242AAF1350000B2F1F /* LevelProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelProgressView.swift; sourceTree = "<group>"; };
-		072DA5292AB01AA2000B2F1F /* FlarumiOSApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "FlarumiOSApp-Info.plist"; sourceTree = "<group>"; };
+		072DA5292AB01AA2000B2F1F /*  */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ""; sourceTree = "<group>"; };
 		072E24652A3F02DC00E58EE9 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		073C192E2A4C058F001A2411 /* TextFieldWithIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithIcon.swift; sourceTree = "<group>"; };
 		073C19302A4C7675001A2411 /* newReply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newReply.swift; sourceTree = "<group>"; };
@@ -100,9 +103,6 @@
 		0779EE1A2A5461A600EE3D93 /* LinksProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksProfileView.swift; sourceTree = "<group>"; };
 		0779EE1C2A556B4A00EE3D93 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		0783CE302A419008009A2F7D /* InfoDisplayWithTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDisplayWithTitleView.swift; sourceTree = "<group>"; };
-		0783CE322A41A952009A2F7D /* LiangJianForum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LiangJianForum.entitlements; sourceTree = "<group>"; };
-		079B15A42A95B9EB00009FE3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
-		079B15A52A95B9F700009FE3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = Localizable.strings; sourceTree = "<group>"; };
 		079C84642AA816BD00A1D358 /* ShimmerEffectBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerEffectBox.swift; sourceTree = "<group>"; };
 		079C84662AA8187100A1D358 /* PostViewContentLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewContentLoader.swift; sourceTree = "<group>"; };
 		079C84682AA81CE300A1D358 /* TagFieldContentLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagFieldContentLoader.swift; sourceTree = "<group>"; };
@@ -139,6 +139,12 @@
 		07F2E4072AC05E6A0081343C /* BadgeDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeDetail.swift; sourceTree = "<group>"; };
 		42ED924319C2DF3E476F3CD1 /* UserCommentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCommentData.swift; sourceTree = "<group>"; };
 		42ED9B9C42BCB58DB6FFFFE5 /* DiscussionDataWithId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussionDataWithId.swift; sourceTree = "<group>"; };
+		F643CF792D673C2F00F43A31 /* APPInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APPInfoView.swift; sourceTree = "<group>"; };
+		F6ABA0D92D68B8B7006D143F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = Localizable.strings; sourceTree = "<group>"; };
+		F6ABA0DA2D68B8B7006D143F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
+		F6F1322F2D699BE9005FD2B5 /* BugsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BugsView.swift; sourceTree = "<group>"; };
+		F6FBC9552D660804008D2D1E /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		F6FBC9572D660A19008D2D1E /* LiangJianForum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LiangJianForum.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,7 +240,9 @@
 		07A867F62A3D879E00311F65 = {
 			isa = PBXGroup;
 			children = (
-				072DA5292AB01AA2000B2F1F /* FlarumiOSApp-Info.plist */,
+				F6FBC9572D660A19008D2D1E /* LiangJianForum.entitlements */,
+				F6FBC9552D660804008D2D1E /* Launch Screen.storyboard */,
+				072DA5292AB01AA2000B2F1F /*  */,
 				07A868012A3D879E00311F65 /* LiangJianForum */,
 				07A868002A3D879E00311F65 /* Products */,
 			);
@@ -252,7 +260,6 @@
 			isa = PBXGroup;
 			children = (
 				079B159B2A95B7E700009FE3 /* Localization */,
-				0783CE322A41A952009A2F7D /* LiangJianForum.entitlements */,
 				0751B14F2A4801A6007AEC9D /* Model */,
 				07E1FB1D2A3DA16B00F9049B /* View */,
 				07A868022A3D879E00311F65 /* FlarumiOSApp.swift */,
@@ -297,10 +304,12 @@
 		07EF7CA02A49B9D9008E41D4 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				F6F1322F2D699BE9005FD2B5 /* BugsView.swift */,
 				0712DDA02A3DEA3B00A8AC0E /* ProfileView.swift */,
 				0779EE1A2A5461A600EE3D93 /* LinksProfileView.swift */,
 				07DF6F3B2A557AEF0073CDE8 /* ChangeProfileDetail.swift */,
 				07F2E4072AC05E6A0081343C /* BadgeDetail.swift */,
+				F643CF792D673C2F00F43A31 /* APPInfoView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -402,7 +411,7 @@
 			};
 			buildConfigurationList = 07A867FA2A3D879E00311F65 /* Build configuration list for PBXProject "FlarumiOSApp" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = "zh-Hans";
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -431,6 +440,7 @@
 				07A8680A2A3D879F00311F65 /* Preview Assets.xcassets in Resources */,
 				079B15A32A95B88500009FE3 /* Localizable.strings in Resources */,
 				079B15A02A95B87000009FE3 /* Localizable.strings in Resources */,
+				F6FBC9562D660804008D2D1E /* Launch Screen.storyboard in Resources */,
 				07A868072A3D879F00311F65 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,7 +463,9 @@
 				07A37BD02A98666A00915EB1 /* HeaderSlideData.swift in Sources */,
 				073C192F2A4C058F001A2411 /* TextFieldWithIcon.swift in Sources */,
 				07A868052A3D879E00311F65 /* LoginPageView.swift in Sources */,
+				F643CF7A2D673C2F00F43A31 /* APPInfoView.swift in Sources */,
 				0712DDA12A3DEA3B00A8AC0E /* ProfileView.swift in Sources */,
+				F6F132302D699BF6005FD2B5 /* BugsView.swift in Sources */,
 				075948DF2A56C9E60010AB55 /* TagsData.swift in Sources */,
 				07F2E4032AC05DB10081343C /* ImageCache.swift in Sources */,
 				07B63C3A2A4976CC00594DA8 /* DiscussionData.swift in Sources */,
@@ -509,7 +521,7 @@
 		079B159E2A95B87000009FE3 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				079B15A42A95B9EB00009FE3 /* en */,
+				F6ABA0DA2D68B8B7006D143F /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -517,7 +529,7 @@
 		079B15A12A95B88500009FE3 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				079B15A52A95B9F700009FE3 /* zh-Hans */,
+				F6ABA0D92D68B8B7006D143F /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -577,6 +589,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -634,6 +648,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -650,37 +666,38 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = LiangJianForum/LiangJianForum.entitlements;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_ASSET_PATHS = "\"LiangJianForum/Preview Content\"";
-				DEVELOPMENT_TEAM = 5S7CV6Y7WH;
+				DEVELOPMENT_TEAM = UW7PBTF3KD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FlarumiOSApp-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "量见";
+				INFOPLIST_KEY_CFBundleDisplayName = "测试版-11A4008深论坛（原北林）";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.RomanticDi.FlarumApp;
+				MARKETING_VERSION = 1.4;
+				PRODUCT_BUNDLE_IDENTIFIER = ink.jjmm.leonmmcoset.BRTBBSDebug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -689,37 +706,38 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = LiangJianForum/LiangJianForum.entitlements;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_ASSET_PATHS = "\"LiangJianForum/Preview Content\"";
-				DEVELOPMENT_TEAM = 5S7CV6Y7WH;
+				DEVELOPMENT_TEAM = UW7PBTF3KD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FlarumiOSApp-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "量见";
+				INFOPLIST_KEY_CFBundleDisplayName = "11A4008深论坛（原北林）";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.RomanticDi.FlarumApp;
+				MARKETING_VERSION = 1.4;
+				PRODUCT_BUNDLE_IDENTIFIER = ink.jjmm.leonmmcoset.BRTBBS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

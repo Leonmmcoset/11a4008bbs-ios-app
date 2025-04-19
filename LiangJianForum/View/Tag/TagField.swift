@@ -25,62 +25,64 @@ struct TagField: View {
     }
     
     var body: some View {
-        VStack{
+        VStack {
             NavigationStack {
-                if tags.isEmpty{
+                if tags.isEmpty {
                     TagFieldContentLoader()
-                }else{
+                } else {
                     List {
                         ForEach(filteredTags, id: \.id) { tag in
-                            if getChildTags(parentTag: tag, dataFetched: tags).isEmpty{
-                                NavigationLink(value: tag){
+                            if getChildTags(parentTag: tag, dataFetched: tags).isEmpty {
+                                NavigationLink(value: tag) {
                                     HStack {
                                         TagElement(tag: tag, fontSize: 20)
-                                            .padding(.top, 8)
-                                            .padding(.bottom, 8)
+                                           .padding(8)
                                         Spacer()
                                     }
+                                   .contentShape(Rectangle())
                                 }
-                            }else{
-                                NavigationLink(value: getChildTags(parentTag: tag, dataFetched: tags)){
+                            } else {
+                                NavigationLink(value: getChildTags(parentTag: tag, dataFetched: tags)) {
                                     HStack {
                                         TagElement(tag: tag, fontSize: 20)
-                                            .padding(.top, 8)
-                                            .padding(.bottom, 8)
+                                           .padding(8)
                                         Spacer()
                                     }
+                                   .contentShape(Rectangle())
                                 }
                             }
                         }
                     }
-                    .searchable(text: $searchTerm, prompt: "Search")
-                    .navigationTitle("All Tags")
-                    .navigationDestination(for: Datum6.self){tag in
+                   .listStyle(.plain)
+                   .searchable(text: $searchTerm, prompt: "Search")
+                   .navigationTitle("All Tags")
+                   .navigationDestination(for: Datum6.self) { tag in
                         TagDetail(selectedTag: tag)
                     }
-                    .navigationDestination(for: [Datum6].self){tagsArray in
-                        List{
-                            ForEach(tagsArray, id: \.id){tag in
-                                NavigationLink(value: tag){
+                   .navigationDestination(for: [Datum6].self) { tagsArray in
+                        List {
+                            ForEach(tagsArray, id: \.id) { tag in
+                                NavigationLink(value: tag) {
                                     HStack {
                                         TagElement(tag: tag, fontSize: 20)
-                                            .padding(.top, 8)
-                                            .padding(.bottom, 8)
+                                           .padding(8)
                                         Spacer()
                                     }
+                                   .contentShape(Rectangle())
                                 }
                             }
                         }
-                        .navigationDestination(for: Datum6.self){tag in
+                       .listStyle(.plain)
+                       .navigationDestination(for: Datum6.self) { tag in
                             TagDetail(selectedTag: tag)
                         }
                     }
                 }
             }
         }
-        .onAppear{
-            fetchTags{success in
-                if success{
+       .onAppear {
+            fetchTags { success in
+                if success {
                     print("successfully decode tags data in TagField!")
                 }
             }

@@ -1,0 +1,24 @@
+{
+  "originHash" : "bb5e4c840043af8b046c3613899acfaf7c2a33d99c7bc2796c1fb8bf598fea39",
+  "pins" : [
+    {
+      "identity" : "awesome",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/LiveUI/Awesome",
+      "state" : {
+        "branch" : "master",
+        "revision" : "40c68d0ca2b143c1118e636518706a4b8332777b"
+      }
+    },
+    {
+      "identity" : "swiftui-shimmer",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/markiv/SwiftUI-Shimmer",
+      "state" : {
+        "revision" : "0226e21f9bf355d40e07e5f5e1c33679d50e167f",
+        "version" : "1.5.1"
+      }
+    }
+  ],
+  "version" : 3
+}

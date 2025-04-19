@@ -32,17 +32,17 @@ struct LoginPageView: View {
         NavigationView {
             ZStack {
                 if colorScheme == .dark{
-                    Color(hex: "134780")
+                    Color(hex: "A1C9CE")
                         .ignoresSafeArea()
                 }else{
-                    Color.blue
+                    Color.flarumTheme2
                         .ignoresSafeArea()
                 }
                 
                 Circle()
                     .scaleEffect(isAnimating ? 1.7 : 0.3)
                         .animation(.easeInOut(duration: 0.6), value: isAnimating)
-                        .foregroundColor(colorScheme == .dark ? Color(hex: "0f3966") : Color(hex: "258eff"))
+                        .foregroundColor(colorScheme == .dark ? Color(hex: "A1C9CE") : Color(hex: "A1C9CE"))
                 
                 Circle()
                     .scaleEffect(isAnimating ? 1.35 : 0)
@@ -88,7 +88,7 @@ struct LoginPageView: View {
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                             .frame(width: 350, height: 50)
-                            .background(Color.blue)
+                            .background(Color(hex: "A1C9CE"))
                             .cornerRadius(10)
                     }
 //                    .navigationDestination(isPresented: $showingMainPageView, destination: {
@@ -256,7 +256,6 @@ struct LoginPageView: View {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
         URLSession.shared.dataTask(with: request) { data, response, error in
-            
             if let error = error {
                 print("Error: \(error)")
                 completion(false)

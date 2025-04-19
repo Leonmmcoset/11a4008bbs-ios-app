@@ -97,31 +97,45 @@ struct newPostView: View {
                                               selectedButtonIds: $selectedButtonIds
                                     )
                                    .padding(.leading)
+                                   .scaleEffect(selectedButtonIds.contains(tag.id) ? 1.1 : 1.0)
+                                   .animation(.spring(response: 0.3, dampingFraction: 0.6), value: selectedButtonIds.contains(tag.id))
                                     Spacer()
                                 }
                             } else {
-                                ScrollView(.horizontal, showsIndicators: false) {
-                                    HStack {
-                                        TagButton(id: tag.id,
-                                                  tagColor: tag.attributes.color.isEmpty ? Color.gray : Color(hex: removeFirstCharacter(from: tag.attributes.color)),
-                                                  title: tag.attributes.name,
-                                                  parentId: nil,
-                                                  childTagsId: getChildTagsId(parentTag: tag, dataFetched: tags),
-                                                  selectedButtonIds: $selectedButtonIds
-                                        )
-                                       .padding(.leading)
-                                        ForEach(getChildTags(parentTag: tag, dataFetched: tags), id: \.id) { childTag in
-                                            TagButton(id: childTag.id,
-                                                      tagColor: childTag.attributes.color.isEmpty ? Color.gray : Color(hex: removeFirstCharacter(from: childTag.attributes.color)),
-                                                      title: childTag.attributes.name,
-                                                      parentId: tag.id,
-                                                      childTagsId: getChildTagsId(parentTag: tag, dataFetched: tags),
-                                                      selectedButtonIds: $selectedButtonIds
-                                            )
-                                           .padding(.leading)
+                                VStack(alignment:.leading) {
+                                    TagButton(id: tag.id,
+                                              tagColor: tag.attributes.color.isEmpty ? Color.gray : Color(hex: removeFirstCharacter(from: tag.attributes.color)),
+                                              title: tag.attributes.name,
+                                              parentId: nil,
+                                              childTagsId: getChildTagsId(parentTag: tag, dataFetched: tags),
+                                              selectedButtonIds: $selectedButtonIds
+                                    )
+                                   .padding(.leading)
+                                   .scaleEffect(selectedButtonIds.contains(tag.id) ? 1.1 : 1.0)
+                                   .animation(.spring(response: 0.3, dampingFraction: 0.6), value: selectedButtonIds.contains(tag.id))
+                                    if selectedButtonIds.contains(tag.id) {
+                                        ScrollView(.horizontal, showsIndicators: false) {
+                                            HStack {
+                                                ForEach(getChildTags(parentTag: tag, dataFetched: tags), id: \.id) { childTag in
+                                                    TagButton(id: childTag.id,
+                                                              tagColor: childTag.attributes.color.isEmpty ? Color.gray : Color(hex: removeFirstCharacter(from: childTag.attributes.color)),
+                                                              title: childTag.attributes.name,
+                                                              parentId: tag.id,
+                                                              childTagsId: getChildTagsId(parentTag: tag, dataFetched: tags),
+                                                              selectedButtonIds: $selectedButtonIds
+                                                    )
+                                                   .padding(.leading)
+                                                   .scaleEffect(selectedButtonIds.contains(childTag.id) ? 1.1 : 1.0)
+                                                   .animation(.spring(response: 0.3, dampingFraction: 0.6), value: selectedButtonIds.contains(childTag.id))
+                                                   .opacity(selectedButtonIds.contains(tag.id) ? 1.0 : 0.0)
+                                                   .animation(.easeInOut(duration: 0.3), value: selectedButtonIds.contains(tag.id))
+                                                }
+                                            }
+                                           .padding(.vertical, 1)
                                         }
+                                       .opacity(selectedButtonIds.contains(tag.id) ? 1.0 : 0.0)
+                                       .animation(.easeInOut(duration: 0.3), value: selectedButtonIds.contains(tag.id))
                                     }
-                                   .padding(.vertical, 1)
                                 }
                             }
                         }

@@ -119,6 +119,7 @@
 "同意" = "同意";
 "moneyauthor" = "捐赠作者（自定义金额）";
 "如有Bug，请在论坛汇报并@LeonMMcoset" = "如有Bug，请在论坛汇报并@LeonMMcoset";
+"版本: \(appVersion) (构建版本: \(appBuild))" = "版本: \(appVersion) (构建版本: \(appBuild))";
 // MARK: - RegistrationView
 "用户名(登录用 数字或字母组合)" = "用户名(登录用 数字或字母组合)";
 "密码" = "密码";

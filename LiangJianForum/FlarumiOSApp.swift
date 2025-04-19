@@ -1,10 +1,3 @@
-//
-//  LiangJianForumApp.swift
-//  LiangJianForum
-//
-//  Created by Romantic D on 2023/6/17.
-//
-
 import SwiftUI
 import BackgroundTasks
 
@@ -33,6 +26,8 @@ struct FlarumiOSApp: App {
                             UserDefaults.standard.set(true, forKey: "hasAcceptedPrivacyPolicy")
                         }
                     )
+                   .presentationDetents([.large]) // 设置为大尺寸，无其他可拖动的尺寸
+                   .interactiveDismissDisabled() // 禁用交互式关闭
                 }
         }
        .backgroundTask(.appRefresh("checkSessionAfterOneHour")) {
@@ -103,6 +98,10 @@ func scheduleAppRefresh() {
 struct PrivacyPolicySheet: View {
     @Binding var isPresented: Bool
     var onAccept: () -> Void
+    // 获取应用版本号
+    let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "Unknown"
+    // 获取应用构建版本号
+    let appBuild = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "Unknown"
 
     var body: some View {
         VStack {
@@ -121,6 +120,8 @@ struct PrivacyPolicySheet: View {
                 Link("隐私条款", destination: URL(string: "https://brt.arw.pub/p/2-privacyagreement")!)
                 Text("")
                 Text("如有Bug，请在论坛汇报并@LeonMMcoset")
+                // 显示版本和构建版本信息
+                Text("版本: \(appVersion) (构建版本: \(appBuild))")
                 Text("请注意")
                     .bold()
                 Text("此APP并不支持IPad，只是对Ipad屏幕做适配，对于Ipad的Bug不修！")
@@ -170,3 +171,4 @@ struct PrivacyPolicySheet: View {
         }
     }
 }
+    

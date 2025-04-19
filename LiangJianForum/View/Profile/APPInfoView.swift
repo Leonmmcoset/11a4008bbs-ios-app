@@ -10,16 +10,25 @@ import SwiftUI
 import WebKit
 
 struct APPInfoView: View {
+    // 获取应用版本号
+    let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "Unknown"
+    // 获取应用构建版本号
+    let appBuild = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "Unknown"
+
     var body: some View {
         NavigationStack {
             VStack(alignment:.leading, spacing: 20) {
                 Text("此APP原作者为Romantic D")
-                    .font(.headline)
+                   .font(.headline)
                 Text("由LeonMMcoset修改")
-                    .font(.subheadline)
+                   .font(.subheadline)
                 Divider()
                 Text("使用此APP代表您同意隐私条款")
-                    .font(.caption)
+                    .font(.subheadline)
+                Divider()
+                // 显示版本和构建版本信息
+                Text("版本: \(appVersion) (构建版本: \(appBuild))")
+                    .font(.subheadline)
                 List {
                     Section {
                         NavigationLink {
@@ -27,25 +36,25 @@ struct APPInfoView: View {
                         } label: {
                             HStack {
                                 Text("原GitHub页面")
-                                    .bold()
+                                   .bold()
                                 Spacer()
                             }
                         }
-                        .padding(.vertical, 8)
+                       .padding(.vertical, 8)
                         NavigationLink {
                             YinSIZhengCeView()
                         } label: {
                             HStack {
                                 Text("隐私政策")
-                                    .bold()
+                                   .bold()
                                 Spacer()
                             }
                         }
-                        .padding(.vertical, 8)
+                       .padding(.vertical, 8)
                     }
                 }
             }
-            .padding()
+           .padding()
         }
     }
 }
@@ -65,7 +74,7 @@ struct YinSIZhengCeView : UIViewRepresentable {
         return WKWebView()
     }
     func updateUIView(_ uiView: WKWebView, context: Context) {
-        let req = URLRequest(url: URL(string: "https://brt.arw.pub/2")!)
+        let req = URLRequest(url: URL(string: "https://brt.arw.pub/p/2-privacyagreement")!)
         uiView.load(req)
     }
 }

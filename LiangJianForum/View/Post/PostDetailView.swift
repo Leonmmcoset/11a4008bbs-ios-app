@@ -390,7 +390,7 @@ struct PostDetailView: View {
         )
         .sheet(isPresented: $showingPostingArea) {
             newReply(postID: self.postID)
-                .presentationDetents([.large])
+                .presentationDetents([.medium])
         }
         .onChange(of: appsettings.refreshReplyView) { _ in
             clearData()

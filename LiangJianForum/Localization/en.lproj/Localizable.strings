@@ -134,6 +134,7 @@
 "·注册" = "·Sign Up";
 "moneyauthor" = "Buy me a coffee";
 "如有Bug，请在论坛汇报并@LeonMMcoset" = "If there are any bugs, please report them on the BBS and @LeonMMcoset";
+"版本: \(appVersion) (构建版本: \(appBuild))" = "Version: \(appVersion) (Build version: \(appBuild))";
 // MARK: BugsView
 // Button
 "Bugs" = "Bugs";

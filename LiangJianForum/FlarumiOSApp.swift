@@ -7,8 +7,6 @@ struct FlarumiOSApp: App {
     @State private var showPrivacySheet = false // 用于跟踪是否显示隐私提示 Sheet
 
     var body: some Scene {
-        // 创建 URL 请求
-        let url = URLRequest(url: URL(string: "https://baidu.com")!)
         WindowGroup {
             LoginPageView()
                .environmentObject(appSettings)
@@ -94,75 +92,106 @@ func scheduleAppRefresh() {
     }
 }
 
-// 自定义的隐私政策 Sheet 视图
+// 自定义的隐私政策 Sheet 视图（优化后符合苹果原生UI）
 struct PrivacyPolicySheet: View {
     @Binding var isPresented: Bool
     var onAccept: () -> Void
-    // 获取应用版本号
     let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "Unknown"
-    // 获取应用构建版本号
     let appBuild = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "Unknown"
 
     var body: some View {
-        VStack {
-            Spacer()
+        VStack(spacing: 24) {
             Image(.bbsLogo)
-               .padding(.top, 20)
-               .frame(width: 120, height: 100)
+                .renderingMode(.template)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 100, height: 100)
+                .foregroundColor(Color(.systemBlue))
+                .padding(.top, 32)
             
             Text("欢迎使用LeonMMcoset论坛APP")
-               .font(.system(size: 22))
-               .padding()
-               .bold()
+                .font(.title3)
+                .fontWeight(.semibold)
+                .multilineTextAlignment(.center)
+                .foregroundColor(Color(.label))
             
-            VStack(alignment:.leading) {
+            VStack(alignment: .leading, spacing: 12) {
                 Text("请允许隐私条款中的内容以使用此APP")
+                    .font(.subheadline)
+                    .foregroundColor(Color(.label))
+                
                 Link("隐私条款", destination: URL(string: "https://brt.arw.pub/p/2-privacyagreement")!)
-                Text("")
+                    .font(.subheadline)
+                    .foregroundColor(Color(.systemBlue))
+                    .underline()
+                
                 Text("如有Bug，请在论坛汇报并@LeonMMcoset")
-                // 显示版本和构建版本信息
+                    .font(.footnote)
+                    .foregroundColor(Color(.secondaryLabel))
+                
                 Text("版本: \(appVersion) (构建版本: \(appBuild))")
+                    .font(.footnote)
+                    .foregroundColor(Color(.secondaryLabel))
+                
                 Text("请注意")
-                    .bold()
+                    .font(.footnote)
+                    .fontWeight(.semibold)
+                    .foregroundColor(Color(.label))
+                
                 Text("此APP并不支持IPad，只是对Ipad屏幕做适配，对于Ipad的Bug不修！")
+                    .font(.footnote)
+                    .foregroundColor(Color(.secondaryLabel))
+                
                 Text("建议使用最新的iOS版本使用此APP")
+                    .font(.footnote)
+                    .foregroundColor(Color(.secondaryLabel))
             }
+            .padding(.horizontal, 24)
             
-            Button(NSLocalizedString("moneyauthor", comment: ""), action: {
-                UIApplication.shared.open(URL(string: "https://afdian.com/a/leonmmcoset")!)
-            })
-            .foregroundColor(Color.blue)
-                .frame(maxWidth:.infinity)
-                .padding()
-//                .background(Color.blue)
-//                .cornerRadius(10)
-                .padding([.leading, .trailing], 20)
-            
-            Button("打开应用设置", action: {
-                openAppSettings()
-            })
-            .foregroundColor(Color.blue)
-                .frame(maxWidth:.infinity)
-                .padding()
-//                .background(Color.blue)
-//                .cornerRadius(10)
-                .padding([.leading, .trailing], 20)
-
-            Spacer()
+            VStack(spacing: 16) {
+                Button(NSLocalizedString("moneyauthor", comment: ""), action: {
+                    UIApplication.shared.open(URL(string: "https://afdian.com/a/leonmmcoset")!)
+                })
+                .padding(.vertical, 12)
+                .padding(.horizontal, 20)
+                .background(
+                    RoundedRectangle(cornerRadius: 16)
+                        .stroke(Color(.systemBlue), lineWidth: 1)
+                )
+                .foregroundColor(Color(.systemBlue))
+                .font(.subheadline)
+                .fontWeight(.semibold)
+                .contentShape(RoundedRectangle(cornerRadius: 16))
+                
+                Button("打开应用设置", action: openAppSettings)
+                    .padding(.vertical, 12)
+                    .padding(.horizontal, 20)
+                    .background(Color(.systemGray6))
+                    .foregroundColor(Color(.label))
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                    .cornerRadius(16)
+                    .contentShape(RoundedRectangle(cornerRadius: 16))
+            }
+            .padding(.horizontal, 24)
             
             Button("同意") {
                 onAccept()
                 isPresented = false
             }
-           .foregroundColor(.white)
-           .frame(maxWidth:.infinity)
-           .padding()
-           .background(Color.blue)
-           .cornerRadius(10)
-           .padding([.leading, .trailing], 20)
+            .padding(.vertical, 16)
+            .frame(maxWidth: .infinity)
+            .background(Color(.systemBlue))
+            .foregroundColor(.white)
+            .font(.subheadline)
+            .fontWeight(.semibold)
+            .cornerRadius(20)
+            .padding(.horizontal, 24)
+            .padding(.bottom, 32)
         }
+        .background(Color(.systemBackground))
     }
-    // MARK: - Open APP settings
+
     func openAppSettings() {
         if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
             if UIApplication.shared.canOpenURL(settingsURL) {
@@ -171,4 +200,3 @@ struct PrivacyPolicySheet: View {
         }
     }
 }
-    

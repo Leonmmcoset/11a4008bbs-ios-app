@@ -11,6 +11,6 @@ import SwiftUI
 @main
 struct FlarumiOSAppWedgitBundle: WidgetBundle {
     var body: some Widget {
-        FlarumiOSAppWedgit()
+        FlarumiOSAppWidget()
     }
 }

@@ -26,8 +26,14 @@ struct LoginPageView: View {
     @Environment(\.colorScheme) var colorScheme
     
     @State private var selectedFlarumUrl = "https://bbs.cjlu.cc"
-
-   
+    
+    // 新增动画相关状态变量
+    @State private var emailFieldOffset: CGFloat = 0
+    @State private var passwordFieldOffset: CGFloat = 0
+    @State private var buttonScale: CGFloat = 1
+    @State private var toggleTranslation: CGFloat = 0
+    @State private var termsOpacity: Double = 0
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -55,7 +61,8 @@ struct LoginPageView: View {
                         .foregroundColor(colorScheme == .dark ? Color(hex: "EFEFEF") : .black)
                         .padding(.bottom, 30)
                         .opacity(isAnimating ? 1 : 0)
-                        .animation(.easeInOut(duration: 0.5), value: isAnimating)
+                        .offset(y: isAnimating ? 0 : -50)
+                        .animation(.easeOut(duration: 0.8).delay(0.2), value: isAnimating)
                         .onAppear {
                             withAnimation {
                                 isAnimating = true
@@ -65,16 +72,34 @@ struct LoginPageView: View {
                     TextFieldWithIcon(iconName: "person.fill", inputText: $username, label: NSLocalizedString("username", comment: ""), isAnimating: $isAnimating, wrongInputRedBorder: $wrongUsername)
                     .onAppear {
                         username = storedUsername
+                        withAnimation(.easeOut(duration: 0.6)) {
+                            emailFieldOffset = 30
+                        }
                     }
+                    .offset(x: wrongUsername != 0 ? (wrongUsername > 0 ? 10 : -10) : 0)
+                    .rotationEffect(.degrees(Double(wrongUsername != 0 ? (wrongUsername > 0 ? 5 : -5) : 0)))
+                    .animation(.easeInOut(duration: 0.2).repeatCount(2), value: wrongUsername)
                     
                     SecureFieldWithIcon(passwordIconName: "key.fill", inputPassword: $password , passwordLabel: NSLocalizedString("password", comment: ""), isAnimatingNow: $isAnimating, wrongPasswordRedBorder: $wrongPassword)
                         .padding(.bottom)
                     .onAppear {
                         password = storedPassword
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                            withAnimation(.easeOut(duration: 0.6)) {
+                                passwordFieldOffset = 30
+                            }
+                        }
                     }
+                    .offset(y: passwordFieldOffset)
 
                     Button(action: {
+                        withAnimation(.easeOut(duration: 0.3)) {
+                            buttonScale = 0.95
+                        }
                         authenticateUser { success in
+                            withAnimation(.easeIn(duration: 0.3)) {
+                                buttonScale = 1
+                            }
                             if success {
                                 Task{
                                     await fetchUserProfile()
@@ -88,19 +113,29 @@ struct LoginPageView: View {
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                             .frame(width: 350, height: 50)
-                            .background(Color(hex: "A1C9CE"))
+                            .background(
+                                Color(hex: "A1C9CE")
+                                    .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 4)
+                                    .scaleEffect(buttonScale)
+                            )
                             .cornerRadius(10)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.white.opacity(0.1), lineWidth: 1)
+                            )
                     }
 //                    .navigationDestination(isPresented: $showingMainPageView, destination: {
 //                        ContentView().environmentObject(appSettings).navigationBarBackButtonHidden(true)
 //                    })
                     .opacity(isAnimating ? 0.9 : 0)
-                    .animation(.easeInOut(duration: 1.5), value: isAnimating)
+                    .offset(y: isAnimating ? 0 : 50)
+                    .animation(.easeOut(duration: 1.5).delay(0.4), value: isAnimating)
                     .onDisappear {
                         storedUsername = username
                         storedPassword = password
                         rememberMeState = rememberMe
                     }
+                    .hoverEffect(.lift)
                     
                     NavigationLink(destination: ContentView().environmentObject(appSettings).navigationBarBackButtonHidden(true), isActive: $showingMainPageView) {
                     }
@@ -117,20 +152,6 @@ struct LoginPageView: View {
                     }
 
                     ZStack{
-//                        Button(action: {showingRegistrationView = true}) {
-//                                Text("Sign up")
-//                                .fontWeight(.bold)
-//                            }
-//                        .font(.system(size: 15))
-//                        .foregroundColor(.blue)
-//                        .frame(width: 330, height: 50)
-//                        .cornerRadius(10)
-//                        .opacity(isAnimating ? 0.8 : 0)
-//                        .animation(.easeInOut(duration: 1.5), value: isAnimating)
-                      
-//                        NavigationLink(destination: RegistrationView().environmentObject(appSettings).navigationBarBackButtonHidden(false), isActive: $showingRegistrationView) {
-//                        }
-                        
                         NavigationLink {
                             RegistrationView().environmentObject(appSettings).navigationBarBackButtonHidden(false)
                         } label: {
@@ -147,24 +168,37 @@ struct LoginPageView: View {
                                 Text("Remember Me")
                                     .font(.system(size: 15))
                                     .opacity(0.8)
+                                    .offset(x: toggleTranslation)
                             }
                             .toggleStyle(.button)
                             .tint(.mint)
                             .padding(.trailing, 20)
                             .opacity(isAnimating ? 1 : 0)
-                            .animation(.easeInOut(duration: 1.5), value: isAnimating)
+                            .offset(y: isAnimating ? 0 : 50)
+                            .animation(.easeOut(duration: 1.2).delay(0.6), value: isAnimating)
+                            .onChange(of: rememberMe) { newValue in
+                                withAnimation(.easeInOut(duration: 0.3)) {
+                                    toggleTranslation = newValue ? 15 : -15
+                                }
+                            }
                             .onAppear {
                                 rememberMe = rememberMeState
+                                toggleTranslation = rememberMeState ? 15 : -15
                             }
                         }
                     }
                     
-//                    VStack {
-//                        Text("**服务条款** ｜ **[隐私政策](https://www.apple.com/legal/privacy/szh/)**").font(.system(size: 10))
-//                            .animation(.easeInOut(duration: 1.5), value: isAnimating)
-//                    }
-//                    .frame(width: 350)
-//                    .padding(.top)
+                    VStack {
+                        Text("**服务条款** ｜ **[隐私政策](https://www.apple.com/legal/privacy/szh/)**").font(.system(size: 10))
+                            .opacity(termsOpacity)
+                            .offset(y: termsOpacity > 0 ? 0 : 20)
+                            .animation(.easeOut(duration: 1.0).delay(1.0), value: termsOpacity)
+                    }
+                    .frame(width: 350)
+                    .padding(.top)
+                    .onAppear {
+                        termsOpacity = 1
+                    }
                 }
                 .onChange(of: selectedFlarumUrl) { newValue in
                     appSettings.FlarumUrl = newValue
@@ -355,3 +389,4 @@ struct TokenResponse: Codable {
     let token: String
     let userId: Int
 }
+    

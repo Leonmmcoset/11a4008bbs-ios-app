@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -72,9 +72,36 @@
 		42ED96A8F2F8C2C4783C8159 /* UserCommentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ED924319C2DF3E476F3CD1 /* UserCommentData.swift */; };
 		42ED9C4F27CBEA016712891E /* DiscussionDataWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ED9B9C42BCB58DB6FFFFE5 /* DiscussionDataWithId.swift */; };
 		F643CF7A2D673C2F00F43A31 /* APPInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F643CF792D673C2F00F43A31 /* APPInfoView.swift */; };
+		F6C9915D2DB8FF6B00CC374C /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C9912F2DB8EEF700CC374C /* WidgetKit.framework */; };
+		F6C9915E2DB8FF6B00CC374C /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C991312DB8EEF700CC374C /* SwiftUI.framework */; };
+		F6C9916F2DB8FF6C00CC374C /* FlarumiOSAppWedgitExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F6C9915C2DB8FF6B00CC374C /* FlarumiOSAppWedgitExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F6F132302D699BF6005FD2B5 /* BugsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F1322F2D699BE9005FD2B5 /* BugsView.swift */; };
 		F6FBC9562D660804008D2D1E /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6FBC9552D660804008D2D1E /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F6C9916D2DB8FF6C00CC374C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07A867F72A3D879E00311F65 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F6C9915B2DB8FF6B00CC374C;
+			remoteInfo = FlarumiOSAppWedgitExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F6C991742DB8FF6C00CC374C /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F6C9916F2DB8FF6C00CC374C /* FlarumiOSAppWedgitExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0712DDA02A3DEA3B00A8AC0E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -142,6 +169,9 @@
 		F643CF792D673C2F00F43A31 /* APPInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APPInfoView.swift; sourceTree = "<group>"; };
 		F6ABA0D92D68B8B7006D143F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = Localizable.strings; sourceTree = "<group>"; };
 		F6ABA0DA2D68B8B7006D143F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
+		F6C9912F2DB8EEF700CC374C /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		F6C991312DB8EEF700CC374C /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		F6C9915C2DB8FF6B00CC374C /* FlarumiOSAppWedgitExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FlarumiOSAppWedgitExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6F1322F2D699BE9005FD2B5 /* BugsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BugsView.swift; sourceTree = "<group>"; };
 		F6F595E32DB398EC00EFCEDF /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "../zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		F6F595E42DB3E57300EFCEDF /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ../ja.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -157,6 +187,22 @@
 		F6FBC9572D660A19008D2D1E /* LiangJianForum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LiangJianForum.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F6C991702DB8FF6C00CC374C /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = F6C9915B2DB8FF6B00CC374C /* FlarumiOSAppWedgitExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		F6C991332DB8EEF700CC374C /* FlarumiOSAppWedgit */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = FlarumiOSAppWedgit; sourceTree = "<group>"; };
+		F6C991492DB8FF1100CC374C /* FlarumiOSAppWedgit */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = FlarumiOSAppWedgit; sourceTree = "<group>"; };
+		F6C9915F2DB8FF6B00CC374C /* FlarumiOSAppWedgit */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (F6C991702DB8FF6C00CC374C /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = FlarumiOSAppWedgit; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		07A867FC2A3D879E00311F65 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -164,6 +210,15 @@
 			files = (
 				071C68702AC0615900A862AC /* Awesome in Frameworks */,
 				072DA5282AAF87C8000B2F1F /* Shimmer in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6C991592DB8FF6B00CC374C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6C9915E2DB8FF6B00CC374C /* SwiftUI.framework in Frameworks */,
+				F6C9915D2DB8FF6B00CC374C /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +309,10 @@
 				F6FBC9552D660804008D2D1E /* Launch Screen.storyboard */,
 				072DA5292AB01AA2000B2F1F /*  */,
 				07A868012A3D879E00311F65 /* LiangJianForum */,
+				F6C991332DB8EEF700CC374C /* FlarumiOSAppWedgit */,
+				F6C991492DB8FF1100CC374C /* FlarumiOSAppWedgit */,
+				F6C9915F2DB8FF6B00CC374C /* FlarumiOSAppWedgit */,
+				F6C9912E2DB8EEF700CC374C /* Frameworks */,
 				07A868002A3D879E00311F65 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -262,6 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				07A867FF2A3D879E00311F65 /* FlarumiOSApp.app */,
+				F6C9915C2DB8FF6B00CC374C /* FlarumiOSAppWedgitExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -380,6 +440,15 @@
 			path = Cached;
 			sourceTree = "<group>";
 		};
+		F6C9912E2DB8EEF700CC374C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F6C9912F2DB8EEF700CC374C /* WidgetKit.framework */,
+				F6C991312DB8EEF700CC374C /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -390,10 +459,12 @@
 				07A867FB2A3D879E00311F65 /* Sources */,
 				07A867FC2A3D879E00311F65 /* Frameworks */,
 				07A867FD2A3D879E00311F65 /* Resources */,
+				F6C991742DB8FF6C00CC374C /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F6C9916E2DB8FF6C00CC374C /* PBXTargetDependency */,
 			);
 			name = FlarumiOSApp;
 			packageProductDependencies = (
@@ -404,6 +475,28 @@
 			productReference = 07A867FF2A3D879E00311F65 /* FlarumiOSApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F6C9915B2DB8FF6B00CC374C /* FlarumiOSAppWedgitExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F6C991712DB8FF6C00CC374C /* Build configuration list for PBXNativeTarget "FlarumiOSAppWedgitExtension" */;
+			buildPhases = (
+				F6C991582DB8FF6B00CC374C /* Sources */,
+				F6C991592DB8FF6B00CC374C /* Frameworks */,
+				F6C9915A2DB8FF6B00CC374C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				F6C9915F2DB8FF6B00CC374C /* FlarumiOSAppWedgit */,
+			);
+			name = FlarumiOSAppWedgitExtension;
+			packageProductDependencies = (
+			);
+			productName = FlarumiOSAppWedgitExtension;
+			productReference = F6C9915C2DB8FF6B00CC374C /* FlarumiOSAppWedgitExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -411,11 +504,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1500;
+				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					07A867FE2A3D879E00311F65 = {
 						CreatedOnToolsVersion = 15.0;
+					};
+					F6C9915B2DB8FF6B00CC374C = {
+						CreatedOnToolsVersion = 16.2;
 					};
 				};
 			};
@@ -447,6 +543,7 @@
 			projectRoot = "";
 			targets = (
 				07A867FE2A3D879E00311F65 /* FlarumiOSApp */,
+				F6C9915B2DB8FF6B00CC374C /* FlarumiOSAppWedgitExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -461,6 +558,13 @@
 				079B15A02A95B87000009FE3 /* Localizable.strings in Resources */,
 				F6FBC9562D660804008D2D1E /* Launch Screen.storyboard in Resources */,
 				07A868072A3D879F00311F65 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6C9915A2DB8FF6B00CC374C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,7 +638,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F6C991582DB8FF6B00CC374C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F6C9916E2DB8FF6C00CC374C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F6C9915B2DB8FF6B00CC374C /* FlarumiOSAppWedgitExtension */;
+			targetProxy = F6C9916D2DB8FF6C00CC374C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		079B159E2A95B87000009FE3 /* Localizable.strings */ = {
@@ -770,6 +889,66 @@
 			};
 			name = Release;
 		};
+		F6C991722DB8FF6C00CC374C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UW7PBTF3KD;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FlarumiOSAppWedgit/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FlarumiOSAppWedgit;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ink.jjmm.leonmmcoset.BRTBBSDebug.WedgitExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F6C991732DB8FF6C00CC374C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UW7PBTF3KD;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FlarumiOSAppWedgit/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FlarumiOSAppWedgit;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ink.jjmm.leonmmcoset.BRTBBS.WedgitExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -787,6 +966,15 @@
 			buildConfigurations = (
 				07A8680E2A3D879F00311F65 /* Debug */,
 				07A8680F2A3D879F00311F65 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F6C991712DB8FF6C00CC374C /* Build configuration list for PBXNativeTarget "FlarumiOSAppWedgitExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6C991722DB8FF6C00CC374C /* Debug */,
+				F6C991732DB8FF6C00CC374C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

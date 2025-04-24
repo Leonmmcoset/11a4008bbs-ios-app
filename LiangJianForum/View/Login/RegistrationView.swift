@@ -28,6 +28,15 @@ struct RegistrationView: View {
     @EnvironmentObject var appSettings: AppSettings
     @Environment(\.colorScheme) var colorScheme
     
+    // 新增动画相关状态变量（与LoginPage风格统一）
+    @State private var usernameFieldOffset: CGFloat = 0
+    @State private var displaynameFieldOffset: CGFloat = 0
+    @State private var passwordFieldOffset: CGFloat = 0
+    @State private var repeatPasswordFieldOffset: CGFloat = 0
+    @State private var emailFieldOffset: CGFloat = 0
+    @State private var buttonScale: CGFloat = 1
+    @State private var termsOpacity: Double = 0
+    
     var body: some View {
         ZStack {
             if colorScheme == .dark{
@@ -54,7 +63,8 @@ struct RegistrationView: View {
                     .foregroundColor(colorScheme == .dark ? Color(hex: "EFEFEF") : .black)
                     .padding(.bottom, 30)
                     .opacity(isAnimating ? 1 : 0)
-                    .animation(.easeInOut(duration: 0.5), value: isAnimating)
+                    .offset(y: isAnimating ? 0 : -50)
+                    .animation(.easeOut(duration: 0.8).delay(0.2), value: isAnimating)
                     .onAppear {
                         withAnimation {
                             isAnimating = true
@@ -62,20 +72,57 @@ struct RegistrationView: View {
                     }
                 
                 TextFieldWithIcon(iconName: "person.fill", inputText: $username, label: NSLocalizedString("用户名(登录用 数字或字母组合)", comment: ""), isAnimating: $isAnimating, wrongInputRedBorder: $wrongUsername)
+                    .offset(y: usernameFieldOffset)
+                    .onAppear {
+                        withAnimation(.easeOut(duration: 0.6).delay(0.1)) {
+                            usernameFieldOffset = 30
+                        }
+                    }
+                    .offset(x: wrongUsername != 0 ? (wrongUsername > 0 ? 10 : -10) : 0)
+                    .rotationEffect(.degrees(Double(wrongUsername != 0 ? (wrongUsername > 0 ? 5 : -5) : 0)))
+                    .animation(.easeInOut(duration: 0.2).repeatCount(2), value: wrongUsername)
                 
 //                TextFieldWithIcon(iconName: "person.crop.square.filled.and.at.rectangle", inputText: $displayname, label: "昵称(对外显示)", isAnimating: $isAnimating, wrongInputRedBorder: $wrongDisplayrname)
+                // 显示昵称输入框时可添加类似动画，当前注释状态下暂不处理
                 
                 SecureFieldWithIcon(passwordIconName: "key.fill", inputPassword: $password , passwordLabel: NSLocalizedString("密码", comment: ""), isAnimatingNow: $isAnimating, wrongPasswordRedBorder: $wrongPassword)
-           
+                    .offset(y: passwordFieldOffset)
+                    .onAppear {
+                        withAnimation(.easeOut(duration: 0.6).delay(0.2)) {
+                            passwordFieldOffset = 30
+                        }
+                    }
+                
                 SecureFieldWithIcon(passwordIconName: nil, inputPassword: $repeatPassword , passwordLabel: NSLocalizedString("确认密码", comment: ""), isAnimatingNow: $isAnimating, wrongPasswordRedBorder: $wrongRepeatPassword)
+                    .offset(y: repeatPasswordFieldOffset)
+                    .onAppear {
+                        withAnimation(.easeOut(duration: 0.6).delay(0.3)) {
+                            repeatPasswordFieldOffset = 30
+                        }
+                    }
                 
                 TextFieldWithIcon(iconName: "envelope.fill", inputText: $email, label: NSLocalizedString("邮箱", comment: ""), isAnimating: $isAnimating, wrongInputRedBorder: $wrongEmail)
                     .padding(.bottom)
+                    .offset(y: emailFieldOffset)
+                    .onAppear {
+                        withAnimation(.easeOut(duration: 0.6).delay(0.4)) {
+                            emailFieldOffset = 30
+                        }
+                    }
+                    .offset(x: wrongEmail != 0 ? (wrongEmail > 0 ? 10 : -10) : 0)
+                    .rotationEffect(.degrees(Double(wrongEmail != 0 ? (wrongEmail > 0 ? 5 : -5) : 0)))
+                    .animation(.easeInOut(duration: 0.2).repeatCount(2), value: wrongEmail)
                 
                 Button(action: {
+                    withAnimation(.easeOut(duration: 0.3)) {
+                        buttonScale = 0.95
+                    }
                     clearErrorMessage()
                     let vertificationResult = registrationVerification(username: username, password: password, repeatPassword: repeatPassword, email: email)
                     sendRegistrationRequest(inputFieldValid: vertificationResult) { success in
+                        withAnimation(.easeIn(duration: 0.3)) {
+                            buttonScale = 1
+                        }
                         if success{
                             registrationSuccess = true
                             showAlert(message: NSLocalizedString("注册成功，请及时完成邮件及统一平台认证", comment: ""))
@@ -89,10 +136,20 @@ struct RegistrationView: View {
                 }
                 .foregroundColor(.white)
                 .frame(width: 350, height: 50)
-                .background(Color(hex: "A1C9CE"))
+                .background(
+                    Color(hex: "A1C9CE")
+                        .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 4)
+                        .scaleEffect(buttonScale)
+                )
                 .cornerRadius(10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.white.opacity(0.1), lineWidth: 1)
+                )
                 .opacity(isAnimating ? 0.9 : 0)
-                .animation(.easeInOut(duration: 1.5), value: isAnimating)
+                .offset(y: isAnimating ? 0 : 50)
+                .animation(.easeOut(duration: 1.2).delay(0.5), value: isAnimating)
+                .hoverEffect(.lift)
                 .alert(isPresented: $showAlert) {
                     if registrationSuccess {
                         return Alert(
@@ -119,14 +176,21 @@ struct RegistrationView: View {
                 
                 VStack {
                     Text("**[隐私政策](http://leonmmcoset.jjmm.ink:1000/web/bbs/public/p/3-yinsizhengce)**").font(.system(size: 12))
-                        .animation(.easeInOut(duration: 1.5), value: isAnimating)
+                        .opacity(termsOpacity)
+                        .offset(y: termsOpacity > 0 ? 0 : 20)
+                        .animation(.easeOut(duration: 1.0).delay(1.0), value: termsOpacity)
                 }
                 .frame(width: 350)
                 .padding(.top)
+                .onAppear {
+                    termsOpacity = 1
+                }
                 
             }
         }
     }
+    
+    // 原有验证和网络请求方法保持不变
     
     private func sendRegistrationRequest(inputFieldValid: Bool, completion: @escaping (Bool) -> Void) {
         if !inputFieldValid {
@@ -198,37 +262,43 @@ struct RegistrationView: View {
     
     
     private func registrationVerification(username: String, password: String, repeatPassword: String, email: String) -> Bool {
-            let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-            let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
-            let isEmailValid = emailPredicate.evaluate(with: email)
-            
-            if username.isEmpty {
-                errors.append(NSLocalizedString("请输入用户名", comment: ""))
-                wrongUsername = 2
-            }
-            
-            if password.isEmpty {
-                errors.append(NSLocalizedString("请输入密码", comment: ""))
-                wrongPassword = 2
-            }
-            
-            if repeatPassword != password && !password.isEmpty{
-                errors.append(NSLocalizedString("两次输入的密码不匹配", comment: ""))
-                wrongPassword = 2
-                wrongRepeatPassword = 2
-            }
-            
-            if !isEmailValid {
-                errors.append(NSLocalizedString("请输入有效的邮箱地址", comment: ""))
-                wrongEmail = 2
-            }
-            
-            if errors.isEmpty {
-                return true
-            }
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        let isEmailValid = emailPredicate.evaluate(with: email)
         
-            return false
+        errors.removeAll() // 清空旧错误信息
+        
+        if username.isEmpty {
+            errors.append(NSLocalizedString("请输入用户名", comment: ""))
+            wrongUsername = 2
+        } else {
+            wrongUsername = 0
         }
+        
+        if password.isEmpty {
+            errors.append(NSLocalizedString("请输入密码", comment: ""))
+            wrongPassword = 2
+        } else {
+            wrongPassword = 0
+        }
+        
+        if repeatPassword != password && !password.isEmpty{
+            errors.append(NSLocalizedString("两次输入的密码不匹配", comment: ""))
+            wrongPassword = 2
+            wrongRepeatPassword = 2
+        } else {
+            wrongRepeatPassword = 0
+        }
+        
+        if !isEmailValid {
+            errors.append(NSLocalizedString("请输入有效的邮箱地址", comment: ""))
+            wrongEmail = 2
+        } else {
+            wrongEmail = 0
+        }
+        
+        return errors.isEmpty
+    }
     
     private func showAlert(message: String) {
         alertMessage = message
@@ -240,23 +310,13 @@ struct RegistrationView: View {
     }
     
     private func clearFields() {
-        if wrongUsername != 0 {
-            username = ""
-        }
-        
-        if wrongPassword != 0 {
-            password = ""
-        }
-        
-        if wrongRepeatPassword != 0 {
-            repeatPassword = ""
-        }
-        
-        if wrongEmail != 0 {
-            email = ""
-        }
-        
+        username = ""
+        displayname = ""
+        password = ""
+        repeatPassword = ""
+        email = ""
         wrongUsername = 0
+        wrongDisplayrname = 0
         wrongPassword = 0
         wrongRepeatPassword = 0
         wrongEmail = 0
@@ -279,3 +339,4 @@ struct RegistrationError: Codable {
 struct RegistrationErrorSource: Codable {
     let pointer: String
 }
+    

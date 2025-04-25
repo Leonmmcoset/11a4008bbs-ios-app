@@ -152,6 +152,7 @@ struct NoticeView: View {
                 )
             }
         }
+        .listStyle(.grouped)
         
     }
     

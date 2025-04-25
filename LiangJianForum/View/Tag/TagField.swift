@@ -53,7 +53,7 @@ struct TagField: View {
                             }
                         }
                     }
-                   .listStyle(.plain)
+                    .listStyle(.grouped)
                    .searchable(text: $searchTerm, prompt: "Search")
                    .navigationTitle("All Tags")
                    .navigationDestination(for: Datum6.self) { tag in
@@ -72,7 +72,7 @@ struct TagField: View {
                                 }
                             }
                         }
-                       .listStyle(.plain)
+                       .listStyle(.grouped)
                        .navigationDestination(for: Datum6.self) { tag in
                             TagDetail(selectedTag: tag)
                         }

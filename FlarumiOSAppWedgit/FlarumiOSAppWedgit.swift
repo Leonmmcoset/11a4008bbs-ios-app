@@ -16,9 +16,9 @@ struct Provider: AppIntentTimelineProvider {
         SimpleEntry(
             date: Date(),
             configuration: ConfigurationAppIntent(),
-            discussionsCount: 0,
-            postsCount: 0,
-            usersCount: 0,
+            discussionsCount: 11,
+            postsCount: 45,
+            usersCount: 14,
             errorMessage: nil
         )
     }
@@ -55,12 +55,13 @@ struct Provider: AppIntentTimelineProvider {
         )
         entries.append(entry)
 
-        return Timeline(entries: entries, policy:.after(currentDate.addingTimeInterval(3600)))
+        return Timeline(entries: entries, policy:.after(currentDate.addingTimeInterval(10)))
     }
 
     // 异步获取真实数据的函数
     private func fetchRealData() async -> (Int, Int, Int, String?) {
         guard let url = URL(string: "https://brt.arw.pub/api") else {
+            print("无法构建有效的URL")
             return (0, 0, 0, "无法构建有效的URL")
         }
 
@@ -89,8 +90,8 @@ struct Provider: AppIntentTimelineProvider {
                 nil
             )
         } catch {
+            print("数据获取错误: \(error)")
             let errorMessage = "数据获取错误: \(error)"
-            print(errorMessage)
             return (0, 0, 0, errorMessage)
         }
     }
@@ -140,13 +141,19 @@ struct ForumStatistics: Codable {
 // 小组件内容视图，展示论坛统计数据或错误信息
 struct FlarumiOSAppWidgetEntryView: View {
     var entry: SimpleEntry
+    private let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+        return formatter
+    }()
 
     var body: some View {
         if #available(iOS 17.0, *) {
             content
-               .containerBackground(.white, for:.widget)
+               .containerBackground(.fill.tertiary, for:.widget)
         } else {
             content
+                .background(Color.secondary)
         }
     }
 
@@ -159,6 +166,9 @@ struct FlarumiOSAppWidgetEntryView: View {
                        .foregroundColor(.red)
                     Text(errorMessage)
                        .font(.subheadline)
+                       .foregroundColor(.secondary)
+                    Text("更新日期: \(dateFormatter.string(from: entry.date))")
+                       .font(.system(size: 6))
                        .foregroundColor(.secondary)
                 }
                .transition(.opacity)
@@ -175,7 +185,7 @@ struct FlarumiOSAppWidgetEntryView: View {
                     // 讨论数
                     HStack {
                         Image(systemName: "text.bubble")
-                           .foregroundColor(.accent)
+                            .foregroundColor(.accent)
                         Text("帖子: \(entry.discussionsCount)")
                            .font(.subheadline)
                            .foregroundColor(.secondary)
@@ -185,7 +195,7 @@ struct FlarumiOSAppWidgetEntryView: View {
                     // 帖子数
                     HStack {
                         Image(systemName: "arrowshape.turn.up.left")
-                           .foregroundColor(.accent)
+                            .foregroundColor(.accent)
                         Text("回复: \(entry.postsCount)")
                            .font(.subheadline)
                            .foregroundColor(.secondary)
@@ -195,7 +205,7 @@ struct FlarumiOSAppWidgetEntryView: View {
                     // 用户数
                     HStack {
                         Image(systemName: "person")
-                           .foregroundColor(.accent)
+                            .foregroundColor(.accent)
                         Text("用户: \(entry.usersCount)")
                            .font(.subheadline)
                            .foregroundColor(.secondary)
@@ -207,6 +217,9 @@ struct FlarumiOSAppWidgetEntryView: View {
                            .font(.system(size: 6))
                            .foregroundColor(.secondary)
                     }
+                    Text("更新日期: \(dateFormatter.string(from: entry.date))")
+                       .font(.system(size: 6))
+                       .foregroundColor(.secondary)
                 }
                .transition(.opacity)
             )
@@ -224,7 +237,7 @@ struct FlarumiOSAppWidget: Widget {
         }
        .configurationDisplayName("论坛统计小组件")
        .description("显示论坛实时讨论、帖子和用户数量")
-       .supportedFamilies([.systemSmall,.systemMedium,.systemLarge])
+       .supportedFamilies([.systemSmall,.systemMedium,.systemLarge,.accessoryRectangular,.accessoryCircular,.accessoryInline])
     }
 }
 

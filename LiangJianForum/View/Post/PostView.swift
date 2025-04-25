@@ -205,6 +205,7 @@ struct PostView: View {
                                           isLoading = false
                                       }
                                   }
+                                  .listStyle(.grouped)
                                   .textSelection(.enabled)
                                   .searchable(text: $searchTerm, prompt: "Search")
                                   .sheet(isPresented: $showingPostingArea) {

@@ -348,6 +348,7 @@ struct ProfileView: View {
                 }
             }
         }
+        .listStyle(.grouped)
     }
 
     func saveProfile() {

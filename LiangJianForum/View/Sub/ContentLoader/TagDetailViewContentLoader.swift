@@ -81,6 +81,7 @@ struct TagDetailViewContentLoader: View {
                     }
                     .id("TopWithoutSlide")
                 }
+                .listStyle(.grouped)
                 .textSelection(.enabled)
 //                    .searchable(text: .constant(""), prompt: "Search")
                 .toolbarBackground(.visible, for: .navigationBar)

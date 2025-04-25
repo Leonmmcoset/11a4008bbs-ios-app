@@ -241,6 +241,7 @@ struct PostDetailView: View {
                                         
                                         Divider()
                                     }
+                                    .listStyle(.grouped)
                                     .opacity(isHidden ? 0.3 : 1)
                                     .listRowBackground(item.id == String(getBestAnswerID()) ? Color(hex: "00FFFF").opacity(0.2) : Color(uiColor: UIColor.secondarySystemGroupedBackground))
                                     .listRowSeparator(.hidden)
@@ -309,6 +310,8 @@ struct PostDetailView: View {
                             }
                         }
                     }
+                    .listStyle(.grouped)
+                    
                     .overlay(
                         CopiedTextView(copiedText: $copiedText)
                     )

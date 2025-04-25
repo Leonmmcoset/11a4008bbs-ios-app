@@ -98,6 +98,7 @@ struct PostDetailViewContentLoader: View {
 
             
         }
+        .listStyle(.grouped)
         .ignoresSafeArea(.all, edges: .bottom)
         .toolbar(.hidden, for: .tabBar)
         .navigationTitle(postTitle)

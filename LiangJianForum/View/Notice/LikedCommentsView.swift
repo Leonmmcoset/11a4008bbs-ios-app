@@ -146,6 +146,7 @@ struct LikedCommentsView: View {
                         }
                         .id("AllUserComments")
                     }
+                    .listStyle(.grouped)
 
                     .onChange(of: currentPageOffset){ _ in
                         withAnimation {

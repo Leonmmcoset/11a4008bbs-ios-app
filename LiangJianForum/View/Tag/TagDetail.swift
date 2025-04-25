@@ -111,6 +111,7 @@ struct TagDetail: View {
                                                     Spacer()
                                                 }
                                             }
+                                            .listStyle(.grouped)
                                             
                                             //MARK: 最后更新时间 评论数 阅读数量 收藏
                                             HStack {
@@ -164,6 +165,8 @@ struct TagDetail: View {
                         }
                         .id("TagDetailList")
                     }
+                    .listStyle(.grouped)
+                    
                     .onChange(of: currentPageOffset) { _ in
                         withAnimation {
                             isLoading = true

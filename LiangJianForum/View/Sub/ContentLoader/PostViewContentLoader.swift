@@ -114,6 +114,7 @@ struct PostViewContentLoader: View {
                         }
                         .id("TopWithoutSlide")
                     }
+                    .listStyle(.grouped)
                     .textSelection(.enabled)
                     .searchable(text: .constant(""), prompt: "Search")
                     .navigationTitle(selectedSortingOption)

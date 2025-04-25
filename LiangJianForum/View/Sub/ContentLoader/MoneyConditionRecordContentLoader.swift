@@ -43,5 +43,6 @@ struct MoneyConditionRecordContentLoader: View {
                 }
             }
         }
+        .listStyle(.grouped)
     }
 }

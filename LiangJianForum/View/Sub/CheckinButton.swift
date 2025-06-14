@@ -73,6 +73,7 @@ struct CheckinButton: View {
             }
         } catch {
             print("Invalid user Data!" ,error)
+            showAlert(message: "获取用户数据失败，请重试")
         }
     }
     
@@ -135,3 +136,11 @@ struct CheckinButton: View {
         }.resume()
     }
 }
+
+private func showAlert(message: String) {
+        let alert = UIAlertController(title: "提示", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "确定", style: .default, handler: nil))
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene, let rootViewController = windowScene.windows.first?.rootViewController {
+            rootViewController.present(alert, animated: true, completion: nil)
+        }
+    }

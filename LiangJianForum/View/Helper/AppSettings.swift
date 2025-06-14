@@ -17,7 +17,7 @@ class AppSettings: ObservableObject {
     @Published var isAdmin = false
     @Published var isVIP = false
 //    @Published var FlarumUrl = "http://leonmmcoset.jjmm.ink:1000/web/bbs/public/"
-    @Published var FlarumUrl = "https://brt.arw.pub/"
+    @Published var FlarumUrl = "https://11a.arw.pub/"
     @Published var FlarumName = NSLocalizedString("LeonMMcoset论坛", comment: "")
 //    @Published var FlarumToken = "zak7BvaaraQfAhni4uO5ngAPkT0THF94d6GlDCcF"//Your flarum API key, used in regisgration
     @Published var FlarumToken = "pj4hguy4H0J1lwEMyaKrIyOJUfFr32Sdx9hGoDmq"
@@ -181,6 +181,8 @@ func getIconNameFromFetching(from inputString: String?) -> String? {
             }
         } catch {
             print("regex error：\(error)")
+            // 可以添加更多错误处理逻辑，如显示提示框给用户
+            // showAlert(message: "正则表达式处理失败，请检查输入")
         }
     }
 

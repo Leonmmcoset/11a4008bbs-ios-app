@@ -280,14 +280,14 @@ struct RegistrationView: View {
             wrongPassword = 2
         } else {
             wrongPassword = 0
-        }
-        
-        if repeatPassword != password && !password.isEmpty{
-            errors.append(NSLocalizedString("两次输入的密码不匹配", comment: ""))
-            wrongPassword = 2
-            wrongRepeatPassword = 2
-        } else {
-            wrongRepeatPassword = 0
+            
+            if repeatPassword != password {
+                errors.append(NSLocalizedString("两次输入的密码不匹配", comment: ""))
+                wrongPassword = 2
+                wrongRepeatPassword = 2
+            } else {
+                wrongRepeatPassword = 0
+            }
         }
         
         if !isEmailValid {
@@ -339,4 +339,3 @@ struct RegistrationError: Codable {
 struct RegistrationErrorSource: Codable {
     let pointer: String
 }
-    

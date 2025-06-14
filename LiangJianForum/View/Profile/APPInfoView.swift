@@ -8,13 +8,17 @@
 import UIKit
 import SwiftUI
 import WebKit
+import SafariServices
 
 struct APPInfoView: View {
     // 获取应用版本号
     let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "Unknown"
     // 获取应用构建版本号
     let appBuild = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "Unknown"
-
+    
+    @State private var isOriginalGitHubPresented = false
+    @State private var isPrivacyPolicyPresented = false
+    
     var body: some View {
         NavigationStack {
             VStack(alignment:.leading, spacing: 20) {
@@ -31,9 +35,9 @@ struct APPInfoView: View {
                     .font(.subheadline)
                 List {
                     Section {
-                        NavigationLink {
-                            OriginalGitHubView()
-                        } label: {
+                        Button(action: {
+                            isOriginalGitHubPresented = true
+                        }) {
                             HStack {
                                 Text("原GitHub页面")
                                    .bold()
@@ -41,9 +45,9 @@ struct APPInfoView: View {
                             }
                         }
                        .padding(.vertical, 8)
-                        NavigationLink {
-                            YinSIZhengCeView()
-                        } label: {
+                        Button(action: {
+                            isPrivacyPolicyPresented = true
+                        }) {
                             HStack {
                                 Text("隐私政策")
                                    .bold()
@@ -55,10 +59,31 @@ struct APPInfoView: View {
                 }
             }
            .padding()
+           .sheet(isPresented: $isOriginalGitHubPresented) {
+                SafariView(url: URL(string: "https://github.com/RomanticD/Flarum-iOS-App-UnofficialDemo")!)
+            }
+           .sheet(isPresented: $isPrivacyPolicyPresented) {
+                SafariView(url: URL(string: "https://brt.arw.pub/p/2-privacyagreement")!)
+            }
         }
     }
 }
 
+struct SafariView: UIViewControllerRepresentable {
+    let url: URL
+    
+    func makeUIViewController(context: UIViewControllerRepresentableContext<SafariView>) -> SFSafariViewController {
+        let safariVC = SFSafariViewController(url: url)
+        return safariVC
+    }
+    
+    func updateUIViewController(_ uiViewController: SFSafariViewController, context: UIViewControllerRepresentableContext<SafariView>) {
+        // 无需更新操作
+    }
+}
+
+// 后面的代码看起来没用了
+// 就先放这里吧（懒得删）
 struct OriginalGitHubView : UIViewRepresentable {
     func makeUIView(context: Context) -> WKWebView  {
         return WKWebView()

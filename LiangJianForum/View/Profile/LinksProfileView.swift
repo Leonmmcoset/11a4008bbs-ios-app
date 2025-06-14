@@ -292,6 +292,8 @@ struct LinksProfileView: View {
             }
             .textSelection(.enabled)
         }
+        .listStyle(.grouped)
+        
         .navigationTitle("\(self.displayName)的主页")
         .task{
             await fetchOtherUserProfile()

@@ -683,4 +683,3 @@ struct CopiedTextView: View {
         .animation(.easeInOut, value: copiedText)
     }
 }
-

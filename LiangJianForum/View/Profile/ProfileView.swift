@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UIKit
+import SafariServices // 保留Safari框架导入
 
 struct ProfileView: View {
     @State private var username: String = ""
@@ -29,48 +30,55 @@ struct ProfileView: View {
     @State private var showLoginPage = false
     @State private var showChangeProfilePage = false
     @State private var buttonText = "保存"
-
+    @State private var showSafariView = false // 控制Safari视图显示的状态变量
+    
     private var isUserVIP: Bool {
         return appSettings.vipUsernames.contains(username)
     }
     
     var body: some View {
-        NavigationStack{
-            ZStack (alignment: .topTrailing){
-                VStack{
-                    HStack{
+        NavigationStack {
+            ZStack(alignment: .topTrailing) {
+                VStack {
+                    HStack {
                         if avatarUrl != "" {
-                            if appSettings.isVIP{
-                                AvatarAsyncImage(url: URL(string: avatarUrl), frameSize: 130, lineWidth: 2.5, shadow: 6, strokeColor : Color(hex: "FFD700"))
-                                    .padding(.bottom)
-                            }else{
-                                AvatarAsyncImage(url: URL(string: avatarUrl), frameSize: 130, lineWidth: 2, shadow: 6)
-                                    .padding(.bottom)
+                            if appSettings.isVIP {
+                                AvatarAsyncImage(
+                                    url: URL(string: avatarUrl),
+                                    frameSize: 130,
+                                    lineWidth: 2.5,
+                                    shadow: 6,
+                                    strokeColor: Color(hex: "FFD700")
+                                )
+                                .padding(.bottom)
+                            } else {
+                                AvatarAsyncImage(
+                                    url: URL(string: avatarUrl),
+                                    frameSize: 130,
+                                    lineWidth: 2,
+                                    shadow: 6
+                                )
+                                .padding(.bottom)
                             }
                         } else {
-                            CircleImage(image: Image(systemName: "person.circle.fill"), widthAndHeight: 120, lineWidth: 1, shadow: 3)
-                                .opacity (0.3)
-                                .padding(.bottom)
+                            CircleImage(
+                                image: Image(systemName: "person.circle.fill"),
+                                widthAndHeight: 120,
+                                lineWidth: 1,
+                                shadow: 3
+                            )
+                            .opacity(0.3)
+                            .padding(.bottom)
                         }
-
                     }
                     .background(
-//                        AsyncImage(url: URL(string: cover)) { image in
-//                            image
-//                                .resizable()
-//                                .aspectRatio(contentMode: .fill)
-//                                .frame(width: 400, height: 350)
-//                                .opacity(0.9)
-//                                .padding(.bottom)
-//                        } placeholder: {
-//                        }
-                        
-                        CachedImage(url: appSettings.cover,
-                                    animation: .spring(),
-                                    transition: .slide.combined(with: .opacity)) { phase in
-                            
+                        CachedImage(
+                            url: appSettings.cover,
+                            animation: .spring(),
+                            transition: .slide.combined(with: .opacity)
+                        ) { phase in
                             switch phase {
-                            case .empty:
+                            case .empty, .failure:
                                 EmptyView()
                             case .success(let image):
                                 image
@@ -79,19 +87,16 @@ struct ProfileView: View {
                                     .frame(width: 400, height: 350)
                                     .opacity(0.9)
                                     .padding(.bottom)
-                                
-                            case .failure(let error):
-                                EmptyView()
                             @unknown default:
                                 EmptyView()
                             }
                         }
                     )
                     
-                    List{
-                        if !cover.isEmpty{
-                            Section("Bio"){
-                                if appSettings.isVIP{
+                    List {
+                        if !cover.isEmpty {
+                            Section("Bio") {
+                                if appSettings.isVIP {
                                     Text(bioHtml.htmlConvertedWithoutUrl)
                                         .multilineTextAlignment(.center)
                                         .tracking(0.5)
@@ -109,7 +114,7 @@ struct ProfileView: View {
                                                     .bold()
                                             )
                                         }
-                                }else{
+                                } else {
                                     Text(bioHtml.htmlConvertedWithoutUrl)
                                         .multilineTextAlignment(.center)
                                         .tracking(0.5)
@@ -118,23 +123,24 @@ struct ProfileView: View {
                             }
                         }
                         
-                        Section{
+                        Section {
                             LevelProgressView(isUserVip: appSettings.isVIP, currentExp: appSettings.userExp)
                         } header: {
                             Text("Flarum Level").padding(.leading)
                         }
                         .listRowInsets(EdgeInsets())
                         
-                        Section{
+                        Section(header: Text("Account")) {
                             HStack {
                                 Text("🎊 Username: ").foregroundStyle(.secondary)
-                                Text("\(appSettings.username)").bold()
+                                Text(appSettings.username).bold()
                             }
+                            
                             HStack {
                                 Text("🎎 DisplayName: ").foregroundStyle(.secondary)
                                 
-                                if appSettings.isVIP{
-                                    Text("\(appSettings.displayName)")
+                                if appSettings.isVIP {
+                                    Text(appSettings.displayName)
                                         .multilineTextAlignment(.center)
                                         .bold()
                                         .overlay {
@@ -144,67 +150,67 @@ struct ProfileView: View {
                                                 endPoint: .trailing
                                             )
                                             .mask(
-                                                Text("\(appSettings.displayName)")
+                                                Text(appSettings.displayName)
                                                     .multilineTextAlignment(.center)
                                                     .bold()
                                             )
                                         }
-                                }else {
-                                    Text("\(appSettings.displayName)")
-                                        .bold()
+                                } else {
+                                    Text(appSettings.displayName).bold()
                                 }
                             }
+                            
                             HStack {
                                 Text("🎉 Join Time:").foregroundStyle(.secondary)
-                                Text("\(appSettings.joinTime)").bold()
+                                Text(appSettings.joinTime).bold()
                             }
-                            HStack{
+                            
+                            HStack {
                                 Text("🎀 Last seen at:").foregroundStyle(.secondary)
-                                if lastSeenAt.isEmpty{
+                                if lastSeenAt.isEmpty {
                                     Text("Information has been hidden")
                                         .bold()
                                         .foregroundStyle(.secondary)
-                                }else{
-                                    Text("\(appSettings.lastSeenAt)").bold()
+                                } else {
+                                    Text(appSettings.lastSeenAt).bold()
                                 }
                             }
-                        } header: {
-                            Text("Account")
                         }
                         
-                        Section("Flarum Contributions"){
+                        Section("Flarum Contributions") {
                             HStack {
                                 Text("🏖️ Discussion Count: ").foregroundStyle(.secondary)
-                                Text("\(appSettings.discussionCount)").bold()
+                                Text(discussionCount.description).bold()
                             }
-                            HStack{
+                            
+                            HStack {
                                 Text("🧬 Comment Count: ").foregroundStyle(.secondary)
-                                Text("\(appSettings.commentCount)").bold()
+                                Text(commentCount.description).bold()
                             }
-                            if self.money != -1 {
+                            
+                            if money != -1 {
                                 HStack {
                                     Text("💰 money: ").foregroundStyle(.secondary)
-                                    if self.money.truncatingRemainder(dividingBy: 1) == 0 {
-                                        Text(String(format: "%.0f", self.money)).bold()
+                                    if money.truncatingRemainder(dividingBy: 1) == 0 {
+                                        Text(String(format: "%.0f", money)).bold()
                                     } else {
-                                        Text(String(format: "%.1f", self.money)).bold()
+                                        Text(String(format: "%.1f", money)).bold()
                                     }
                                 }
                             }
                         }
                         
                         Section("Authentication Information") {
-                            if let include = include, !include.isEmpty {
+                            if let include, !include.isEmpty {
                                 let groups = include.filter { $0.type == "groups" }
                                 if !groups.isEmpty {
                                     ForEach(groups, id: \.id) { item in
-                                        HStack{
+                                        HStack {
                                             if let singular = item.attributes.nameSingular {
                                                 Text("\(singular): ").foregroundStyle(.secondary)
                                             }
-
                                             if let plural = item.attributes.namePlural {
-                                                Text("\(plural)").bold()
+                                                Text(plural).bold()
                                             }
                                         }
                                     }
@@ -219,33 +225,33 @@ struct ProfileView: View {
                                     .italic()
                             }
                         }
-
+                        
                         Section("Earned Badges") {
-                            if let include = include, !include.isEmpty {
+                            if let include, !include.isEmpty {
                                 let groups = include.filter { $0.type == "badges" }
                                 if !groups.isEmpty {
-                                    ScrollView(.horizontal, showsIndicators: false){
-                                        HStack{
+                                    ScrollView(.horizontal, showsIndicators: false) {
+                                        HStack(spacing: 8) {
                                             ForEach(groups, id: \.id) { item in
                                                 NavigationLink(value: item) {
-                                                    if let badgeName = item.attributes.name {
-                                                        Text("\(badgeName)")
+                                                    if let badgeName = item.attributes.name,
+                                                       let backgroundColor = item.attributes.backgroundColor {
+                                                        Text(badgeName)
                                                             .bold()
-                                                            .foregroundColor(Color.white)
+                                                            .foregroundColor(.white)
                                                             .font(.system(size: 12))
-                                                            .padding()
+                                                            .padding(.horizontal, 12)
+                                                            .padding(.vertical, 6)
                                                             .lineLimit(1)
-                                                            .background(Color(hex: removeFirstCharacter(from: item.attributes.backgroundColor ?? "#6168d0")))
-                                                            .frame(height: 36)
+                                                            .background(Color(hex: removeFirstCharacter(from: backgroundColor)))
                                                             .cornerRadius(18)
-                                                        
                                                     }
                                                 }
                                             }
                                         }
-                                        .navigationDestination(for: UserInclude.self) { badge in
-                                            BadgeDetail(badge: badge)
-                                        }
+                                    }
+                                    .navigationDestination(for: UserInclude.self) { badge in
+                                        BadgeDetail(badge: badge)
                                     }
                                 } else {
                                     Text("No Badges Earned Yet")
@@ -262,48 +268,45 @@ struct ProfileView: View {
                         }
                         .listRowInsets(EdgeInsets())
                         .listRowSeparator(.hidden)
-
-                            Section {
-                                HStack {
-                                    // 使用 NavigationLink 实现跳转
-                                    NavigationLink {
-                                        APPInfoView()
-                                    } label: {
-                                        Text("App Info")
-                                            .bold()
-                                    }
-                                }
-                                HStack {
-                                    // 使用 NavigationLink 实现跳转
-                                    NavigationLink {
-                                        BugsView()
-                                    } label: {
-                                        Text("Bugs")
-                                            .bold()
-                                    }
+                        
+                        Section {
+                            HStack {
+                                NavigationLink {
+                                    APPInfoView()
+                                } label: {
+                                    Text("App Info").bold()
                                 }
                             }
-                            Section{
-                                HStack {
-                                    Button(action: {
-                                        UIApplication.shared.open(URL(string: "https://afdian.com/a/leonmmcoset")!)
-                                    }) {
-                                        Text(NSLocalizedString("moneyauthor", comment: ""))
-                                    }
-                                    .disabled(false)
-                                }
-                                HStack {
-                                    Button(action: {
-                                        openAppSettings()
-                                    }) {
-                                        Text("打开应用设置")
-                                            .bold()
-                                    }
-                                    .disabled(false)
+                            
+                            HStack {
+                                NavigationLink {
+                                    BugsView()
+                                } label: {
+                                    Text("Bugs").bold()
                                 }
                             }
                         }
+                        
+                        Section {
+                            HStack {
+                                Button(action: { showSafariView = true }) {
+                                    Text(NSLocalizedString("moneyauthor", comment: ""))
+                                }
+                                .disabled(false)
+                            }
+                            
+                            HStack {
+                                Button(action: openAppSettings) {
+                                    Text("打开应用设置").bold()
+                                }
+                                .disabled(false)
+                            }
+                        }
+                    }
                     .textSelection(.enabled)
+                }
+                .sheet(isPresented: $showSafariView) {
+                    SafariView(url: URL(string: "https://afdian.com/a/leonmmcoset")!) // 引用外部SafariView
                 }
                 .sheet(isPresented: $showChangeProfilePage) {
                     ChangeProfileDetail().environmentObject(appSettings)
@@ -313,44 +316,36 @@ struct ProfileView: View {
                     Alert(
                         title: Text("Sign out"),
                         message: Text("Quit?"),
-                        primaryButton: .default(Text("Confirm"), action: {
-                            logoutConfirmed()
-                        }),
-                        secondaryButton: .cancel(Text("Cancel"))
+                        primaryButton: .default(Text("Confirm"), action: logoutConfirmed),
+                        secondaryButton: .cancel()
                     )
                 }
-                .refreshable {
-                    await fetchUserProfile()
-                }
-                .onAppear {
-                    Task{
-                        await fetchUserProfile()
-                    }
-                }
-                .background(colorScheme == .dark ? LinearGradient(gradient: Gradient(colors: [Color(hex: "780206"), Color(hex: "061161")]), startPoint: .leading, endPoint: .trailing) : LinearGradient(gradient: Gradient(colors: [Color(hex: "A1FFCE"), Color(hex: "FAFFD1")]), startPoint: .leading, endPoint: .trailing))
+                .refreshable { await fetchUserProfile() }
+                .onAppear { Task { await fetchUserProfile() } }
+                .background(
+                    colorScheme == .dark
+                    ? LinearGradient(gradient: Gradient(colors: [Color(hex: "780206"), Color(hex: "061161")]), startPoint: .leading, endPoint: .trailing)
+                    : LinearGradient(gradient: Gradient(colors: [Color(hex: "A1FFCE"), Color(hex: "FAFFD1")]), startPoint: .leading, endPoint: .trailing)
+                )
             }
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     Menu {
-                        Section(NSLocalizedString("profile_operations", comment: "")){
-                            Button {
-                                //选择退出逻辑
-                                logout()
-                            } label: {
+                        Section(NSLocalizedString("profile_operations", comment: "")) {
+                            Button { logout() } label: {
                                 Label(NSLocalizedString("choose_to_quit", comment: ""), systemImage: "iphone.and.arrow.forward")
                             }
                         }
                     } label: {
                         Image(systemName: "gear.circle")
-//                            .padding()
-                            .background(Color(uiColor: UIColor.secondarySystemGroupedBackground), in: Circle())
+                            .background(Color(uiColor: .secondarySystemGroupedBackground), in: Circle())
                     }
                 }
             }
         }
         .listStyle(.grouped)
     }
-
+    
     func saveProfile() {
         showChangeProfilePage = true
         showAlert = true
@@ -359,11 +354,11 @@ struct ProfileView: View {
         
         buttonText = "Successfully Saved!"
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            buttonText = "Save"
+            buttonText = "保存"
             savePersonalProfile = false
         }
     }
-
+    
     func logoutConfirmed() {
         appSettings.stopTimer()
         appSettings.token = ""
@@ -371,82 +366,98 @@ struct ProfileView: View {
         appSettings.isLoggedIn = false
     }
     
-    
     func logout() {
-        showAlert = true
         showLogoutAlert = true
     }
     
     private func fetchUserProfile() async {
-        guard let url = URL(string: "\(appSettings.FlarumUrl)/api/users/\(appSettings.userId)") else{
-                print("Invalid URL")
+        guard let url = URL(string: "\(appSettings.FlarumUrl)/api/users/\(appSettings.userId)") else {
+            print("Invalid URL")
             return
         }
         print("Fetching User Info at: \(url)")
         
-        do{
+        do {
             let (data, _) = try await URLSession.shared.data(from: url)
-            
-            if let decodedResponse = try? JSONDecoder().decode(UserData.self, from: data){
+            if let decodedResponse = try? JSONDecoder().decode(UserData.self, from: data) {
                 appSettings.username = decodedResponse.data.attributes.username
-                
-                if let canCheckIn = decodedResponse.data.attributes.canCheckin{
-                    appSettings.canCheckIn = canCheckIn
-                }
-                
-                if let canCheckinContinuous = decodedResponse.data.attributes.canCheckinContinuous{
-                    appSettings.canCheckinContinuous = canCheckinContinuous
-                }
-                
-                if let totalContinuousCheckIn = decodedResponse.data.attributes.totalContinuousCheckIn{
-                    appSettings.totalContinuousCheckIn = totalContinuousCheckIn
-                }
-                
-                
-                if let includes = decodedResponse.included{
-                    self.include = includes
-                }
-                self.username = decodedResponse.data.attributes.username
-                self.displayName = decodedResponse.data.attributes.displayName
-                
-                if let avatar = decodedResponse.data.attributes.avatarURL{
-                    self.avatarUrl = avatar
-                }
-                self.joinTime = calculateTimeDifference(from: decodedResponse.data.attributes.joinTime)
-                
-                if let hasLastSeenTime = decodedResponse.data.attributes.lastSeenAt{
-                    self.lastSeenAt = calculateTimeDifference(from: hasLastSeenTime)
-                }
-                
-                self.discussionCount = decodedResponse.data.attributes.discussionCount
-                self.commentCount = decodedResponse.data.attributes.commentCount
-                
-                if let flarumMoney = decodedResponse.data.attributes.money{
-                    self.money = flarumMoney
-                }
-                
-                if let cover = decodedResponse.data.attributes.cover{
-                    self.cover = cover
-                }
-                
-                if let bioHtml = decodedResponse.data.attributes.bioHtml{
-                    self.bioHtml = bioHtml
-                }
-
-                print("Successfully decoded user data")
-                print("Username: \(self.username)")
-                print("Display Name: \(self.displayName)")
+                appSettings.canCheckIn = decodedResponse.data.attributes.canCheckin ?? false
+                appSettings.canCheckinContinuous = decodedResponse.data.attributes.canCheckinContinuous ?? false
+                appSettings.totalContinuousCheckIn = decodedResponse.data.attributes.totalContinuousCheckIn ?? 0
+                include = decodedResponse.included
+                username = decodedResponse.data.attributes.username
+                displayName = decodedResponse.data.attributes.displayName
+                avatarUrl = decodedResponse.data.attributes.avatarURL ?? ""
+                joinTime = calculateTimeDifference(from: decodedResponse.data.attributes.joinTime)
+                lastSeenAt = decodedResponse.data.attributes.lastSeenAt.map(calculateTimeDifference) ?? ""
+                discussionCount = decodedResponse.data.attributes.discussionCount
+                commentCount = decodedResponse.data.attributes.commentCount
+                money = decodedResponse.data.attributes.money ?? -1
+                cover = decodedResponse.data.attributes.cover ?? ""
+                bioHtml = decodedResponse.data.attributes.bioHtml ?? ""
             }
         } catch {
-            print("Invalid user Data!" ,error)
+            print("Fetch user profile failed: \(error)")
+            // 可以添加更多错误处理逻辑，如显示提示框给用户
+            // showAlert(message: "获取用户资料失败，请重试")
         }
     }
-    // MARK: - Open APP settings
+    
+    private func calculateTimeDifference(from dateString: String) -> String {
+        // 假设原有时间处理逻辑不变，此处需根据实际实现补充
+        return dateString // 示例占位，需替换为实际时间转换逻辑
+    }
+    
+    private func removeFirstCharacter(from string: String) -> String {
+        // 假设原有字符串处理逻辑不变
+        return string.isEmpty ? "#6168d0" : String(string.dropFirst())
+    }
+    
     func openAppSettings() {
-        if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
-            if UIApplication.shared.canOpenURL(settingsURL) {
-                UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
-            }
+        if let settingsURL = URL(string: UIApplication.openSettingsURLString),
+           UIApplication.shared.canOpenURL(settingsURL) {
+            UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
         }
     }
 }
+
+// MARK: - 假设以下结构体在其他文件中定义（如UserInclude、LevelProgressView、AvatarAsyncImage、CircleImage等）
+// struct UserInclude: Decodable {
+//     let type: String
+//     let id: String
+//     let attributes: UserIncludeAttributes
+// }
+//
+// struct UserIncludeAttributes: Decodable {
+//     let nameSingular: String?
+//     let namePlural: String?
+//     let name: String?
+//     let backgroundColor: String?
+//     // 其他所需属性...
+// }
+//
+// struct UserData: Decodable {
+//     let data: User
+//     let included: [UserInclude]?
+// }
+//
+// struct User: Decodable {
+//     let attributes: UserAttributes
+// }
+//
+// struct UserAttributes: Decodable {
+//     let username: String
+//     let displayName: String
+//     let avatarURL: String?
+//     let joinTime: String
+//     let lastSeenAt: String?
+//     let discussionCount: Int
+//     let commentCount: Int
+//     let money: Double?
+//     let cover: String?
+//     let bioHtml: String?
+//     let canCheckin: Bool?
+//     let canCheckinContinuous: Bool?
+//     let totalContinuousCheckIn: Int?
+//     // 其他所需属性...
+// }

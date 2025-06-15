@@ -15,7 +15,8 @@ struct FlarumiOSApp: App {
                     if !UserDefaults.standard.bool(forKey: "hasAcceptedPrivacyPolicy") {
                         showPrivacySheet = true
                     }
-                    checkVersionUpdate()
+                    checkAutomaticVersionUpdate()
+                    print("rootViewController 状态: ", UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene, "的根视图控制器 ", (UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene)?.windows.first?.rootViewController)
                 }
                .sheet(isPresented: $showPrivacySheet) {
                     PrivacyPolicySheet(
@@ -207,12 +208,13 @@ struct VersionInfo: Codable {
     let web: String?
 }
 
-public func checkVersionUpdate() {
+public func checkAutomaticVersionUpdate() {
+    print("开始执行自动版本检查函数")
     guard let url = URL(string: "http://leonmmcoset.jjmm.ink:1000/web/update/11a4008bbsiosapp.json") else {
+        print("版本检查URL无效，函数退出")
         return
     }
-    let task = URLSession.shared.dataTask(with: url) {
-        (data, response, error) in
+    let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
         if let error = error {
             print("版本检查出错: \(error)")
             return
@@ -226,8 +228,51 @@ public func checkVersionUpdate() {
                 if versionInfo.version != currentVersion {
                     DispatchQueue.main.async {
                         if let webUrl = versionInfo.web {
-                        showVersionUpdateAlert(webUrl, versionInfo.version)
+                            showVersionUpdateAlert(webUrl, versionInfo.version)
+                        }
                     }
+                } else {
+                    print("自动检测到无更新，不弹出提示框")
+                }
+            } catch {
+                print("解析版本信息出错: \(error)")
+            }
+        }
+    }
+    task.resume()
+}
+
+public func checkManualVersionUpdate() {
+    print("开始执行手动版本检查函数")
+    guard let url = URL(string: "http://leonmmcoset.jjmm.ink:1000/web/update/11a4008bbsiosapp.json") else {
+        print("版本检查URL无效，函数退出")
+        return
+    }
+    let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        if let error = error {
+            print("版本检查出错: \(error)")
+            return
+        }
+        if let data = data {
+            do {
+                let decoder = JSONDecoder()
+                print("获取到的JSON数据: \(String(data: data, encoding: .utf8) ?? "无数据")")
+                let versionInfo = try decoder.decode(VersionInfo.self, from: data)
+                let currentVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
+                if versionInfo.version != currentVersion {
+                    DispatchQueue.main.async {
+                        if let webUrl = versionInfo.web {
+                            showVersionUpdateAlert(webUrl, versionInfo.version)
+                        }
+                    }
+                } else {
+                    print("手动检测到无更新，准备弹出提示框")
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "提示", message: "现在无更新", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "确定", style: .default))
+                        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene, let rootViewController = windowScene.windows.first?.rootViewController {
+                            rootViewController.present(alert, animated: true)
+                        }
                     }
                 }
             } catch {
@@ -256,3 +301,12 @@ func showVersionUpdateAlert(_ updateUrl: String, _ newVersion: String) {
         rootViewController.present(alert, animated: true)
     }
 }
+
+    func checkVersionReminder() {
+        // 检查是否设置了永不提醒
+        let neverRemind = UserDefaults.standard.bool(forKey: "neverRemindVersionUpdate")
+        if neverRemind {
+            print("用户已设置永不提醒版本更新，跳过检查。")
+            return
+        }
+    }

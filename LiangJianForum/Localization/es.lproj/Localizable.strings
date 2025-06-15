@@ -135,6 +135,12 @@
 "请输入密码" = "Por favor, ingrese la contraseña";
 "两次输入的密码不匹配" = "Las dos contraseñas ingresadas no coinciden";
 "请输入有效的邮箱地址" = "Por favor, ingrese una dirección de correo electrónico válida";
+"在发送帖子时无法选择标签" = "No se pueden seleccionar etiquetas al enviar un mensaje";
+"注册只能用户名和昵称一样" = "Al registrarse, el nombre de usuario y el apodo deben ser iguales";
+"无法查看资产记录" = "No se pueden ver los registros de activos";
+"有些按钮无法点击" = "Algunos botones no se pueden hacer clic";
+"两次输入的密码不匹配" = "Las dos contraseñas ingresadas no coinciden";
+"请输入有效的邮箱地址" = "Por favor, ingrese una dirección de correo electrónico válida";
 "注册" = "Registrarse";
 // MARK: - BugsView
 // Button

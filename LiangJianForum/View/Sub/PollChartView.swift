@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Charts
+import UIKit
 
 struct PollChartView: View {
     @EnvironmentObject var appSettings: AppSettings
@@ -27,7 +28,7 @@ struct PollChartView: View {
     @State private var isLoading = false
     @State private var isVotingComplete = false
     @State private var isPollChartVisible = true
-
+    @State private var isSaveImagePresented = false
     
     var body: some View {
         if let voteTitle = voteQuestion{
@@ -198,6 +199,16 @@ struct PollChartView: View {
                     }
                 }
             }
+            .contextMenu { 
+                Button(action: { 
+                    isSaveImagePresented = true 
+                }) { 
+                    Text("保存为图片") 
+                } 
+            } 
+            .sheet(isPresented: $isSaveImagePresented) { 
+                SaveImageView(chartView: self) 
+            }
         }
     }
     
@@ -339,4 +350,20 @@ struct PollChartView: View {
         }
     }
 
+}
+
+struct SaveImageView: UIViewControllerRepresentable {
+    let chartView: PollChartView
+    func makeUIViewController(context: Context) -> UIViewController {
+        let vc = UIViewController()
+        let renderer = ImageRenderer(content: chartView)
+        if let uiImage = renderer.uiImage {
+            let imageView = UIImageView(image: uiImage)
+            vc.view.addSubview(imageView)
+            imageView.frame = vc.view.bounds
+            UIImageWriteToSavedPhotosAlbum(uiImage, nil, nil, nil)
+        }
+        return vc
+    }
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
 }

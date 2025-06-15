@@ -305,7 +305,8 @@ struct ProfileView: View {
 
                             HStack {
                                 Button("检查更新") {
-                                    checkVersionUpdate()
+                                    // 调用手动检查更新函数
+                                    checkManualVersionUpdate()
                                 }
                                 .bold()
                                 .disabled(false)

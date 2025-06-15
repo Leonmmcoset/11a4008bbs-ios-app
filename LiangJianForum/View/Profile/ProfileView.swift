@@ -8,6 +8,7 @@
 import SwiftUI
 import UIKit
 import SafariServices // 保留Safari框架导入
+import FlarumiOSApp
 
 struct ProfileView: View {
     @State private var username: String = ""
@@ -299,6 +300,14 @@ struct ProfileView: View {
                                 Button(action: openAppSettings) {
                                     Text("打开应用设置").bold()
                                 }
+                                .disabled(false)
+                            }
+
+                            HStack {
+                                Button("检查更新") {
+                                    checkVersionUpdate()
+                                }
+                                .bold()
                                 .disabled(false)
                             }
                         }

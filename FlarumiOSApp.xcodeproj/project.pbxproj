@@ -818,13 +818,13 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 172;
+				CURRENT_PROJECT_VERSION = 190;
 				DEVELOPMENT_ASSET_PATHS = "\"LiangJianForum/Preview Content\"";
 				DEVELOPMENT_TEAM = UW7PBTF3KD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FlarumiOSApp-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "测试版-11A4008深论坛（原北林）";
+				INFOPLIST_KEY_CFBundleDisplayName = "11A4008深论坛（原北林）";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -836,7 +836,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8;
+				MARKETING_VERSION = 1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = ink.jjmm.leonmmcoset.BRTBBSDebug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -858,7 +858,7 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 172;
+				CURRENT_PROJECT_VERSION = 190;
 				DEVELOPMENT_ASSET_PATHS = "\"LiangJianForum/Preview Content\"";
 				DEVELOPMENT_TEAM = UW7PBTF3KD;
 				ENABLE_PREVIEWS = YES;
@@ -876,7 +876,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8;
+				MARKETING_VERSION = 1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = ink.jjmm.leonmmcoset.BRTBBS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

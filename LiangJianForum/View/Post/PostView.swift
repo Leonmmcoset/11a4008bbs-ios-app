@@ -194,14 +194,13 @@ struct PostView: View {
                                   }
                                   .onChange(of: currentPage) { _ in
                                       // Whenever currentPage changes, scroll to the top of the list
-                                      withAnimation {
+                                      withAnimation(.easeInOut(duration: 0.3)) {
                                           isLoading = true
                                           if isHeaderSlideViewEnabled{
                                               proxy.scrollTo("Top", anchor: .top)
                                           }else{
                                               proxy.scrollTo("TopWithoutSlide", anchor: .top)
                                           }
-                                          
                                           isLoading = false
                                       }
                                   }
@@ -421,7 +420,11 @@ struct PostView: View {
               }
           }
         }
-        
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text("当前是\(currentPage)页")
+            }
+        }
     }
     
     private func isDiscussionHidden(discussion : Datum) -> Bool{

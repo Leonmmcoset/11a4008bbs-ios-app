@@ -6,6 +6,7 @@
 
 import SwiftUI
 
+
 struct LoginPageView: View {
     @AppStorage("username") private var storedUsername = ""
     @AppStorage("password") private var storedPassword = ""
@@ -33,6 +34,9 @@ struct LoginPageView: View {
     @State private var buttonScale: CGFloat = 1
     @State private var toggleTranslation: CGFloat = 0
     @State private var termsOpacity: Double = 0
+    @State private var showLoginSuccessAlert = false
+    @State private var alertTimer: Timer?
+    @State private var isShowToast = false
     
     var body: some View {
         NavigationView {
@@ -101,6 +105,28 @@ struct LoginPageView: View {
                                 buttonScale = 1
                             }
                             if success {
+                                // 添加带动画对勾的状态变量
+                            @State var showCheckmark = false
+                                // 显示对勾动画
+                                withAnimation(.easeInOut(duration: 1.0)) {
+                                    showCheckmark = true
+                                }
+                                // 对勾动画视图，提前声明
+                                // 这个地方放在这里就对了，不要删，即使报警告
+                                let checkmark = VStack {
+                                    Image(systemName: "checkmark.circle.fill")
+                                        .resizable()
+                                        .frame(width: 50, height: 50)
+                                        .foregroundColor(.green)
+                                        .opacity(showCheckmark ? 1 : 0)
+                                        // 正确声明 checkmark 变量，需根据实际视图内容调整
+                                    let checkmark = Text("✓") // 示例对勾视图，可根据实际调整
+                                        .scaleEffect(showCheckmark ? 1 : 0.5)
+                                }
+                                // 将对勾视图添加到主视图中
+                                // 移除重复声明，使用上方已声明的 checkmark 变量
+                                .position(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
+                                // 展示对勾视图
                                 Task{
                                     await fetchUserProfile()
                                 }
@@ -213,6 +239,13 @@ struct LoginPageView: View {
                         }
                     )
                 }
+                .alert(isPresented: $showLoginSuccessAlert) { 
+                    Alert(
+                        title: Text("登录成功").foregroundColor(.green).font(.headline).accessibilityLabel("登录成功"),
+                        message: nil,
+                        dismissButton: .default(Text("确定"))
+                    )
+                }
             }
             
             .navigationBarHidden(true)
@@ -235,7 +268,6 @@ struct LoginPageView: View {
             
             if success, token != "", userId != 0 {
                 appSettings.resetTimer()
-                
                 wrongUsername = 0
                 wrongPassword = 0
                 showingMainPageView = true
@@ -244,17 +276,31 @@ struct LoginPageView: View {
                 appSettings.userId = userId
                 appSettings.identification = username
                 appSettings.password = password
-                
+                // 移除原有的 AlertToast 调用
+                // AlertToast.showToast(isShow: &isShowToast, "登录成功")
+                // 移除原有的登录成功弹窗逻辑
+                // showLoginSuccessAlert = true
+                // alertTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { [self] _ in
+                //     self.showLoginSuccessAlert = false
+                // }
+                // 使用原生实现 Toast 效果
+                DispatchQueue.main.async {
+                    if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene, let window = windowScene.windows.first {
+                        let alert = UIAlertController(title: "登录成功", message: nil, preferredStyle: .alert)
+                        window.rootViewController?.present(alert, animated: true, completion: nil)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                            alert.dismiss(animated: true, completion: nil)
+                        }
+                    }
+                }
                 if rememberMe{
                     rememberMeState = true
                 }else{
                     clearInputField()
                     rememberMeState = false
                 }
-                
                 print("Token: \(appSettings.token)")
                 print("User ID: \(appSettings.userId)")
-                
                 completion(true) // Authentication success
             } else {
                 

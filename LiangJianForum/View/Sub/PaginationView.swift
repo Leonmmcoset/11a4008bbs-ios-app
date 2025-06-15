@@ -18,6 +18,7 @@ struct PaginationView: View {
     @State private var firstPageButtonDisabled = false
     @State private var nextButtonDisabled = false
     let mode: PaginationMode
+    @State private var animation: Animation = .easeInOut(duration: 0.3)
 
     var body: some View {
         VStack {
@@ -32,20 +33,22 @@ struct PaginationView: View {
 
                         HStack {
                             Button(action: {
-                                if currentPage > 1 && !prevButtonDisabled {
-                                    currentPage -= 1
-                                    disableButtons()
-                                    if let fetchDiscussion = fetchDiscussion {
-                                        Task {
-                                            await fetchDiscussion()
-                                            enableButtons()
-                                        }
-                                    }
-                                    
-                                    if let fetchUserInfo = fetchUserInfo{
-                                        fetchUserInfo{success in
-                                            if success{
+                                withAnimation(animation) {
+                                    if currentPage > 1 && !prevButtonDisabled {
+                                        currentPage -= 1
+                                        disableButtons()
+                                        if let fetchDiscussion = fetchDiscussion {
+                                            Task {
+                                                await fetchDiscussion()
                                                 enableButtons()
+                                            }
+                                        }
+                                        
+                                        if let fetchUserInfo = fetchUserInfo{
+                                            fetchUserInfo{success in
+                                                if success{
+                                                    enableButtons()
+                                                }
                                             }
                                         }
                                     }
@@ -67,20 +70,22 @@ struct PaginationView: View {
                             Spacer()
 
                             Button(action: {
-                                if !firstPageButtonDisabled {
-                                    disableButtons()
-                                    currentPage = 1
-                                    if let fetchDiscussion = fetchDiscussion {
-                                        Task {
-                                            await fetchDiscussion()
-                                            enableButtons()
-                                        }
-                                    }
-                                    
-                                    if let fetchUserInfo = fetchUserInfo{
-                                        fetchUserInfo{success in
-                                            if success{
+                                withAnimation(animation) {
+                                    if !firstPageButtonDisabled {
+                                        disableButtons()
+                                        currentPage = 1
+                                        if let fetchDiscussion = fetchDiscussion {
+                                            Task {
+                                                await fetchDiscussion()
                                                 enableButtons()
+                                            }
+                                        }
+                                        
+                                        if let fetchUserInfo = fetchUserInfo{
+                                            fetchUserInfo{success in
+                                                if success{
+                                                    enableButtons()
+                                                }
                                             }
                                         }
                                     }
@@ -97,20 +102,22 @@ struct PaginationView: View {
                             Spacer()
 
                             Button(action: {
-                                if !nextButtonDisabled {
-                                    disableButtons()
-                                    currentPage += 1
-                                    if let fetchDiscussion = fetchDiscussion {
-                                        Task {
-                                            await fetchDiscussion()
-                                            enableButtons()
-                                        }
-                                    }
-                                    
-                                    if let fetchUserInfo = fetchUserInfo{
-                                        fetchUserInfo{success in
-                                            if success{
+                                withAnimation(animation) {
+                                    if !nextButtonDisabled {
+                                        disableButtons()
+                                        currentPage += 1
+                                        if let fetchDiscussion = fetchDiscussion {
+                                            Task {
+                                                await fetchDiscussion()
                                                 enableButtons()
+                                            }
+                                        }
+                                        
+                                        if let fetchUserInfo = fetchUserInfo{
+                                            fetchUserInfo{success in
+                                                if success{
+                                                    enableButtons()
+                                                }
                                             }
                                         }
                                     }
@@ -140,20 +147,22 @@ struct PaginationView: View {
 
                         HStack {
                             Button(action: {
-                                if currentPage > 19 && !prevButtonDisabled {
-                                    currentPage -= 20
-                                    disableButtons()
-                                    if let fetchDiscussion = fetchDiscussion {
-                                        Task {
-                                            await fetchDiscussion()
-                                            enableButtons()
-                                        }
-                                    }
-                                    
-                                    if let fetchUserInfo = fetchUserInfo{
-                                        fetchUserInfo{success in
-                                            if success{
+                                withAnimation(animation) {
+                                    if currentPage > 19 && !prevButtonDisabled {
+                                        currentPage -= 20
+                                        disableButtons()
+                                        if let fetchDiscussion = fetchDiscussion {
+                                            Task {
+                                                await fetchDiscussion()
                                                 enableButtons()
+                                            }
+                                        }
+                                        
+                                        if let fetchUserInfo = fetchUserInfo{
+                                            fetchUserInfo{success in
+                                                if success{
+                                                    enableButtons()
+                                                }
                                             }
                                         }
                                     }
@@ -175,20 +184,22 @@ struct PaginationView: View {
                             Spacer()
 
                             Button(action: {
-                                if !firstPageButtonDisabled {
-                                    disableButtons()
-                                    currentPage = 0
-                                    if let fetchDiscussion = fetchDiscussion {
-                                        Task {
-                                            await fetchDiscussion()
-                                            enableButtons()
-                                        }
-                                    }
-                                    
-                                    if let fetchUserInfo = fetchUserInfo{
-                                        fetchUserInfo{success in
-                                            if success{
+                                withAnimation(animation) {
+                                    if !firstPageButtonDisabled {
+                                        disableButtons()
+                                        currentPage = 0
+                                        if let fetchDiscussion = fetchDiscussion {
+                                            Task {
+                                                await fetchDiscussion()
                                                 enableButtons()
+                                            }
+                                        }
+                                        
+                                        if let fetchUserInfo = fetchUserInfo{
+                                            fetchUserInfo{success in
+                                                if success{
+                                                    enableButtons()
+                                                }
                                             }
                                         }
                                     }
@@ -205,20 +216,22 @@ struct PaginationView: View {
                             Spacer()
 
                             Button(action: {
-                                if !nextButtonDisabled {
-                                    disableButtons()
-                                    currentPage += 20
-                                    if let fetchDiscussion = fetchDiscussion {
-                                        Task {
-                                            await fetchDiscussion()
-                                            enableButtons()
-                                        }
-                                    }
-                                    
-                                    if let fetchUserInfo = fetchUserInfo{
-                                        fetchUserInfo{success in
-                                            if success{
+                                withAnimation(animation) {
+                                    if !nextButtonDisabled {
+                                        disableButtons()
+                                        currentPage += 20
+                                        if let fetchDiscussion = fetchDiscussion {
+                                            Task {
+                                                await fetchDiscussion()
                                                 enableButtons()
+                                            }
+                                        }
+                                        
+                                        if let fetchUserInfo = fetchUserInfo{
+                                            fetchUserInfo{success in
+                                                if success{
+                                                    enableButtons()
+                                                }
                                             }
                                         }
                                     }

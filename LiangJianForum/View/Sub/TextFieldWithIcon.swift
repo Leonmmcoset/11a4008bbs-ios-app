@@ -33,6 +33,9 @@ struct TextFieldWithIcon: View {
                 .disableAutocorrection(true)
                 .onTapGesture {
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                    withAnimation(.easeInOut(duration: 0.3)) {
+                        wrongInputRedBorder = 0
+                    }
                 }
         }
         .opacity(isAnimating ? 1 : 0)

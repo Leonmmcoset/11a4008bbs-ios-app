@@ -15,6 +15,7 @@ struct FlarumiOSApp: App {
                     if !UserDefaults.standard.bool(forKey: "hasAcceptedPrivacyPolicy") {
                         showPrivacySheet = true
                     }
+                    checkVersionUpdate()
                 }
                .sheet(isPresented: $showPrivacySheet) {
                     PrivacyPolicySheet(
@@ -198,5 +199,60 @@ struct PrivacyPolicySheet: View {
                 UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
             }
         }
+    }
+}
+
+struct VersionInfo: Codable {
+    let version: String
+    let web: String?
+}
+
+public func checkVersionUpdate() {
+    guard let url = URL(string: "http://leonmmcoset.jjmm.ink:1000/web/update/11a4008bbsiosapp.json") else {
+        return
+    }
+    let task = URLSession.shared.dataTask(with: url) {
+        (data, response, error) in
+        if let error = error {
+            print("版本检查出错: \(error)")
+            return
+        }
+        if let data = data {
+            do {
+                let decoder = JSONDecoder()
+                print("获取到的JSON数据: \(String(data: data, encoding: .utf8) ?? "无数据")")
+                let versionInfo = try decoder.decode(VersionInfo.self, from: data)
+                let currentVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
+                if versionInfo.version != currentVersion {
+                    DispatchQueue.main.async {
+                        if let webUrl = versionInfo.web {
+                        showVersionUpdateAlert(webUrl, versionInfo.version)
+                    }
+                    }
+                }
+            } catch {
+                print("解析版本信息出错: \(error)")
+            }
+        }
+    }
+    task.resume()
+}
+
+func showVersionUpdateAlert(_ updateUrl: String, _ newVersion: String) {
+    let alert = UIAlertController(title: "发现新版本", message: "发现新版本 \(newVersion)，是否更新到最新版本？", preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "进入更新网站", style: .default) {
+        _ in
+        if let url = URL(string: updateUrl) {
+            UIApplication.shared.open(url)
+        }
+    })
+    alert.addAction(UIAlertAction(title: "下次打开APP时提醒", style: .cancel))
+    alert.addAction(UIAlertAction(title: "永不提醒", style: .destructive) {
+        _ in
+        // 记录用户选择，后续不再提醒
+        UserDefaults.standard.set(true, forKey: "neverRemindVersionUpdate")
+    })
+    if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene, let rootViewController = windowScene.windows.first?.rootViewController {
+        rootViewController.present(alert, animated: true)
     }
 }

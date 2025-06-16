@@ -54,21 +54,22 @@
 "Reply successfully posted" = "返信が正常に投稿されました";
 "default_sort_option" = "投稿順序";
 "latest_sort_option" = "最新の返信";
+"subsription_sort" = "私のフォロー";
 "Failed to sign in" = "ログインに失敗しました";
 "Please check your username/password or check the Internet connetction" = "ユーザー名とパスワードを確認してください。または、インターネット接続を確認してください";
 "🎀 Last seen at:" = "最後にオンラインの時刻：";
 "🎉 Join Time:" = "加入日時：";
 "🎎 DisplayName: " = "表示名：";
+"💰 money: " = "フォーラム通貨の数: ";
 "🎊 Username: " = "ユーザー名：";
 "🏖️ Discussion Count: " = "投稿したトピック数：";
 "🧬 Comment Count: " = "コメント数：";
-"💰 money: " = "フォーラム通貨の数: ";
-"Information has been hidden" = "情報が隠されました";
-"Earned Badges" = "獲得したバッジ";
-"No Badges Earned Yet" = "まだ獲得したバッジはありません";
 "comment_sector" = "コメント";
 "like_sector" = "いいね";
 "money_sector" = "資産記録";
+"Information has been hidden" = "情報が隠されました";
+"Earned Badges" = "獲得したバッジ";
+"No Badges Earned Yet" = "まだ獲得したバッジはありません";
 "🍾 In" = "に";
 "username" = "ユーザー名";
 "password" = "パスワード";
@@ -78,7 +79,6 @@
 "latest_sort_discussion" = "最新の投稿";
 "latest_sort_comment" = "最新の返信";
 "default_sort" = "ホームのデフォルト";
-"subsription_sort" = "私のフォロー";
 "sorted_by_text" = "並べ替え方法";
 "days later" = "%d 日後";
 "hours later" = "%d 時間後";
@@ -117,10 +117,6 @@
 "打开应用设置" = "アプリの設定を開く";
 "继续" = "続ける";
 "同意" = "同意する";
-"moneyauthor" = "作者に寄付する（任意の金額）";
-"如有Bug，请在论坛汇报并@LeonMMcoset" = "バグがある場合は、フォーラムで報告し、@LeonMMcoset を付けてください";
-"版本: \(appVersion) (构建版本: \(appBuild))" = "バージョン: \(appVersion) (ビルドバージョン: \(appBuild))";
-// MARK: - RegistrationView
 "用户名(登录用 数字或字母组合)" = "ユーザー名（ログイン用 数字またはアルファベットの組み合わせ）";
 "密码" = "パスワード";
 "确认密码" = "パスワードを確認";
@@ -135,8 +131,11 @@
 "请输入密码" = "パスワードを入力してください";
 "两次输入的密码不匹配" = "2回入力したパスワードが一致しません";
 "请输入有效的邮箱地址" = "有効なメールアドレスを入力してください";
-"注册" = "新規登録";
-// MARK: - BugsView
+"·注册" = "·Sign Up";
+"moneyauthor" = "作者に寄付する（任意の金額）";
+"如有Bug，请在论坛汇报并@LeonMMcoset" = "バグがある場合は、フォーラムで報告し、@LeonMMcoset を付けてください";
+"版本: \(appVersion) (构建版本: \(appBuild))" = "バージョン: \(appVersion) (ビルドバージョン: \(appBuild))";
+// MARK: BugsView
 // Button
 "Bugs" = "アプリに存在する既知のバグ";
 // Page

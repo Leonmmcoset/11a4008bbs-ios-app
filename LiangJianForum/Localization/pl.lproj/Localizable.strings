@@ -18,9 +18,9 @@
 "Message" = "Wiadomość";
 "Me" = "Ja";
 "Search" = "Szukaj";
-"days ago" = "Dwa dni temu"; /* 注：波兰语中日期表达有特殊变格，这里用固定示例，准确应该根据具体数字调整； */
-"hours ago" = "Kilka godzin temu"; /* 同理，这里是示例，应根据具体数字调整； */
-"minutes ago" = "Kilka minut temu"; /* 同理，根据数字调整； */
+"days ago" = "Dwa dni temu";
+"hours ago" = "Kilka godzin temu";
+"minutes ago" = "Kilka minut temu";
 "Loading..." = "Ładowanie...";
 "All Tags" = "Wszystkie kategorie";
 "Notification Center" = "Centrum powiadomień";
@@ -54,21 +54,22 @@
 "Reply successfully posted" = "Odpowiedź została pomyślnie wysłana";
 "default_sort_option" = "Kolejność publikacji";
 "latest_sort_option" = "Najnowsze odpowiedzi";
+"subsription_sort" = "Moje subskrypcje";
 "Failed to sign in" = "Nie udało się zalogować";
 "Please check your username/password or check the Internet connetction" = "Sprawdź nazwę użytkownika/hasło lub połączenie internetowe";
 "🎀 Last seen at:" = "Ostatnio widziany/a: ";
 "🎉 Join Time:" = "Data dołączenia: ";
 "🎎 DisplayName: " = "Wyświetlana nazwa: ";
+"💰 money: " = "Pieniądze na forum: ";
 "🎊 Username: " = "Nazwa użytkownika: ";
 "🏖️ Discussion Count: " = "Liczba opublikowanych dyskusji: ";
 "🧬 Comment Count: " = "Liczba komentarzy: ";
-"💰 money: " = "Pieniądze na forum: ";
-"Information has been hidden" = "Informacje zostały ukryte";
-"Earned Badges" = "Zdobyte odznaki";
-"No Badges Earned Yet" = "Nie zdobyłeś jeszcze żadnych odznak";
 "comment_sector" = "Komentarze";
 "like_sector" = "Lubię to";
 "money_sector" = "Zapisy finansowe";
+"Information has been hidden" = "Informacje zostały ukryte";
+"Earned Badges" = "Zdobyte odznaki";
+"No Badges Earned Yet" = "Nie zdobyłeś jeszcze żadnych odznak";
 "🍾 In" = "W";
 "username" = "Nazwa użytkownika";
 "password" = "Hasło";
@@ -78,7 +79,6 @@
 "latest_sort_discussion" = "Najnowsze posty";
 "latest_sort_comment" = "Najnowsze komentarze";
 "default_sort" = "Domyślnie na stronie głównej";
-"subsription_sort" = "Moje subskrypcje";
 "sorted_by_text" = "Sortuj według";
 "days later" = "Za %d dni";
 "hours later" = "Za %d godzin";
@@ -117,10 +117,6 @@
 "打开应用设置" = "Otwórz ustawienia aplikacji";
 "继续" = "Kontynuuj";
 "同意" = "Zgadzam się";
-"moneyauthor" = "Wesprzyj autora (dowolna kwota)";
-"如有Bug，请在论坛汇报并@LeonMMcoset" = "Jeśli znajdziesz błąd, zgłoś go na forum i oznacz @LeonMMcoset";
-"版本: \(appVersion) (构建版本: \(appBuild))" = "Wersja: \(appVersion) (Wersja kompilacji: \(appBuild))";
-// MARK: - RegistrationView
 "用户名(登录用 数字或字母组合)" = "Nazwa użytkownika (do logowania, kombinacja cyfr lub liter)";
 "密码" = "Hasło";
 "确认密码" = "Potwierdź hasło";
@@ -135,8 +131,11 @@
 "请输入密码" = "Wpisz hasło";
 "两次输入的密码不匹配" = "Wprowadzone hasła nie są identyczne";
 "请输入有效的邮箱地址" = "Wprowadź poprawny adres e - mail";
-"注册" = "Zarejestruj się";
-// MARK: - BugsView
+"·注册" = "·Sign Up";
+"moneyauthor" = "Wesprzyj autora (dowolna kwota)";
+"如有Bug，请在论坛汇报并@LeonMMcoset" = "Jeśli znajdziesz błąd, zgłoś go na forum i oznacz @LeonMMcoset";
+"版本: \(appVersion) (构建版本: \(appBuild))" = "Wersja: \(appVersion) (Wersja kompilacji: \(appBuild))";
+// MARK: BugsView
 // Button
 "Bugs" = "Znane błędy aplikacji";
 // Page

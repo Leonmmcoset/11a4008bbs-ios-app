@@ -20,7 +20,7 @@ struct PostDetailView: View {
     @State private var isLoading = false
     @State private var isSubViewLoading = false
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var appsettings: AppSettings
+    @EnvironmentObject var appsettings: ViewAppSettings
     @State private var showingPostingArea = false
     @State private var isLiked = false
     @State private var isReplied = false

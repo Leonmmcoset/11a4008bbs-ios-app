@@ -19,7 +19,7 @@ struct TagDetail: View {
     @State private var discussionData = [Datum]()
     @State private var discussionIncluded = [Included]()
     @State private var discussionLinksFirst : String = ""
-    @EnvironmentObject var appsettings: AppSettings
+    @EnvironmentObject var appsettings: ViewAppSettings
     @State private var searchTerm = ""
     
     private func findDisplayName(_ userid: String, in array: [Included]) -> String? {

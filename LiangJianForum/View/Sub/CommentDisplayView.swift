@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CommentDisplayView: View {
-    @EnvironmentObject var appSettings: AppSettings
+    @EnvironmentObject var appSettings: ViewAppSettings
     @Environment(\.colorScheme) var colorScheme
     @Binding var copiedText: String?
     var contentHTML: String?

@@ -34,7 +34,7 @@ struct LinksProfileView: View {
     @State private var showSaveAlert = false
     @State private var showLogoutAlert = false
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var appSettings: AppSettings
+    @EnvironmentObject var appSettings: ViewAppSettings
     @State private var showLoginPage = false
     @State private var buttonText = "保存"
     @State private var searchTerm = ""

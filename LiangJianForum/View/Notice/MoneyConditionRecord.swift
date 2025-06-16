@@ -13,7 +13,7 @@ struct MoneyConditionRecord: View {
     
     @State private var moneyData = [Datum10]()
     @State private var money = -1.0
-    @EnvironmentObject var appSettings: AppSettings
+    @EnvironmentObject var appSettings: ViewAppSettings
     
     var body: some View {
         VStack{

@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct TagField: View {
-    @EnvironmentObject var appSettings: AppSettings
+    @EnvironmentObject var appSettings: ViewAppSettings
     @State private var tags = [Datum6]()
     @State private var searchTerm = ""
     

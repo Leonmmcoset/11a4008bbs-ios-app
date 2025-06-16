@@ -341,6 +341,9 @@ struct ProfileView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     Menu {
+                        Button { SettingsView() } label: {
+                            Label("设置", systemImage: "settings")
+                        }
                         Section(NSLocalizedString("profile_operations", comment: "")) {
                             Button { logout() } label: {
                                 Label(NSLocalizedString("choose_to_quit", comment: ""), systemImage: "iphone.and.arrow.forward")

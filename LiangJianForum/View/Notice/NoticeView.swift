@@ -16,7 +16,7 @@ struct NoticeView: View {
     let filterOptions: [String] = [NSLocalizedString("comment_sector", comment: ""), NSLocalizedString("like_sector", comment: ""), NSLocalizedString("follow_sector", comment: "")]
     @State private var userCommentData = [Datum8]()
     @State private var userCommentInclude = [Included8]()
-    @EnvironmentObject var appsettings: AppSettings
+    @EnvironmentObject var appsettings: ViewAppSettings
     @State private var isLoading = false
     @State private var hasNextPage = false
     @State private var hasPrevPage = false

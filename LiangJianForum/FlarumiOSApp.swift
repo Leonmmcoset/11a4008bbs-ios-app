@@ -3,7 +3,7 @@ import BackgroundTasks
 
 @main
 struct FlarumiOSApp: App {
-    @StateObject private var appSettings = AppSettings()
+    @StateObject private var appSettings = ViewAppSettings()
     @State private var showPrivacySheet = false // 用于跟踪是否显示隐私提示 Sheet
 
     var body: some Scene {
@@ -16,7 +16,9 @@ struct FlarumiOSApp: App {
                         showPrivacySheet = true
                     }
                     if appSettings.isAutoCheckUpdate {
-                        checkAutomaticVersionUpdate()
+                    checkAutomaticVersionUpdate()
+                } else {
+                    print("自动检查更新已关闭，跳过检查。")
                     }
                     print("rootViewController 状态: ", UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene, "的根视图控制器 ", (UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene)?.windows.first?.rootViewController)
                 }

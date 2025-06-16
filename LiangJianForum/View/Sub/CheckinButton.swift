@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CheckinButton: View {
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var appSettings: AppSettings
+    @EnvironmentObject var appSettings: ViewAppSettings
     @Binding var isCheckInSucceeded : Bool
     
     

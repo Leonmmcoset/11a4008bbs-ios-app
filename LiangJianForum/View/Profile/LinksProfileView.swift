@@ -117,6 +117,10 @@ struct LinksProfileView: View {
                         Text("\(username)").bold()
                     }
                     HStack {
+                        Text("用户ID：").foregroundStyle(.secondary)
+                        Text("\(userId)").bold()
+                    }
+                    HStack {
                         Text("🎎 DisplayName: ").foregroundStyle(.secondary)
                         if isVIP{
                             Text("\(displayName)")

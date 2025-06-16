@@ -15,7 +15,9 @@ struct FlarumiOSApp: App {
                     if !UserDefaults.standard.bool(forKey: "hasAcceptedPrivacyPolicy") {
                         showPrivacySheet = true
                     }
-                    checkAutomaticVersionUpdate()
+                    if appSettings.isAutoCheckUpdate {
+                        checkAutomaticVersionUpdate()
+                    }
                     print("rootViewController 状态: ", UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene, "的根视图控制器 ", (UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene)?.windows.first?.rootViewController)
                 }
                .sheet(isPresented: $showPrivacySheet) {
@@ -210,6 +212,11 @@ struct VersionInfo: Codable {
 
 public func checkAutomaticVersionUpdate() {
     print("开始执行自动版本检查函数")
+    let neverRemind = UserDefaults.standard.bool(forKey: "neverRemindVersionUpdate")
+    if neverRemind {
+        print("用户已设置永不提醒，自动检查不弹出提示")
+        return
+    }
     guard let url = URL(string: "http://leonmmcoset.jjmm.ink:1000/web/update/11a4008bbsiosapp.json") else {
         print("版本检查URL无效，函数退出")
         return
@@ -228,7 +235,7 @@ public func checkAutomaticVersionUpdate() {
                 if versionInfo.version != currentVersion {
                     DispatchQueue.main.async {
                         if let webUrl = versionInfo.web {
-                            showVersionUpdateAlert(webUrl, versionInfo.version)
+    showVersionUpdateAlert(webUrl, versionInfo.version)
                         }
                     }
                 } else {
@@ -244,6 +251,7 @@ public func checkAutomaticVersionUpdate() {
 
 public func checkManualVersionUpdate() {
     print("开始执行手动版本检查函数")
+    // 手动检查时忽略永不提醒设置
     guard let url = URL(string: "http://leonmmcoset.jjmm.ink:1000/web/update/11a4008bbsiosapp.json") else {
         print("版本检查URL无效，函数退出")
         return
@@ -262,7 +270,7 @@ public func checkManualVersionUpdate() {
                 if versionInfo.version != currentVersion {
                     DispatchQueue.main.async {
                         if let webUrl = versionInfo.web {
-                            showVersionUpdateAlert(webUrl, versionInfo.version)
+                            showVersionUpdateAlert(webUrl, versionInfo.version, isManualCheck: true)
                         }
                     }
                 } else {
@@ -283,7 +291,7 @@ public func checkManualVersionUpdate() {
     task.resume()
 }
 
-func showVersionUpdateAlert(_ updateUrl: String, _ newVersion: String) {
+func showVersionUpdateAlert(_ updateUrl: String, _ newVersion: String, isManualCheck: Bool = false) {
     let alert = UIAlertController(title: "发现新版本", message: "发现新版本 \(newVersion)，是否更新到最新版本？", preferredStyle: .alert)
     alert.addAction(UIAlertAction(title: "进入更新网站", style: .default) {
         _ in
@@ -292,11 +300,13 @@ func showVersionUpdateAlert(_ updateUrl: String, _ newVersion: String) {
         }
     })
     alert.addAction(UIAlertAction(title: "下次打开APP时提醒", style: .cancel))
-    alert.addAction(UIAlertAction(title: "永不提醒", style: .destructive) {
-        _ in
-        // 记录用户选择，后续不再提醒
-        UserDefaults.standard.set(true, forKey: "neverRemindVersionUpdate")
-    })
+    if !isManualCheck {
+        alert.addAction(UIAlertAction(title: "永不提醒", style: .destructive) {
+            _ in
+            // 记录用户选择，后续不再提醒
+            UserDefaults.standard.set(true, forKey: "neverRemindVersionUpdate")
+        })
+    }
     if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene, let rootViewController = windowScene.windows.first?.rootViewController {
         rootViewController.present(alert, animated: true)
     }

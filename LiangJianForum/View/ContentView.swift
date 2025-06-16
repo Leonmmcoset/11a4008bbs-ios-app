@@ -16,6 +16,7 @@ struct ContentView: View {
         case profile
         case tag
         case notice
+        case settings
     }
     
     var body: some View {
@@ -37,6 +38,10 @@ struct ContentView: View {
                 ProfileView()
                     .tabItem { Label("Me", systemImage: "person") }
                     .tag(Tab.profile)
+
+                SettingsView()
+                    .tabItem { Label("Settings", systemImage: "gear") }
+                    .tag(Tab.settings)
             }
             .onAppear{
                 Task{

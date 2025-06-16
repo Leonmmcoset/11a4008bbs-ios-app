@@ -1,8 +1,0 @@
-project_id_env: CROWDIN_PROJECT_ID
-api_token_env: CROWDIN_PERSONAL_TOKEN
-preserve_hierarchy: true
-files:
-  - source: '/LiangJianForum/Localization/en.lproj/*.strings'
-    translation: '/LiangJianForum/Localization/%two_letters_code%.lproj/%original_file_name%'
-  - source: '/LiangJianForum/Assets.xcassets/**/*.strings'
-    translation: '/LiangJianForum/Assets.xcassets/%locale%/%original_file_name%'

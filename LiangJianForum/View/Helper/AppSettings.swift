@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 class AppSettings: ObservableObject {
+    @Published var isAutoCheckUpdate = true // 自动检查更新开关，默认开启
     @Published var completedVotes: [Int: [String]] = [:]
     @Published var refreshPostView = false
     @Published var refreshReplyView = false
@@ -74,7 +75,7 @@ class AppSettings: ObservableObject {
         // Stop the timer
         timer?.invalidate()
     }
-
+    @Published var hasCancelledUpdate = false // 记录是否曾取消更新
 }
 
 extension String{

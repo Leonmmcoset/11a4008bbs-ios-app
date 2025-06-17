@@ -40,7 +40,7 @@ struct ContentView: View {
                     .tag(Tab.profile)
 
                 SettingsView()
-                    .tabItem { Label("Settings", systemImage: "gear") }
+                    .tabItem { Label("设置", systemImage: "gear") }
                     .tag(Tab.settings)
             }
             .onAppear{

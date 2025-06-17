@@ -3,7 +3,7 @@ import BackgroundTasks
 
 @main
 struct FlarumiOSApp: App {
-    @StateObject private var appSettings = ModelAppSettings()
+    @StateObject private var appSettings = AppSettings()
     @State private var showPrivacySheet = false // 用于跟踪是否显示隐私提示 Sheet
 
     var body: some Scene {

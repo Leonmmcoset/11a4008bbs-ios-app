@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var appsettings: ViewAppSettings
+    @EnvironmentObject var appsettings: AppSettings
     @State private var selection: Tab = .post
     
     enum Tab {
@@ -39,9 +39,9 @@ struct ContentView: View {
                     .tabItem { Label("Me", systemImage: "person") }
                     .tag(Tab.profile)
 
-//                SettingsView()
-//                    .tabItem { Label("Settings", systemImage: "gear") }
-//                    .tag(Tab.settings)
+                SettingsView()
+                    .tabItem { Label("设置", systemImage: "gear") }
+                    .tag(Tab.settings)
             }
             .onAppear{
                 Task{

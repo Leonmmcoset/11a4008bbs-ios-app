@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PostViewContentLoader: View {
-    @EnvironmentObject var appsettings: ViewAppSettings
+    @EnvironmentObject var appsettings: AppSettings
     @Environment(\.colorScheme) var colorScheme
     @Binding var selectedSortingOption : String
     @Binding var discussionData : [Datum]

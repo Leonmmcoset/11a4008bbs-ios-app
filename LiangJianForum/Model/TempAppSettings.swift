@@ -1,6 +1,6 @@
 import SwiftUI
 
-class AppSettings: ObservableObject {
+class TempAppSettings: ObservableObject {
     @Published var isLoggedIn = false
     @Published var FlarumUrl = "https://discuss.flarum.org"
     @Published var userId = ""

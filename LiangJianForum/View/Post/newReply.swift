@@ -15,7 +15,7 @@ struct newReply: View {
     @State private var succeessfullyReply = false
     @AppStorage("postContent") var replyContent: String = ""
     @State private var newReplyContent = ""
-    @EnvironmentObject var appSettings: ViewAppSettings
+    @EnvironmentObject var appSettings: AppSettings
     @State private var isReplying = false
     
     var body: some View {

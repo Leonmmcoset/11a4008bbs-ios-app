@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @EnvironmentObject var appsettings: ViewAppSettings
+    @EnvironmentObject var appsettings: AppSettings
 
     var body: some View {
         List {

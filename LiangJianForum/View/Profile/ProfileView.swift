@@ -31,6 +31,7 @@ struct ProfileView: View {
     @State private var showLoginPage = false
     @State private var showChangeProfilePage = false
     @State private var buttonText = "保存"
+
     @State private var showSafariView = false // 控制Safari视图显示的状态变量
     
     private var isUserVIP: Bool {
@@ -341,9 +342,6 @@ struct ProfileView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     Menu {
-                        Button { SettingsView() } label: {
-                            Label("设置", systemImage: "settings")
-                        }
                         Section(NSLocalizedString("profile_operations", comment: "")) {
                             Button { logout() } label: {
                                 Label(NSLocalizedString("choose_to_quit", comment: ""), systemImage: "iphone.and.arrow.forward")

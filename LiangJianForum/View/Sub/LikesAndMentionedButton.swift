@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LikesAndMentionedButton: View {
-    @EnvironmentObject var appSettings: ViewAppSettings
+    @EnvironmentObject var appSettings: AppSettings
     
     let postId: String
     let likesCount: Int?

@@ -10,7 +10,7 @@ import Charts
 import UIKit
 
 struct PollChartView: View {
-    @EnvironmentObject var appSettings: ViewAppSettings
+    @EnvironmentObject var appSettings: AppSettings
     
     var pollOptionsAndVoteCount: [String: Int]
     var AnswerWithId: [String: String]

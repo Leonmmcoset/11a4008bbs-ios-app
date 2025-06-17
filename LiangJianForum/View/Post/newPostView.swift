@@ -17,7 +17,7 @@ struct newPostView: View {
     @State private var newPostTitle = ""
     @State private var newPostContent = ""
     @State private var message = NSLocalizedString("post_button_text", comment: "")
-    @EnvironmentObject var appSettings: ViewAppSettings
+    @EnvironmentObject var appSettings: AppSettings
     @State private var tags = [Datum6]()
     @State private var selectedButtonIds: [String] = []
     @State private var isPosting = false

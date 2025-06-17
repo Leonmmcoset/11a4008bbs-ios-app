@@ -16,7 +16,7 @@ struct CommentsView: View {
     @Binding var userCommentInclude: [Included8]
     var avatarUrl: String
     @Binding var searchTerm: String
-    @EnvironmentObject var appsettings: ViewAppSettings
+    @EnvironmentObject var appsettings: AppSettings
     @State private var currentPageOffset = 0
     @State private var isLoading = false
     @State private var hasNextPage = false

@@ -14,7 +14,7 @@ struct ChangeProfileDetail: View {
     @AppStorage("postTitle") var displayName: String = ""
     @State private var newDisplayName = ""
     @State private var message = "保存"
-    @EnvironmentObject var appSettings: ViewAppSettings
+    @EnvironmentObject var appSettings: AppSettings
     
     
     var body: some View {

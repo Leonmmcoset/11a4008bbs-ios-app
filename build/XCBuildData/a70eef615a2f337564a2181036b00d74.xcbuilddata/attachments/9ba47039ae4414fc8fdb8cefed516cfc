@@ -1,0 +1,30 @@
+{
+  "" : {
+    "const-values" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSAppWedgitExtension.build/Objects-normal/arm64/FlarumiOSAppWedgitExtension-master.swiftconstvalues",
+    "dependencies" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSAppWedgitExtension.build/Objects-normal/arm64/FlarumiOSAppWedgitExtension-master.d",
+    "diagnostics" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSAppWedgitExtension.build/Objects-normal/arm64/FlarumiOSAppWedgitExtension-master.dia",
+    "emit-module-dependencies" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSAppWedgitExtension.build/Objects-normal/arm64/FlarumiOSAppWedgitExtension-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSAppWedgitExtension.build/Objects-normal/arm64/FlarumiOSAppWedgitExtension-master-emit-module.dia",
+    "swift-dependencies" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSAppWedgitExtension.build/Objects-normal/arm64/FlarumiOSAppWedgitExtension-master.swiftdeps"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/FlarumiOSAppWedgit/AppIntent.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSAppWedgitExtension.build/Objects-normal/arm64/AppIntent.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSAppWedgitExtension.build/Objects-normal/arm64/AppIntent.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSAppWedgitExtension.build/Objects-normal/arm64/AppIntent.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/FlarumiOSAppWedgit/FlarumiOSAppWedgit.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSAppWedgitExtension.build/Objects-normal/arm64/FlarumiOSAppWedgit.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSAppWedgitExtension.build/Objects-normal/arm64/FlarumiOSAppWedgit.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSAppWedgitExtension.build/Objects-normal/arm64/FlarumiOSAppWedgit.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/FlarumiOSAppWedgit/FlarumiOSAppWedgitBundle.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSAppWedgitExtension.build/Objects-normal/arm64/FlarumiOSAppWedgitBundle.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSAppWedgitExtension.build/Objects-normal/arm64/FlarumiOSAppWedgitBundle.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSAppWedgitExtension.build/Objects-normal/arm64/FlarumiOSAppWedgitBundle.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSAppWedgitExtension.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSAppWedgitExtension.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSAppWedgitExtension.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSAppWedgitExtension.build/Objects-normal/arm64/GeneratedAssetSymbols.o"
+  }
+}

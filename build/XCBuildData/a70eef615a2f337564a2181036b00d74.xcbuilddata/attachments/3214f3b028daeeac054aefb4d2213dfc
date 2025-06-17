@@ -1,0 +1,15 @@
+{
+  "" : {
+    "const-values" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/SwiftUI-Shimmer/build/SwiftUI-Shimmer.build/Release-iphoneos/Shimmer.build/Objects-normal/arm64/Shimmer-master.swiftconstvalues",
+    "dependencies" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/SwiftUI-Shimmer/build/SwiftUI-Shimmer.build/Release-iphoneos/Shimmer.build/Objects-normal/arm64/Shimmer-master.d",
+    "diagnostics" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/SwiftUI-Shimmer/build/SwiftUI-Shimmer.build/Release-iphoneos/Shimmer.build/Objects-normal/arm64/Shimmer-master.dia",
+    "emit-module-dependencies" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/SwiftUI-Shimmer/build/SwiftUI-Shimmer.build/Release-iphoneos/Shimmer.build/Objects-normal/arm64/Shimmer-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/SwiftUI-Shimmer/build/SwiftUI-Shimmer.build/Release-iphoneos/Shimmer.build/Objects-normal/arm64/Shimmer-master-emit-module.dia",
+    "swift-dependencies" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/SwiftUI-Shimmer/build/SwiftUI-Shimmer.build/Release-iphoneos/Shimmer.build/Objects-normal/arm64/Shimmer-master.swiftdeps"
+  },
+  "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/SwiftUI-Shimmer/Sources/Shimmer/Shimmer.swift" : {
+    "index-unit-output-path" : "/SwiftUI-Shimmer.build/Release-iphoneos/Shimmer.build/Objects-normal/arm64/Shimmer.o",
+    "llvm-bc" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/SwiftUI-Shimmer/build/SwiftUI-Shimmer.build/Release-iphoneos/Shimmer.build/Objects-normal/arm64/Shimmer.bc",
+    "object" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/SwiftUI-Shimmer/build/SwiftUI-Shimmer.build/Release-iphoneos/Shimmer.build/Objects-normal/arm64/Shimmer.o"
+  }
+}

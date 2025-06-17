@@ -1,0 +1,75 @@
+{
+  "" : {
+    "const-values" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/Awesome-master.swiftconstvalues",
+    "dependencies" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/Awesome-master.d",
+    "diagnostics" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/Awesome-master.dia",
+    "emit-module-dependencies" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/Awesome-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/Awesome-master-emit-module.dia",
+    "swift-dependencies" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/Awesome-master.swiftdeps"
+  },
+  "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/Classes/Enums/Awesome.swift" : {
+    "index-unit-output-path" : "/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/Awesome.o",
+    "llvm-bc" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/Awesome.bc",
+    "object" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/Awesome.o"
+  },
+  "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/Classes/Enums/AwesomePro.swift" : {
+    "index-unit-output-path" : "/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/AwesomePro.o",
+    "llvm-bc" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/AwesomePro.bc",
+    "object" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/AwesomePro.o"
+  },
+  "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/Classes/Extensions/Amazing+Image.swift" : {
+    "index-unit-output-path" : "/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/Amazing+Image.o",
+    "llvm-bc" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/Amazing+Image.bc",
+    "object" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/Amazing+Image.o"
+  },
+  "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/Classes/Extensions/Amazing+Tools.swift" : {
+    "index-unit-output-path" : "/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/Amazing+Tools.o",
+    "llvm-bc" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/Amazing+Tools.bc",
+    "object" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/Amazing+Tools.o"
+  },
+  "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/Classes/Extensions/NSAttributedString+Awesome.swift" : {
+    "index-unit-output-path" : "/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/NSAttributedString+Awesome.o",
+    "llvm-bc" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/NSAttributedString+Awesome.bc",
+    "object" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/NSAttributedString+Awesome.o"
+  },
+  "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/Classes/Extensions/StringProtocol.swift" : {
+    "index-unit-output-path" : "/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/StringProtocol.o",
+    "llvm-bc" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/StringProtocol.bc",
+    "object" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/StringProtocol.o"
+  },
+  "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/Classes/Libs/Crossplatform.swift" : {
+    "index-unit-output-path" : "/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/Crossplatform.o",
+    "llvm-bc" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/Crossplatform.bc",
+    "object" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/Crossplatform.o"
+  },
+  "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/Classes/Libs/Fonts.swift" : {
+    "index-unit-output-path" : "/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/Fonts.o",
+    "llvm-bc" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/Fonts.bc",
+    "object" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/Fonts.o"
+  },
+  "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/Classes/Protocols/Amazing.swift" : {
+    "index-unit-output-path" : "/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/Amazing.o",
+    "llvm-bc" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/Amazing.bc",
+    "object" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/Amazing.o"
+  },
+  "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/Classes/Protocols/AwesomeFont.swift" : {
+    "index-unit-output-path" : "/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/AwesomeFont.o",
+    "llvm-bc" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/AwesomeFont.bc",
+    "object" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/AwesomeFont.o"
+  },
+  "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/Classes/SwiftUI/Awesome+Image.swift" : {
+    "index-unit-output-path" : "/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/Awesome+Image.o",
+    "llvm-bc" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/Awesome+Image.bc",
+    "object" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/Awesome+Image.o"
+  },
+  "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/Classes/SwiftUI/SwiftUI+Extensions.swift" : {
+    "index-unit-output-path" : "/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/SwiftUI+Extensions.o",
+    "llvm-bc" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/SwiftUI+Extensions.bc",
+    "object" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/SwiftUI+Extensions.o"
+  },
+  "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/DerivedSources/resource_bundle_accessor.swift" : {
+    "index-unit-output-path" : "/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/resource_bundle_accessor.o",
+    "llvm-bc" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/resource_bundle_accessor.bc",
+    "object" : "/Users/lizhengjie/Library/Developer/Xcode/DerivedData/FlarumiOSApp-hdcydvbqctvkncgwfdpfjyvtbfyy/SourcePackages/checkouts/Awesome/build/Awesome.build/Release-iphoneos/Awesome.build/Objects-normal/arm64/resource_bundle_accessor.o"
+  }
+}

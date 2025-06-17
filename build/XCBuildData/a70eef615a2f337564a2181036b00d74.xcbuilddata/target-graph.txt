@@ -1,0 +1,15 @@
+Target dependency graph (7 targets)
+Target 'FlarumiOSApp' in project 'FlarumiOSApp'
+➜ Explicit dependency on target 'FlarumiOSAppWedgitExtension' in project 'FlarumiOSApp'
+➜ Explicit dependency on target 'Awesome' in project 'Awesome'
+➜ Explicit dependency on target 'Shimmer' in project 'SwiftUI-Shimmer'
+Target 'Shimmer' in project 'SwiftUI-Shimmer'
+➜ Explicit dependency on target 'Shimmer' in project 'SwiftUI-Shimmer'
+Target 'Shimmer' in project 'SwiftUI-Shimmer' (no dependencies)
+Target 'Awesome' in project 'Awesome'
+➜ Explicit dependency on target 'Awesome' in project 'Awesome'
+➜ Explicit dependency on target 'Awesome_Awesome' in project 'Awesome'
+Target 'Awesome' in project 'Awesome'
+➜ Explicit dependency on target 'Awesome_Awesome' in project 'Awesome'
+Target 'Awesome_Awesome' in project 'Awesome' (no dependencies)
+Target 'FlarumiOSAppWedgitExtension' in project 'FlarumiOSApp' (no dependencies)

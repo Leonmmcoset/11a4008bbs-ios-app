@@ -1,0 +1,4 @@
+module Awesome {
+header "Awesome-Swift.h"
+export *
+}

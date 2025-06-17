@@ -8,7 +8,6 @@
 import SwiftUI
 import UIKit
 import SafariServices // 保留Safari框架导入
-import FlarumiOSApp
 
 struct ProfileView: View {
     @State private var username: String = ""

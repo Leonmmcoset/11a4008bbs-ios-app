@@ -1,0 +1,315 @@
+{
+  "" : {
+    "const-values" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/FlarumiOSApp-master.swiftconstvalues",
+    "dependencies" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/FlarumiOSApp-master.d",
+    "diagnostics" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/FlarumiOSApp-master.dia",
+    "emit-module-dependencies" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/FlarumiOSApp-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/FlarumiOSApp-master-emit-module.dia",
+    "swift-dependencies" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/FlarumiOSApp-master.swiftdeps"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/FlarumiOSApp.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/FlarumiOSApp.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/FlarumiOSApp.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/FlarumiOSApp.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/Model/DiscussionData.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/DiscussionData.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/DiscussionData.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/DiscussionData.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/Model/DiscussionDataWithId.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/DiscussionDataWithId.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/DiscussionDataWithId.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/DiscussionDataWithId.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/Model/HeaderSlideData.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/HeaderSlideData.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/HeaderSlideData.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/HeaderSlideData.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/Model/MoneyData.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/MoneyData.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/MoneyData.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/MoneyData.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/Model/NotificationData.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/NotificationData.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/NotificationData.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/NotificationData.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/Model/PostData.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PostData.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PostData.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PostData.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/Model/PostDataWithTag.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PostDataWithTag.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PostDataWithTag.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PostDataWithTag.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/Model/PostDetailModel.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PostDetailModel.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PostDetailModel.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PostDetailModel.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/Model/TagsData.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/TagsData.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/TagsData.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/TagsData.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/Model/UserCommentData.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/UserCommentData.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/UserCommentData.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/UserCommentData.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/Model/UserData.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/UserData.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/UserData.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/UserData.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/ContentView.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/ContentView.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Helper/AppSettings.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/AppSettings.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/AppSettings.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/AppSettings.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Helper/Helper.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/Helper.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/Helper.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/Helper.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Login/LoginPageView.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/LoginPageView.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/LoginPageView.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/LoginPageView.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Login/RegistrationView.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/RegistrationView.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/RegistrationView.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/RegistrationView.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Notice/CommentsView.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/CommentsView.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/CommentsView.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/CommentsView.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Notice/LikedCommentsView.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/LikedCommentsView.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/LikedCommentsView.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/LikedCommentsView.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Notice/MoneyConditionRecord.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/MoneyConditionRecord.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/MoneyConditionRecord.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/MoneyConditionRecord.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Notice/NoticeView.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/NoticeView.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/NoticeView.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/NoticeView.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Post/PostDetailView.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PostDetailView.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PostDetailView.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PostDetailView.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Post/PostView.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PostView.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PostView.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PostView.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Post/newPostView.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/newPostView.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/newPostView.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/newPostView.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Post/newReply.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/newReply.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/newReply.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/newReply.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Profile/APPInfoView.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/APPInfoView.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/APPInfoView.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/APPInfoView.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Profile/BadgeDetail.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/BadgeDetail.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/BadgeDetail.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/BadgeDetail.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Profile/BugsView.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/BugsView.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/BugsView.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/BugsView.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Profile/ChangeProfileDetail.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/ChangeProfileDetail.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/ChangeProfileDetail.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/ChangeProfileDetail.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Profile/LinksProfileView.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/LinksProfileView.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/LinksProfileView.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/LinksProfileView.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Profile/ProfileView.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/ProfileView.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/ProfileView.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/ProfileView.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Sub/AvatarAsyncImage.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/AvatarAsyncImage.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/AvatarAsyncImage.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/AvatarAsyncImage.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Sub/Cached/CachedImage.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/CachedImage.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/CachedImage.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/CachedImage.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Sub/Cached/CachedImageManager.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/CachedImageManager.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/CachedImageManager.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/CachedImageManager.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Sub/Cached/ImageCache.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/ImageCache.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/ImageCache.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/ImageCache.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Sub/Cached/ImageRetriever.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/ImageRetriever.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/ImageRetriever.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/ImageRetriever.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Sub/CheckinButton.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/CheckinButton.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/CheckinButton.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/CheckinButton.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Sub/CircleImage.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/CircleImage.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/CircleImage.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/CircleImage.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Sub/CommentDisplayView.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/CommentDisplayView.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/CommentDisplayView.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/CommentDisplayView.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Sub/ContentLoader/CommentsViewContentLoader.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/CommentsViewContentLoader.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/CommentsViewContentLoader.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/CommentsViewContentLoader.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Sub/ContentLoader/MoneyConditionRecordContentLoader.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/MoneyConditionRecordContentLoader.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/MoneyConditionRecordContentLoader.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/MoneyConditionRecordContentLoader.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Sub/ContentLoader/PostDetailViewContentLoader.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PostDetailViewContentLoader.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PostDetailViewContentLoader.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PostDetailViewContentLoader.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Sub/ContentLoader/PostViewContentLoader.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PostViewContentLoader.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PostViewContentLoader.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PostViewContentLoader.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Sub/ContentLoader/ShimmerEffectBox.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/ShimmerEffectBox.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/ShimmerEffectBox.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/ShimmerEffectBox.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Sub/ContentLoader/TagDetailViewContentLoader.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/TagDetailViewContentLoader.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/TagDetailViewContentLoader.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/TagDetailViewContentLoader.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Sub/ContentLoader/TagFieldContentLoader.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/TagFieldContentLoader.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/TagFieldContentLoader.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/TagFieldContentLoader.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Sub/FavoriteButton.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/FavoriteButton.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/FavoriteButton.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/FavoriteButton.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Sub/HeaderSlideView.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/HeaderSlideView.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/HeaderSlideView.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/HeaderSlideView.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Sub/InfoDisplayWithTitleView.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/InfoDisplayWithTitleView.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/InfoDisplayWithTitleView.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/InfoDisplayWithTitleView.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Sub/LevelProgressView.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/LevelProgressView.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/LevelProgressView.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/LevelProgressView.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Sub/LikesAndMentionedButton.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/LikesAndMentionedButton.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/LikesAndMentionedButton.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/LikesAndMentionedButton.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Sub/PaginationView.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PaginationView.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PaginationView.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PaginationView.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Sub/PollChartView.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PollChartView.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PollChartView.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PollChartView.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Sub/PostAttributes.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PostAttributes.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PostAttributes.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/PostAttributes.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Sub/SecureFieldWithIcon.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/SecureFieldWithIcon.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/SecureFieldWithIcon.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/SecureFieldWithIcon.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Sub/TextFieldWithIcon.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/TextFieldWithIcon.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/TextFieldWithIcon.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/TextFieldWithIcon.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Tag/TagButton.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/TagButton.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/TagButton.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/TagButton.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Tag/TagDetail.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/TagDetail.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/TagDetail.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/TagDetail.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Tag/TagElement.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/TagElement.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/TagElement.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/TagElement.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/LiangJianForum/View/Tag/TagField.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/TagField.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/TagField.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/TagField.o"
+  },
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "index-unit-output-path" : "/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_副本/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSApp.build/Objects-normal/arm64/GeneratedAssetSymbols.o"
+  }
+}

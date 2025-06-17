@@ -1,0 +1,10 @@
+version: "Apple Swift version 6.1.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)"
+options: "7b72491886990d59d28c4ca97cf3648762f59df8deede39889bf61b201fadd33"
+build_start_time: [1750160544, 507122000]
+build_end_time: [1750160544, 548509000]
+inputs:
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_\u526F\u672C/FlarumiOSAppWedgit/AppIntent.swift": !dirty [1749870551, 0]
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_\u526F\u672C/FlarumiOSAppWedgit/FlarumiOSAppWedgit.swift": !dirty [1749870551, 0]
+  "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_\u526F\u672C/FlarumiOSAppWedgit/FlarumiOSAppWedgitBundle.swift": !dirty [1749870551, 0]
+  ? "/Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_\u526F\u672C/build/FlarumiOSApp.build/Release-iphoneos/FlarumiOSAppWedgitExtension.build/DerivedSources/GeneratedAssetSymbols.swift"
+  : !dirty [1750160544, 158960952]

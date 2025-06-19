@@ -31,7 +31,7 @@ struct TagFieldContentLoader: View {
                     }
                 }
             }
-            .listStyle(.grouped)
+            .listStyle(.automatic)
             .navigationTitle("All Tags")
             }
     }

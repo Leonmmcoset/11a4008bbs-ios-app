@@ -124,7 +124,7 @@ struct PrivacyPolicySheet: View {
                     .font(.subheadline)
                     .foregroundColor(Color(.label))
                 
-                Link("隐私条款", destination: URL(string: "https://brt.arw.pub/p/2-privacyagreement")!)
+                Link("隐私条款", destination: URL(string: "https://11a.arw.pub/p/2-privacyagreement")!)
                     .font(.subheadline)
                     .foregroundColor(Color(.systemBlue))
                     .underline()
@@ -299,7 +299,7 @@ func showVersionUpdateAlert(_ updateUrl: String, _ newVersion: String, isManualC
             UIApplication.shared.open(url)
         }
     })
-    alert.addAction(UIAlertAction(title: "下次打开APP时提醒", style: .cancel))
+    alert.addAction(UIAlertAction(title: "我知道了", style: .cancel))
     if !isManualCheck {
         alert.addAction(UIAlertAction(title: "永不提醒", style: .destructive) {
             _ in

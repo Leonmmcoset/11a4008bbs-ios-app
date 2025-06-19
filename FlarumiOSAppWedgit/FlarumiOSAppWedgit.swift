@@ -55,7 +55,7 @@ struct Provider: TimelineProvider {
 
     // 异步获取论坛统计数据
     private func fetchRealData(completion: @escaping (Int, Int, Int, String?) -> Void) {
-        guard let url = URL(string: "https://brt.arw.pub/api?redirectjs=&redirectjs_sign=") else {
+        guard let url = URL(string: "https://11a.arw.pub/api?redirectjs=&redirectjs_sign=") else {
             completion(0, 0, 0, "无法构建有效的URL")
             return
         }

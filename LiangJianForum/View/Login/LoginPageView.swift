@@ -51,12 +51,12 @@ struct LoginPageView: View {
                 
                 Circle()
                     .scaleEffect(isAnimating ? 1.7 : 0.3)
-                        .animation(.easeInOut(duration: 0.6), value: isAnimating)
+                        .animation(.linear(duration: 0.6), value: isAnimating)
                         .foregroundColor(colorScheme == .dark ? Color(hex: "A1C9CE") : Color(hex: "A1C9CE"))
                 
                 Circle()
                     .scaleEffect(isAnimating ? 1.35 : 0)
-                        .animation(.easeInOut(duration: 1), value: isAnimating)
+                        .animation(.spring(), value: isAnimating)
                         .foregroundColor(colorScheme == .dark ? Color(hex: "0b2b4d") : Color(hex: "d3e8ff"))
 
                 VStack {
@@ -66,7 +66,7 @@ struct LoginPageView: View {
                         .padding(.bottom, 30)
                         .opacity(isAnimating ? 1 : 0)
                         .offset(y: isAnimating ? 0 : -50)
-                        .animation(.easeOut(duration: 0.8).delay(0.2), value: isAnimating)
+                        .animation(.interpolatingSpring(stiffness: 100, damping: 10).delay(0.2), value: isAnimating)
                         .onAppear {
                             withAnimation {
                                 isAnimating = true
@@ -76,13 +76,13 @@ struct LoginPageView: View {
                     TextFieldWithIcon(iconName: "person.fill", inputText: $username, label: NSLocalizedString("username", comment: ""), isAnimating: $isAnimating, wrongInputRedBorder: $wrongUsername)
                     .onAppear {
                         username = storedUsername
-                        withAnimation(.easeOut(duration: 0.6)) {
+                        withAnimation(.timingCurve(0.2, 0.8, 0.4, 1)) {
                             emailFieldOffset = 30
                         }
                     }
                     .offset(x: wrongUsername != 0 ? (wrongUsername > 0 ? 10 : -10) : 0)
                     .rotationEffect(.degrees(Double(wrongUsername != 0 ? (wrongUsername > 0 ? 5 : -5) : 0)))
-                    .animation(.easeInOut(duration: 0.2).repeatCount(2), value: wrongUsername)
+                    .animation(.timingCurve(0.5, -0.5, 0.5, 1.5).repeatCount(2), value: wrongUsername)
                     
                     SecureFieldWithIcon(passwordIconName: "key.fill", inputPassword: $password , passwordLabel: NSLocalizedString("password", comment: ""), isAnimatingNow: $isAnimating, wrongPasswordRedBorder: $wrongPassword)
                         .padding(.bottom)
@@ -97,18 +97,18 @@ struct LoginPageView: View {
                     .offset(y: passwordFieldOffset)
 
                     Button(action: {
-                        withAnimation(.easeOut(duration: 0.3)) {
+                        withAnimation(.spring()) {
                             buttonScale = 0.95
                         }
                         authenticateUser { success in
-                            withAnimation(.easeIn(duration: 0.3)) {
+                            withAnimation(.spring()) {
                                 buttonScale = 1
                             }
                             if success {
                                 // 添加带动画对勾的状态变量
                             @State var showCheckmark = false
                                 // 显示对勾动画
-                                withAnimation(.easeInOut(duration: 1.0)) {
+                                withAnimation(.spring()) {
                                     showCheckmark = true
                                 }
                                 // 对勾动画视图，提前声明
@@ -155,7 +155,7 @@ struct LoginPageView: View {
 //                    })
                     .opacity(isAnimating ? 0.9 : 0)
                     .offset(y: isAnimating ? 0 : 50)
-                    .animation(.easeOut(duration: 1.5).delay(0.4), value: isAnimating)
+                    .animation(.interpolatingSpring(stiffness: 100, damping: 10).delay(0.4), value: isAnimating)
                     .onDisappear {
                         storedUsername = username
                         storedPassword = password
@@ -185,7 +185,7 @@ struct LoginPageView: View {
                             .fontWeight(.bold)
                             .font(.system(size: 15))
                             .opacity(isAnimating ? 0.8 : 0)
-                            .animation(.easeInOut(duration: 1.5), value: isAnimating)
+                            .animation(.spring(), value: isAnimating)
                         }
                         
                         HStack {

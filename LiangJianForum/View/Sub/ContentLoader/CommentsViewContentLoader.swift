@@ -42,7 +42,7 @@ struct CommentsViewContentLoader: View {
                         .id("AllUserComments")
                     }
                 }
-                .listStyle(.grouped)
+                .listStyle(.automatic)
                 .id("Top")
                 .navigationTitle("Notification Center")
                 .navigationBarTitleDisplayMode(.inline)

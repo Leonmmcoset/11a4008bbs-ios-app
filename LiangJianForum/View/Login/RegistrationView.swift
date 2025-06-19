@@ -49,12 +49,12 @@ struct RegistrationView: View {
             
             Circle()
                 .scaleEffect(isAnimating ? 1.7 : 0.3)
-                    .animation(.easeInOut(duration: 0.6), value: isAnimating)
+                    .animation(.linear(duration: 0.6), value: isAnimating)
                     .foregroundColor(colorScheme == .dark ? Color(hex: "A1C9CE") : Color(hex: "A1C9CE"))
             
             Circle()
                 .scaleEffect(isAnimating ? 1.35 : 0)
-                    .animation(.easeInOut(duration: 1), value: isAnimating)
+                    .animation(.spring(), value: isAnimating)
                     .foregroundColor(colorScheme == .dark ? Color(hex: "0b2b4d") : Color(hex: "d3e8ff"))
             
             VStack {
@@ -64,7 +64,7 @@ struct RegistrationView: View {
                     .padding(.bottom, 30)
                     .opacity(isAnimating ? 1 : 0)
                     .offset(y: isAnimating ? 0 : -50)
-                    .animation(.easeOut(duration: 0.8).delay(0.2), value: isAnimating)
+                    .animation(.interpolatingSpring(stiffness: 100, damping: 10).delay(0.2), value: isAnimating)
                     .onAppear {
                         withAnimation {
                             isAnimating = true
@@ -74,13 +74,13 @@ struct RegistrationView: View {
                 TextFieldWithIcon(iconName: "person.fill", inputText: $username, label: NSLocalizedString("用户名(登录用 数字或字母组合)", comment: ""), isAnimating: $isAnimating, wrongInputRedBorder: $wrongUsername)
                     .offset(y: usernameFieldOffset)
                     .onAppear {
-                        withAnimation(.easeOut(duration: 0.6).delay(0.1)) {
+                        withAnimation(.timingCurve(0.2, 0.8, 0.4, 1).delay(0.1)) {
                             usernameFieldOffset = 30
                         }
                     }
                     .offset(x: wrongUsername != 0 ? (wrongUsername > 0 ? 10 : -10) : 0)
                     .rotationEffect(.degrees(Double(wrongUsername != 0 ? (wrongUsername > 0 ? 5 : -5) : 0)))
-                    .animation(.easeInOut(duration: 0.2).repeatCount(2), value: wrongUsername)
+                    .animation(.timingCurve(0.5, -0.5, 0.5, 1.5).repeatCount(2), value: wrongUsername)
                 
 //                TextFieldWithIcon(iconName: "person.crop.square.filled.and.at.rectangle", inputText: $displayname, label: "昵称(对外显示)", isAnimating: $isAnimating, wrongInputRedBorder: $wrongDisplayrname)
                 // 显示昵称输入框时可添加类似动画，当前注释状态下暂不处理
@@ -88,7 +88,7 @@ struct RegistrationView: View {
                 SecureFieldWithIcon(passwordIconName: "key.fill", inputPassword: $password , passwordLabel: NSLocalizedString("密码", comment: ""), isAnimatingNow: $isAnimating, wrongPasswordRedBorder: $wrongPassword)
                     .offset(y: passwordFieldOffset)
                     .onAppear {
-                        withAnimation(.easeOut(duration: 0.6).delay(0.2)) {
+                        withAnimation(.timingCurve(0.2, 0.8, 0.4, 1).delay(0.2)) {
                             passwordFieldOffset = 30
                         }
                     }
@@ -96,7 +96,7 @@ struct RegistrationView: View {
                 SecureFieldWithIcon(passwordIconName: nil, inputPassword: $repeatPassword , passwordLabel: NSLocalizedString("确认密码", comment: ""), isAnimatingNow: $isAnimating, wrongPasswordRedBorder: $wrongRepeatPassword)
                     .offset(y: repeatPasswordFieldOffset)
                     .onAppear {
-                        withAnimation(.easeOut(duration: 0.6).delay(0.3)) {
+                        withAnimation(.timingCurve(0.2, 0.8, 0.4, 1).delay(0.3)) {
                             repeatPasswordFieldOffset = 30
                         }
                     }
@@ -105,22 +105,22 @@ struct RegistrationView: View {
                     .padding(.bottom)
                     .offset(y: emailFieldOffset)
                     .onAppear {
-                        withAnimation(.easeOut(duration: 0.6).delay(0.4)) {
+                        withAnimation(.timingCurve(0.2, 0.8, 0.4, 1).delay(0.4)) {
                             emailFieldOffset = 30
                         }
                     }
                     .offset(x: wrongEmail != 0 ? (wrongEmail > 0 ? 10 : -10) : 0)
                     .rotationEffect(.degrees(Double(wrongEmail != 0 ? (wrongEmail > 0 ? 5 : -5) : 0)))
-                    .animation(.easeInOut(duration: 0.2).repeatCount(2), value: wrongEmail)
+                    .animation(.timingCurve(0.5, -0.5, 0.5, 1.5).repeatCount(2), value: wrongEmail)
                 
                 Button(action: {
-                    withAnimation(.easeOut(duration: 0.3)) {
+                    withAnimation(.spring()) {
                         buttonScale = 0.95
                     }
                     clearErrorMessage()
                     let vertificationResult = registrationVerification(username: username, password: password, repeatPassword: repeatPassword, email: email)
                     sendRegistrationRequest(inputFieldValid: vertificationResult) { success in
-                        withAnimation(.easeIn(duration: 0.3)) {
+                        withAnimation(.spring()) {
                             buttonScale = 1
                         }
                         if success{
@@ -148,7 +148,7 @@ struct RegistrationView: View {
                 )
                 .opacity(isAnimating ? 0.9 : 0)
                 .offset(y: isAnimating ? 0 : 50)
-                .animation(.easeOut(duration: 1.2).delay(0.5), value: isAnimating)
+                .animation(.interpolatingSpring(stiffness: 100, damping: 10).delay(0.5), value: isAnimating)
                 .hoverEffect(.lift)
                 .alert(isPresented: $showAlert) {
                     if registrationSuccess {
@@ -178,7 +178,7 @@ struct RegistrationView: View {
                     Text("**[隐私政策](http://leonmmcoset.jjmm.ink:1000/web/bbs/public/p/3-yinsizhengce)**").font(.system(size: 12))
                         .opacity(termsOpacity)
                         .offset(y: termsOpacity > 0 ? 0 : 20)
-                        .animation(.easeOut(duration: 1.0).delay(1.0), value: termsOpacity)
+                        .animation(.timingCurve(0.2, 0.8, 0.4, 1).delay(1.0), value: termsOpacity)
                 }
                 .frame(width: 350)
                 .padding(.top)

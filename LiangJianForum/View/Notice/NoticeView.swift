@@ -152,7 +152,7 @@ struct NoticeView: View {
                 )
             }
         }
-        .listStyle(.plain)
+        .listStyle(.automatic)
         
     }
     

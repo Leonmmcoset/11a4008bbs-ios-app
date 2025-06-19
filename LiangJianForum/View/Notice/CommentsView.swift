@@ -127,7 +127,7 @@ struct CommentsView: View {
                                             )
                                         }
                                     }
-                                    .listStyle(.grouped)
+                                    .listStyle(.automatic)
                                 }
                             }
                         }

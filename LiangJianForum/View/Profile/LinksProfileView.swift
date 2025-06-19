@@ -296,7 +296,7 @@ struct LinksProfileView: View {
             }
             .textSelection(.enabled)
         }
-        .listStyle(.grouped)
+        .listStyle(.automatic)
         
         .navigationTitle("\(self.displayName)的主页")
         .task{

@@ -73,6 +73,8 @@ struct CommentDisplayView: View {
                         .padding(.top)
                         .font(.system(size: 15))
                         .padding(.leading, isPostMention ? 0 : 3)
+                        .scaleEffect(isButtonClicked == "Yes" ? 1.1 : 1)
+                        .animation(.spring(response: 0.3, dampingFraction: 0.4, blendDuration: 0.5), value: isButtonClicked)
                 }
             }else{
                 Text("unsupported")
@@ -85,7 +87,7 @@ struct CommentDisplayView: View {
             Spacer()
         }
         .contextMenu {
-            Button(action: {
+            Button(action: { withAnimation { isButtonClicked = "Yes" }
                 if let content = contentHTML{
                     copyTextToClipboard(content.htmlConvertedWithoutUrl)
                 }
@@ -98,7 +100,7 @@ struct CommentDisplayView: View {
                     Button(action: {
                         if let paymentId = getPaymentId(contentHTML: contentHTML){
                             payToRead(paymentId: paymentId){success in
-                                if success{
+                                if success{ withAnimation { isButtonClicked = "No" }
                                     print("Successfully Paid!")
                                     appSettings.refreshComment()
                                 }

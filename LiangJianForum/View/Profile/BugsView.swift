@@ -32,7 +32,7 @@ struct BugsView: View {
                     }
                    .padding(.vertical, 10)
                 }
-               .listStyle(.plain)
+               .listStyle(.automatic)
                .background(Color(UIColor.systemGroupedBackground))
                .cornerRadius(10)
                .padding()

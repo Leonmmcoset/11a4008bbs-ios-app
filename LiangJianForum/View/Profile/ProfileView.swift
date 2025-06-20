@@ -30,6 +30,7 @@ struct ProfileView: View {
     @State private var showLoginPage = false
     @State private var showChangeProfilePage = false
     @State private var buttonText = "保存"
+
     @State private var showSafariView = false // 控制Safari视图显示的状态变量
     
     private var isUserVIP: Bool {

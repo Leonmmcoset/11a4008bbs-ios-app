@@ -15,5 +15,9 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>checkSessionAfterOneHour</string>
+	</array>
 </dict>
 </plist>

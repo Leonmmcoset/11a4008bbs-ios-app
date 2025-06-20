@@ -844,7 +844,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = "2.0-b1";
+				MARKETING_VERSION = "2.0-b2";
 				PRODUCT_BUNDLE_IDENTIFIER = ink.jjmm.leonmmcoset.BRTBBSDebug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -884,7 +884,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = "2.0-b1";
+				MARKETING_VERSION = "2.0-b2";
 				PRODUCT_BUNDLE_IDENTIFIER = ink.jjmm.leonmmcoset.BRTBBS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

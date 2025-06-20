@@ -18,10 +18,21 @@ struct APPInfoView: View {
     
     @State private var isOriginalGitHubPresented = false
     @State private var isPrivacyPolicyPresented = false
+    @State private var isProjectGithubPresented = false
     
     var body: some View {
         NavigationStack {
             VStack(alignment:.leading, spacing: 20) {
+                VStack(alignment: .center) {
+                    Image(._11A20)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .scaledToFit()
+                        .foregroundColor(Color(.systemBlue))
+                        .padding(.top, 32)
+                        .cornerRadius(20)
+                        .clipped()
+                }
                 Text("此APP原作者为Romantic D")
                    .font(.headline)
                 Text("由LeonMMcoset修改")
@@ -35,6 +46,15 @@ struct APPInfoView: View {
                     .font(.subheadline)
                 List {
                     Section {
+                        Button(action: {
+                            isProjectGithubPresented = true
+                        }) {
+                            HStack {
+                                Text("项目GitHub页面")
+                                   .bold()
+                                Spacer()
+                            }
+                        }
                         Button(action: {
                             isOriginalGitHubPresented = true
                         }) {
@@ -62,6 +82,9 @@ struct APPInfoView: View {
            .sheet(isPresented: $isOriginalGitHubPresented) {
                 SafariView(url: URL(string: "https://github.com/RomanticD/Flarum-iOS-App-UnofficialDemo")!)
             }
+           .sheet(isPresented: $isProjectGithubPresented) {
+               SafariView(url: URL(string: "https://github.com/leonmmcoset/11a4008bbs-ios-app")!)
+           }
            .sheet(isPresented: $isPrivacyPolicyPresented) {
                 SafariView(url: URL(string: "https://11a.arw.pub/p/2-privacyagreement")!)
             }

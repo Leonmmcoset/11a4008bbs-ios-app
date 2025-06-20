@@ -105,13 +105,14 @@ struct PrivacyPolicySheet: View {
 
     var body: some View {
         VStack(spacing: 24) {
-            Image(.bbsLogo)
-                .renderingMode(.template)
+            Image(.welcometoapp)
+//                .renderingMode(.template)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 100, height: 100)
+                .frame(width: 400, height: 400)
                 .foregroundColor(Color(.systemBlue))
                 .padding(.top, 32)
+                .clipShape(RoundedRectangle(cornerRadius: 20))
             
             Text("欢迎使用LeonMMcoset论坛APP")
                 .font(.title3)

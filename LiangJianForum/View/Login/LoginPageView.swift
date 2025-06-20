@@ -8,6 +8,7 @@ import SwiftUI
 
 
 struct LoginPageView: View {
+    @EnvironmentObject var appsettings: AppSettings
     @AppStorage("username") private var storedUsername = ""
     @AppStorage("password") private var storedPassword = ""
     @AppStorage("rememberMe") private var rememberMeState = false

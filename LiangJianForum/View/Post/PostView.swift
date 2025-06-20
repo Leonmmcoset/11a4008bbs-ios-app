@@ -353,7 +353,7 @@ struct PostView: View {
                                       .background(Color("FlarumTheme").gradient)
                                       .foregroundColor(.white)
                                       .clipShape(Circle())
-                                      .shadow(color: shadowColor, radius: 4, x: 0, y: 4)
+                                    //   .shadow(color: shadowColor, radius: 4, x: 0, y: 4)
                               }
                               .padding()
                           }

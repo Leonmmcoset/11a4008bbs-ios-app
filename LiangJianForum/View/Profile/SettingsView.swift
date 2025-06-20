@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject var appsettings: AppSettings
+    @AppStorage("isAutoCheckUpdate") private var storedAutoCheckUpdate = true
 
     var body: some View {
         List {

@@ -8,6 +8,7 @@ import SwiftUI
 
 
 struct LoginPageView: View {
+    @State private var buttonRotation: Double = 0
     @EnvironmentObject var appsettings: AppSettings
     @AppStorage("username") private var storedUsername = ""
     @AppStorage("password") private var storedPassword = ""
@@ -98,8 +99,10 @@ struct LoginPageView: View {
                     .offset(y: passwordFieldOffset)
 
                     Button(action: {
-                        withAnimation(.spring()) {
-                            buttonScale = 0.95
+                        withAnimation(.spring(response: 0.3, dampingFraction: 0.7).delay(0.05)) {
+                            buttonScale = 0.9
+                            // 添加旋转动画
+                            buttonRotation = 10
                         }
                         authenticateUser { success in
                             withAnimation(.spring()) {
@@ -132,6 +135,11 @@ struct LoginPageView: View {
                                     await fetchUserProfile()
                                 }
                             } else {
+                                // 失败时添加震动动画
+                                withAnimation(.spring(response: 0.2, dampingFraction: 0.5).repeatCount(3)) {
+                                    wrongUsername = 5
+                                    wrongPassword = 5
+                                }
                                 showAlert.toggle()
                             }
                         }

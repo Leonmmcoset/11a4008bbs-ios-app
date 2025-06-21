@@ -47,13 +47,20 @@ struct CommentDisplayView: View {
                                     .padding(.leading, 3)
                             }
                             
-                            Text(LocalizedStringKey(content.htmlConvertedWithoutUrl))
-                                .tracking(0.5)
-                                .lineSpacing(7)
-                                .foregroundColor(colorScheme == .dark ? Color(hex: "EFEFEF") : .black)
-                                .padding(.top)
-                                .font(.system(size: 15))
-                                .padding(.leading, isPostMention ? 0 : 3)
+                            @State var isTextScaled = false
+
+                        Text(LocalizedStringKey(content.htmlConvertedWithoutUrl))
+                            .tracking(0.5)
+                            .lineSpacing(7)
+                            .foregroundColor(colorScheme == .dark ? Color(hex: "EFEFEF") : .black)
+                            .padding(.top)
+                            .font(.system(size: 15))
+                            .padding(.leading, isPostMention ? 0 : 3)
+                            .scaleEffect(isTextScaled ? 1.1 : 1)
+                            .animation(.spring(response: 0.3, dampingFraction: 0.6), value: isTextScaled)
+                            .onTapGesture {
+                                isTextScaled.toggle()
+                            }
                         }
                     }
                     

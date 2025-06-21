@@ -51,6 +51,8 @@ struct ProfileView: View {
                                     shadow: 6,
                                     strokeColor: Color(hex: "FFD700")
                                 )
+                                .scaleEffect(isUserVIP ? 1.1 : 1)
+                                .animation(.spring(response: 0.3, dampingFraction: 0.6), value: isUserVIP)
                                 .padding(.bottom)
                             } else {
                                 AvatarAsyncImage(
@@ -59,6 +61,8 @@ struct ProfileView: View {
                                     lineWidth: 2,
                                     shadow: 6
                                 )
+                                .scaleEffect(isUserVIP ? 1.1 : 1)
+                                .animation(.spring(response: 0.3, dampingFraction: 0.6), value: isUserVIP)
                                 .padding(.bottom)
                             }
                         } else {

@@ -23,13 +23,17 @@ struct TagButton: View {
     var body: some View {
         Button(action: {
             if isSelected {
-                selectedButtonIds.removeAll(where: { $0 == id })
-                
-                if let childTagsId = childTagsId {
-                    selectedButtonIds = selectedButtonIds.filter { !childTagsId.contains($0) }
-                }
+                withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
+                        selectedButtonIds.removeAll(where: { $0 == id })
+
+                        if let childTagsId = childTagsId {
+                            selectedButtonIds = selectedButtonIds.filter { !childTagsId.contains($0) }
+                        }
+                    }
             } else {
-                selectedButtonIds.append(id)
+                withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
+                        selectedButtonIds.append(id)
+                    }
             }
         }) {
             Text(title)

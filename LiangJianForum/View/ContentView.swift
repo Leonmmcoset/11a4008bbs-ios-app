@@ -43,7 +43,7 @@ struct ContentView: View {
                     .tabItem { Label("设置", systemImage: "gear") }
                     .tag(Tab.settings)
             }
-            .animation(.easeInOut(duration: 0.3), value: selection)
+            .animation(.spring(response: 0.3, dampingFraction: 0.8).delay(0.1), value: selection)
             .onAppear{
                 Task{
                     await retrieveCurrentUserInformation()

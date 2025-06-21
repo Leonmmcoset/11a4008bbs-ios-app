@@ -18,6 +18,36 @@
             endingLineNumber = "321"
             landmarkName = "showVersionUpdateAlert(_:_:isManualCheck:)"
             landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "279EACD5-F294-4B3E-9B01-4866C9FDB521 - f384165c67224f0a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FlarumiOSApp.showVersionUpdateAlert(_: Swift.String, _: Swift.String, isManualCheck: Swift.Bool) -&gt; ()"
+                  moduleName = "FlarumiOSApp.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_%E5%89%AF%E6%9C%AC/LiangJianForum/FlarumiOSApp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "321"
+                  endingLineNumber = "321">
+               </Location>
+               <Location
+                  uuid = "279EACD5-F294-4B3E-9B01-4866C9FDB521 - ec6a924225be1d31"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__C.UIAlertAction) -&gt; () in FlarumiOSApp.showVersionUpdateAlert(_: Swift.String, _: Swift.String, isManualCheck: Swift.Bool) -&gt; ()"
+                  moduleName = "FlarumiOSApp.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lizhengjie/Flarum-iOS-App-UnofficialDemo_%E5%89%AF%E6%9C%AC/LiangJianForum/FlarumiOSApp.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "324"
+                  endingLineNumber = "324">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

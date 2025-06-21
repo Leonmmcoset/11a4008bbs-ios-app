@@ -172,6 +172,7 @@ struct newPostView: View {
                                 }
                             }
                         }
+                        .frame(maxWidth: .infinity)
                         .buttonStyle(.borderedProminent)
                         .tint(Color(hex: "565dd9"))
                         .padding(.horizontal)

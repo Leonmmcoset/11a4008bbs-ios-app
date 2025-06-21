@@ -72,7 +72,8 @@ struct newReply: View {
                         }
                         // 发布按钮
                         Button(action: {
-                            saveReply { success in
+                            saveReply {
+                                success in
                                 if success {
                                     // 这里可以根据成功情况进行更多处理，比如更新UI等
                                     newReplyContent = ""
@@ -88,6 +89,7 @@ struct newReply: View {
                                 }
                             }
                         }
+                        .frame(maxWidth: .infinity)
                         .buttonStyle(.borderedProminent)
                         .tint(Color(hex: "565dd9"))
                         .padding(.horizontal)

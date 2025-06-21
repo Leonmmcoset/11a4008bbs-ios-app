@@ -2,22 +2,11 @@ import BackgroundTasks
 
 import SwiftUI
 
-class TempAppSettings: ObservableObject {
-    @Published var isLoggedIn = false
-    @Published var FlarumUrl = "https://discuss.flarum.org"
-    @Published var userId = ""
-    @Published var username = ""
-    @Published var displayName = ""
-    @Published var avatarUrl: String?
-    @Published var token = ""
-    @Published var identification = ""
-    @Published var password = ""
-    @Published var isAutoCheckUpdate = true // 自动检查更新开关，默认开启
-}
+
 
 @main
 struct FlarumiOSApp: App {
-    @StateObject private var appSettings = TempAppSettings()
+    @StateObject private var appSettings = AppSettings()
     @State private var showPrivacySheet = false // 用于跟踪是否显示隐私提示 Sheet
 
     var body: some Scene {
@@ -91,7 +80,7 @@ struct FlarumiOSApp: App {
             do {
                 let tokenResponse = try decoder.decode(TokenResponse.self, from: data)
                 appSettings.token = tokenResponse.token
-                appSettings.userId = String(tokenResponse.userId)
+                appSettings.userId = tokenResponse.userId
             } catch {
                 print("Failed to decode token response: \(error)")
             }

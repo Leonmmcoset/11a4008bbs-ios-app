@@ -287,7 +287,7 @@ struct LoginPageView: View {
                 // 使用原生实现 Toast 效果
                 DispatchQueue.main.async {
                     if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene, let window = windowScene.windows.first {
-                        let alert = UIAlertController(title: "登录成功", message: "欢迎回来，\(username)！", preferredStyle: .alert)
+                        let alert = UIAlertController(title: "登录成功", message: "欢迎回来，\(username)！\n您的ID：\(userId)", preferredStyle: .alert)
                         window.rootViewController?.present(alert, animated: true, completion: nil)
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                             alert.dismiss(animated: true, completion: nil)

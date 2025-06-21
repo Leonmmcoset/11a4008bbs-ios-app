@@ -353,6 +353,8 @@ struct ProfileView: View {
                 }
             }
         }
+        .navigationTitle("我")
+        .navigationBarTitleDisplayMode(.inline)
         .listStyle(.automatic)
     }
     

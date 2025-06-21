@@ -72,6 +72,7 @@
 		42ED96A8F2F8C2C4783C8159 /* UserCommentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ED924319C2DF3E476F3CD1 /* UserCommentData.swift */; };
 		42ED9C4F27CBEA016712891E /* DiscussionDataWithId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42ED9B9C42BCB58DB6FFFFE5 /* DiscussionDataWithId.swift */; };
 		F643CF7A2D673C2F00F43A31 /* APPInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F643CF792D673C2F00F43A31 /* APPInfoView.swift */; };
+		F644AF732E066D23003EAE92 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = F644AF722E066D23003EAE92 /* MarkdownUI */; };
 		F66DE2F42E02FE4900618E3B /* ForumHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66DE2F32E02FE4900618E3B /* ForumHelpView.swift */; };
 		F6AC05C82E0197BE00E5782F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AC05C72E0197BE00E5782F /* SettingsView.swift */; };
 		F6C9915D2DB8FF6B00CC374C /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C9912F2DB8EEF700CC374C /* WidgetKit.framework */; };
@@ -212,6 +213,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F644AF732E066D23003EAE92 /* MarkdownUI in Frameworks */,
 				071C68702AC0615900A862AC /* Awesome in Frameworks */,
 				072DA5282AAF87C8000B2F1F /* Shimmer in Frameworks */,
 			);
@@ -476,6 +478,7 @@
 			packageProductDependencies = (
 				072DA5272AAF87C8000B2F1F /* Shimmer */,
 				071C686F2AC0615900A862AC /* Awesome */,
+				F644AF722E066D23003EAE92 /* MarkdownUI */,
 			);
 			productName = LiangJianForum;
 			productReference = 07A867FF2A3D879E00311F65 /* FlarumiOSApp.app */;
@@ -543,6 +546,7 @@
 			packageReferences = (
 				072DA5262AAF87C8000B2F1F /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
 				071C686E2AC0615900A862AC /* XCRemoteSwiftPackageReference "Awesome" */,
+				F644AF712E066D22003EAE92 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
 			);
 			productRefGroup = 07A868002A3D879E00311F65 /* Products */;
 			projectDirPath = "";
@@ -834,7 +838,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FlarumiOSApp-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "11A4008深论坛";
+				INFOPLIST_KEY_CFBundleDisplayName = "11A4008深论坛-测试版";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1008,6 +1012,14 @@
 				minimumVersion = 1.4.0;
 			};
 		};
+		F644AF712E066D22003EAE92 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/swift-markdown-ui";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1020,6 +1032,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 072DA5262AAF87C8000B2F1F /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;
 			productName = Shimmer;
+		};
+		F644AF722E066D23003EAE92 /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F644AF712E066D22003EAE92 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
+			productName = MarkdownUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

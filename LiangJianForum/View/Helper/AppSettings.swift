@@ -8,8 +8,15 @@
 import Foundation
 import SwiftUI
 
+enum ThemeMode: String, CaseIterable {
+    case system
+    case light
+    case dark
+}
+
 class AppSettings: ObservableObject {
     @Published var isAutoCheckUpdate = true // 自动检查更新开关，默认开启
+    @Published var themeMode: ThemeMode = .system // 暗黑模式设置
     @Published var completedVotes: [Int: [String]] = [:]
     @Published var refreshPostView = false
     @Published var refreshReplyView = false
@@ -40,9 +47,18 @@ class AppSettings: ObservableObject {
     @Published var canCheckinContinuous = false
     @Published var totalContinuousCheckIn = 0
     private var timer: Timer?
-    
+    private let themeKey = "ThemeMode"
+
     init() {
+        if let savedTheme = UserDefaults.standard.string(forKey: themeKey),
+           let theme = ThemeMode(rawValue: savedTheme) {
+            self.themeMode = theme
+        }
         vipUsernames.append(contentsOf: ["Your username"])
+    }
+
+    func saveThemeSettings() {
+        UserDefaults.standard.set(themeMode.rawValue, forKey: themeKey)
     }
     
     func refreshPost() {

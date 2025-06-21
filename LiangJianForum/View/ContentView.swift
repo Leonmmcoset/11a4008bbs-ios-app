@@ -26,15 +26,15 @@ struct ContentView: View {
                     .tabItem { Label("Home", systemImage: "house") }
                     .tag(Tab.post)
                     .environmentObject(appsettings)
-                
+
                 TagField()
                     .tabItem { Label("Tag", systemImage: "tag") }
                     .tag(Tab.tag)
-                
+
                 NoticeView()
                     .tabItem { Label("Message", systemImage: "bell") }
                     .tag(Tab.notice)
-                
+
                 ProfileView()
                     .tabItem { Label("Me", systemImage: "person") }
                     .tag(Tab.profile)
@@ -43,6 +43,7 @@ struct ContentView: View {
                     .tabItem { Label("设置", systemImage: "gear") }
                     .tag(Tab.settings)
             }
+            .animation(.easeInOut(duration: 0.3), value: selection)
             .onAppear{
                 Task{
                     await retrieveCurrentUserInformation()

@@ -12,8 +12,9 @@ struct FlarumiOSApp: App {
     var body: some Scene {
         WindowGroup {
             LoginPageView()
-               .environmentObject(appSettings)
-               .onAppear {
+                .environmentObject(appSettings)
+                .preferredColorScheme(appSettings.themeMode == .light ? .light : appSettings.themeMode == .dark ? .dark : nil)
+                .onAppear {
                     // 检查是否是第一次打开 app
                     if !UserDefaults.standard.bool(forKey: "hasAcceptedPrivacyPolicy") {
                         showPrivacySheet = true

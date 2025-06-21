@@ -82,17 +82,17 @@ struct PostDetailViewContentLoader: View {
                     Button {
                         
                     } label: {
-                        Image(systemName: "plus.message.fill")
+                        Image(systemName: "plus")
                             .font(.title.weight(.semibold))
                             .padding()
-                            .background(Color(hex: "565dd9").gradient)
+                            .background(Color("FlarumTheme").gradient)
                             .foregroundColor(.white)
                             .clipShape(Circle())
-                            .shadow(color: shadowColor, radius: 4, x: 0, y: 4)
+                            // .shadow(color: shadowColor, radius: 4, x: 0, y: 4)
 
                     }
                     .padding()
-                    .padding(.bottom, 50)
+                    .padding(.bottom, 80)
                 }
             
 
@@ -100,7 +100,6 @@ struct PostDetailViewContentLoader: View {
         }
         .listStyle(.automatic)
         .ignoresSafeArea(.all, edges: .bottom)
-        .toolbar(.hidden, for: .tabBar)
         .navigationTitle(postTitle)
         .navigationBarTitleDisplayMode(.inline)
     }

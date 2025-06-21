@@ -330,7 +330,7 @@ struct PostDetailView: View {
 
                     }
                     .padding()
-                    .padding(.bottom, 50)
+                    .padding(.bottom, 80)
 //                    .padding(.trailing, 10)
                 }
             }
@@ -366,7 +366,6 @@ struct PostDetailView: View {
             TagDetail(selectedTag: data)
         }
         .ignoresSafeArea(.all, edges: .bottom)
-        .toolbar(.hidden, for: .tabBar)
         .navigationTitle(postTitle)
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(trailing:

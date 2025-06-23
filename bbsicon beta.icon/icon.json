@@ -1,0 +1,69 @@
+{
+  "fill" : {
+    "solid" : "srgb:0.40000,0.63137,1.00000,1.00000"
+  },
+  "groups" : [
+    {
+      "layers" : [
+        {
+          "fill" : "none",
+          "glass" : true,
+          "image-name" : "icons8-beta-96.png",
+          "name" : "icons8-beta-96",
+          "position" : {
+            "scale" : 3,
+            "translation-in-points" : [
+              274.0078125,
+              262.171875
+            ]
+          }
+        },
+        {
+          "blend-mode" : "plus-lighter",
+          "fill" : {
+            "solid" : "srgb:1.00000,1.00000,1.00000,1.00000"
+          },
+          "glass" : true,
+          "image-name" : "icons8-message-96.png",
+          "name" : "icons8-message-96",
+          "opacity" : 1,
+          "position" : {
+            "scale" : 7,
+            "translation-in-points" : [
+              -17.6015625,
+              6.296875
+            ]
+          }
+        },
+        {
+          "fill" : {
+            "solid" : "srgb:0.74902,0.84706,1.00000,1.00000"
+          },
+          "image-name" : "icon1.png",
+          "name" : "icon1",
+          "position" : {
+            "scale" : 2.8,
+            "translation-in-points" : [
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}

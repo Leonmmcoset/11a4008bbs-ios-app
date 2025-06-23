@@ -147,5 +147,9 @@
 //"" = "";
 // MARK: - Version 1.6
 // This is a UI update
+"登录成功" = "Giriş başarılı";
+"设置" = "Ayarlar";
+"更换图标" = "Simgeyi değiştir";
+"恢复原本图标" = "Orijinal simgeyi geri yükle";
 "New Post" = "Yeni Gönderi Gönder";
 "New Reply" = "Yanıtla";

@@ -147,5 +147,9 @@
 //"" = "";
 // MARK: - Version 1.6
 // This is a UI update
+"登录成功" = "Zalogowano pomyślnie";
+"设置" = "Ustawienia";
+"更换图标" = "Zmień ikonę";
+"恢复原本图标" = "Przywróć oryginalną ikonę";
 "New Post" = "Opublikuj nowy post";
 "New Reply" = "Odpowiedz";

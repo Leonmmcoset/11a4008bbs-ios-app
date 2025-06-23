@@ -145,7 +145,22 @@
 "无法查看资产记录" = "Es ist nicht möglich, die Finanzierungsaufzeichnungen anzuzeigen";
 "有些按钮无法点击" = "Einige Buttons können nicht geklickt werden";
 //"" = "";
-// MARK: - Version 1.6
-// This is a UI update
+// MARK: - Version 2.0
+"登录成功" = "Anmeldung erfolgreich";
+"设置" = "Einstellungen";
+// MARK: SettingsView
+"更换图标" = "App - Logo ändern";
+"主题模式" = "Thema";
+"自动检查更新" = "Automatische Updates prüfen";
+"检查更新" = "Auf Updates prüfen";
+"论坛帮助文档" = "Foren - Hilfedokumentation";
+// MARK: APPInfoView
+"项目GitHub账号" = "GitHub - Link des Projekts";
+// MARK: NewPostView & NewCommentView
+"预览" = "Vorschau";
+// MARK: Check update
+"提示" = "Hinweis";
+"现在无更新" = "Derzeit keine Updates";
+ This is a UI update
 "New Post" = "Neuen Beitrag veröffentlichen";
 "New Reply" = "Antworten";

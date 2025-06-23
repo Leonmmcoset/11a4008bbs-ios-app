@@ -148,3 +148,22 @@
 // This is a UI update
 "New Post" = "New Post";
 "New Reply" = "New Reply";
+// MARK: - Version 2.0
+"登录成功" = "Login Succeeded";
+"设置" = "Settings";
+// MARK: SettingsView
+"更换图标" = "Change APP logo";
+"主题模式" = "Theme";
+"自动检查更新" = "Auto check updates";
+"检查更新" = "Check update";
+"论坛帮助文档" = "BBS Helper";
+// MARK: APPInfoView
+"项目GitHub账号" = "Project's GitHub link";
+// MARK: NewPostView & NewCommentView
+"预览" = "Preview";
+// MARK: Check update
+"提示" = "Info";
+"现在无更新" = "There is no updates now";
+//"" = "";
+//"" = "";
+//"" = "";

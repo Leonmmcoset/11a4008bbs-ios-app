@@ -145,6 +145,22 @@
 "无法查看资产记录" = "Non è possibile visualizzare i registri finanziari";
 "有些按钮无法点击" = "Alcuni pulsanti non sono cliccabili";
 //"" = "";
+// MARK: - Version 2.0
+"登录成功" = "Accesso riuscito";
+"设置" = "Impostazioni";
+// MARK: SettingsView
+"更换图标" = "Cambia il logo dell'app";
+"主题模式" = "Tema";
+"自动检查更新" = "Verifica automaticamente gli aggiornamenti";
+"检查更新" = "Verifica gli aggiornamenti";
+"论坛帮助文档" = "Documentazione di aiuto del forum";
+// MARK: APPInfoView
+"项目GitHub账号" = "Link GitHub del progetto";
+// MARK: NewPostView & NewCommentView
+"预览" = "Anteprima";
+// MARK: Check update
+"提示" = "Avviso";
+"现在无更新" = "Nessun aggiornamento disponibile al momento";
 // MARK: - Version 1.6
 // This is a UI update
 "New Post" = "Pubblica un nuovo post";

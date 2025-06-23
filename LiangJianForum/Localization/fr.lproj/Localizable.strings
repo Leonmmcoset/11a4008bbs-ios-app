@@ -145,6 +145,22 @@
 "无法查看资产记录" = "Impossible de consulter les enregistrements financiers";
 "有些按钮无法点击" = "Certains boutons ne sont pas cliquables";
 //"" = "";
+// MARK: - Version 2.0
+"登录成功" = "Connexion réussie";
+"设置" = "Paramètres";
+// MARK: SettingsView
+"更换图标" = "Changer le logo de l'application";
+"主题模式" = "Thème";
+"自动检查更新" = "Vérifier automatiquement les mises à jour";
+"检查更新" = "Vérifier les mises à jour";
+"论坛帮助文档" = "Documentation d'aide du forum";
+// MARK: APPInfoView
+"项目GitHub账号" = "Lien GitHub du projet";
+// MARK: NewPostView & NewCommentView
+"预览" = "Aperçu";
+// MARK: Check update
+"提示" = "Avertissement";
+"现在无更新" = "Aucune mise à jour disponible pour le moment";
 // MARK: - Version 1.6
 // This is a UI update
 "New Post" = "Publier un nouveau message";

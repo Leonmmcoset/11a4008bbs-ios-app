@@ -74,6 +74,7 @@
 		F643CF7A2D673C2F00F43A31 /* APPInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F643CF792D673C2F00F43A31 /* APPInfoView.swift */; };
 		F644AF732E066D23003EAE92 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = F644AF722E066D23003EAE92 /* MarkdownUI */; };
 		F66DE2F42E02FE4900618E3B /* ForumHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66DE2F32E02FE4900618E3B /* ForumHelpView.swift */; };
+		F69CD0962E0973B200F2F49E /* bbsicon beta.icon in Resources */ = {isa = PBXBuildFile; fileRef = F69CD0952E0973B200F2F49E /* bbsicon beta.icon */; };
 		F6AC05C82E0197BE00E5782F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AC05C72E0197BE00E5782F /* SettingsView.swift */; };
 		F6C9915D2DB8FF6B00CC374C /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C9912F2DB8EEF700CC374C /* WidgetKit.framework */; };
 		F6C9915E2DB8FF6B00CC374C /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C991312DB8EEF700CC374C /* SwiftUI.framework */; };
@@ -171,6 +172,9 @@
 		42ED9B9C42BCB58DB6FFFFE5 /* DiscussionDataWithId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussionDataWithId.swift; sourceTree = "<group>"; };
 		F643CF792D673C2F00F43A31 /* APPInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APPInfoView.swift; sourceTree = "<group>"; };
 		F66DE2F32E02FE4900618E3B /* ForumHelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumHelpView.swift; sourceTree = "<group>"; };
+		F69CD0952E0973B200F2F49E /* bbsicon beta.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = "bbsicon beta.icon"; sourceTree = "<group>"; };
+		F69CD0972E09740400F2F49E /* bbsicon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = bbsicon.icon; sourceTree = "<group>"; };
+		F69CD0982E09740400F2F49E /* bbsicon horror.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = "bbsicon horror.icon"; sourceTree = "<group>"; };
 		F6ABA0D92D68B8B7006D143F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = Localizable.strings; sourceTree = "<group>"; };
 		F6ABA0DA2D68B8B7006D143F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		F6AC05C72E0197BE00E5782F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -312,6 +316,9 @@
 		07A867F62A3D879E00311F65 = {
 			isa = PBXGroup;
 			children = (
+				F69CD0972E09740400F2F49E /* bbsicon.icon */,
+				F69CD0982E09740400F2F49E /* bbsicon horror.icon */,
+				F69CD0952E0973B200F2F49E /* bbsicon beta.icon */,
 				F6FBC9572D660A19008D2D1E /* LiangJianForum.entitlements */,
 				F6FBC9552D660804008D2D1E /* Launch Screen.storyboard */,
 				072DA5292AB01AA2000B2F1F /*  */,
@@ -567,6 +574,7 @@
 				079B15A32A95B88500009FE3 /* Localizable.strings in Resources */,
 				079B15A02A95B87000009FE3 /* Localizable.strings in Resources */,
 				F6FBC9562D660804008D2D1E /* Launch Screen.storyboard in Resources */,
+				F69CD0962E0973B200F2F49E /* bbsicon beta.icon in Resources */,
 				07A868072A3D879F00311F65 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -151,6 +151,22 @@
 "无法查看资产记录" = "No es posible ver los registros de activos";
 "有些按钮无法点击" = "Algunos botones no se pueden hacer clic";
 //"" = "";
+// MARK: - Version 2.0
+"登录成功" = "Inicio de sesión exitoso";
+"设置" = "Ajustes";
+// MARK: SettingsView
+"更换图标" = "Cambiar logotipo de la aplicación";
+"主题模式" = "Tema";
+"自动检查更新" = "Verificar actualizaciones automáticamente";
+"检查更新" = "Verificar actualizaciones";
+"论坛帮助文档" = "Documentación de ayuda del foro";
+// MARK: APPInfoView
+"项目GitHub账号" = "Enlace de GitHub del proyecto";
+// MARK: NewPostView & NewCommentView
+"预览" = "Vista previa";
+// MARK: Check update
+"提示" = "Notificación";
+"现在无更新" = "No hay actualizaciones disponibles en este momento";
 // MARK: - Version 1.6
 // This is a UI update
 "New Post" = "Publicar un nuevo mensaje";

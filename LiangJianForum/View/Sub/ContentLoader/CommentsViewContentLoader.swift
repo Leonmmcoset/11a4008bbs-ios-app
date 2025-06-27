@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct CommentsViewContentLoader: View {
+    @State private var feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
     var body: some View {
         NavigationStack{
             ScrollViewReader{ proxy in
@@ -36,6 +38,9 @@ struct CommentsViewContentLoader: View {
                                             .cornerRadius(5)
                                             .padding(.top)
                                     }
+                                }
+                                .onTapGesture {
+                                    feedbackGenerator.impactOccurred()
                                 }
                             }
                         }

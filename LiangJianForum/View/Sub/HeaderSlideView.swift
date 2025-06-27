@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct HeaderSlideView: View {
     @EnvironmentObject var appsettings: AppSettings
@@ -66,6 +67,7 @@ struct SliderView: View {
     let slides: [SlideData]
     @Binding var transitionTime: String
     @State private var selection = 0
+    @State private var feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
 
     var body: some View {
         ZStack {
@@ -101,6 +103,9 @@ struct SliderView: View {
                     }
                     .ignoresSafeArea()
                     .onTapGesture {
+                        Task {
+                            feedbackGenerator.impactOccurred()
+                        }
                         if let url = URL(string: slides[i].link) {
                             UIApplication.shared.open(url)
                         }

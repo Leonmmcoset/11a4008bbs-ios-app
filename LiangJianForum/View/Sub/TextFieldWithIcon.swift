@@ -14,6 +14,7 @@ struct TextFieldWithIcon: View {
     var label: String
     @Binding var isAnimating: Bool
     @Binding var wrongInputRedBorder: CGFloat
+    @State private var feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
     
     var body: some View {
         HStack {
@@ -32,6 +33,7 @@ struct TextFieldWithIcon: View {
                 .border(.red, width: wrongInputRedBorder)
                 .disableAutocorrection(true)
                 .onTapGesture {
+                    feedbackGenerator.impactOccurred()
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                     withAnimation(.easeInOut(duration: 0.3)) {
                         wrongInputRedBorder = 0

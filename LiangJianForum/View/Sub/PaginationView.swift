@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct PaginationView: View {
     let hasPrevPage: Bool
@@ -19,6 +20,7 @@ struct PaginationView: View {
     @State private var nextButtonDisabled = false
     let mode: PaginationMode
     @State private var animation: Animation = .easeInOut(duration: 0.3)
+    @State private var feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
 
     var body: some View {
         VStack {
@@ -33,6 +35,7 @@ struct PaginationView: View {
 
                         HStack {
                             Button(action: {
+                                feedbackGenerator.impactOccurred()
                                 withAnimation(animation) {
                                     if currentPage > 1 && !prevButtonDisabled {
                                         currentPage -= 1
@@ -70,6 +73,9 @@ struct PaginationView: View {
                             Spacer()
 
                             Button(action: {
+                                Task {
+                                    feedbackGenerator.impactOccurred()
+                                }
                                 withAnimation(animation) {
                                     if !firstPageButtonDisabled {
                                         disableButtons()
@@ -102,6 +108,9 @@ struct PaginationView: View {
                             Spacer()
 
                             Button(action: {
+                                Task {
+                                    feedbackGenerator.impactOccurred()
+                                }
                                 withAnimation(animation) {
                                     if !nextButtonDisabled {
                                         disableButtons()

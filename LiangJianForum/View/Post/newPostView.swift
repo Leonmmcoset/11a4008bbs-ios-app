@@ -11,6 +11,9 @@ import MarkdownUI
 
 struct newPostView: View {
     @State private var isPreviewing = false // 控制预览弹窗显示
+    @State private var isExpanding = false
+    @State private var expandOrigin: CGPoint = .zero
+    @State private var scale: CGFloat = 0.1
     @Environment(\.dismiss) var dismiss
     @State private var succeessfullyPosted = false
     @State private var selectedRow: Int? = nil
@@ -68,7 +71,16 @@ struct newPostView: View {
                         VStack {
                             TextEditor(text: $newPostContent)
                             HStack {
-                                Button("预览") { isPreviewing = true }
+                                Button("预览") {
+                                    withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
+                                        if let button = UIApplication.shared.windows.first?.rootViewController?.view.viewWithTag(1) as? UIButton {
+                                            let origin = button.convert(CGPoint.zero, to: nil)
+                                            expandOrigin = CGPoint(x: origin.x + button.bounds.width / 2, y: origin.y + button.bounds.height / 2)
+                                        }
+                                        isExpanding = true
+                                    }
+                                }
+                                .tag(1)
                                     .padding(.horizontal)
                                 // 原有提交按钮保持不变
                             }
@@ -197,6 +209,45 @@ struct newPostView: View {
                 .navigationTitle("New Post")
             }
         }
+        .overlay(
+            ZStack {
+                if isExpanding {
+                    Color.white
+                        .frame(width: UIScreen.main.bounds.width * scale, height: UIScreen.main.bounds.height * scale)
+                        .position(expandOrigin)
+                        .onAppear {
+                            withAnimation(.spring(response: 0.6, dampingFraction: 0.7).delay(0.1)) {
+                                scale = 10
+                            }
+                        }
+                        .onTapGesture {
+                            withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
+                                scale = 0.1
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                    isExpanding = false
+                                }
+                            }
+                        }
+                        NavigationView {
+                            ScrollView {
+                                Markdown(newPostContent) // 使用已下载的Markdown库渲染
+                                    .padding()
+                            }
+                            .navigationTitle("Markdown预览")
+                            .navigationBarItems(trailing: Button("关闭") {
+                                withAnimation(.spring(response: 0.4, dampingFraction: 0.7)) {
+                                    scale = 0.1
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                        isExpanding = false
+                                    }
+                                }
+                            })
+                        }
+                        .opacity(isExpanding ? 1 : 0)
+                        .animation(.easeInOut.speed(1/0.3), value: isExpanding)
+                }
+            }
+        )
         
 func clearData() {
             newPostTitle = ""

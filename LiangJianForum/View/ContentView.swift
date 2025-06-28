@@ -10,11 +10,13 @@ import UIKit
 import Combine
 import os
 
+/// 应用的主内容视图，使用 `TabView` 实现多标签导航。
 struct ContentView: View {
     @EnvironmentObject var appsettings: AppSettings
     @State private var selection: Tab = .post
     @State private var feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
 
+    /// 定义标签页的枚举类型。
     enum Tab {
         case post
         case profile
@@ -23,6 +25,7 @@ struct ContentView: View {
         case settings
     }
 
+    /// 视图的主体内容，根据用户登录状态显示不同的 `TabView`。
     var body: some View {
         if appsettings.isLoggedIn {
             TabView(selection: $selection) {

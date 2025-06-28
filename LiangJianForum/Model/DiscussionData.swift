@@ -15,38 +15,60 @@ import Foundation
 import Foundation
 
 // MARK: - Discussion
+/// 表示从 JSON 数据解析得到的讨论数据。
 struct Discussion: Codable, Hashable {
+    /// 包含相关链接的对象。
     let links: Links
+    /// 讨论数据数组。
     let data: [Datum]
+    /// 包含的额外数据数组。
     let included: [Included]
 }
 
 // MARK: - Datum
+/// 表示单个讨论数据项。
 struct Datum: Codable, Hashable {
+    /// 数据类型。
     let type, id: String
+    /// 数据的属性。
     let attributes: DatumAttributes
+    /// 数据的关联关系。
     let relationships: DatumRelationships
 }
 
 // MARK: - DatumAttributes
+/// 表示单个讨论数据项的属性。
 struct DatumAttributes: Codable, Hashable {
+    /// 讨论的标题。
     let title, slug: String
+    /// 评论数量。
     let commentCount, participantCount: Int
+    /// 创建时间。
     let createdAt: String
+    /// 最后发布时间。
     let lastPostedAt: String?
+    /// 最后发布的评论编号。
     let lastPostNumber: Int
+    /// 是否置顶。
     let isSticky: Bool
+    /// 是否锁定。
     let isLocked: Bool
+    /// 是否包含投票。
     let hasPoll: Bool?
+    /// 是否有最佳答案。
     let hasBestAnswer: HasBestAnswer?
+    /// 是否在首页显示。
     let frontpage: Bool?
+    /// 是否隐藏。
     let isHidden : IsHidden?
+    /// 订阅状态。
     let subscription: String?
 //    let canReply, canRename, canDelete, canHide: Bool
 //    let isApproved: Bool
 //    let bestAnswerSetAt, subscription: JSONNull?
 //    let canTag, isSticky, canSticky, isStickiest: Bool
 //    let isTagSticky, canStickiest, canTagSticky, canReset: Bool
+    /// 查看次数。
     let viewCount: Int?
 //    let canViewNumber, frontpage: Bool
 //    let frontdate: String?

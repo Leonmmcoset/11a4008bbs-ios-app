@@ -80,7 +80,6 @@
 		F6C9915D2DB8FF6B00CC374C /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C9912F2DB8EEF700CC374C /* WidgetKit.framework */; };
 		F6C9915E2DB8FF6B00CC374C /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C991312DB8EEF700CC374C /* SwiftUI.framework */; };
 		F6C9916F2DB8FF6C00CC374C /* FlarumiOSAppWedgitExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F6C9915C2DB8FF6B00CC374C /* FlarumiOSAppWedgitExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		F6E724922E0FD4D40006138A /* SlothCreator in Frameworks */ = {isa = PBXBuildFile; productRef = F6E724912E0FD4D40006138A /* SlothCreator */; };
 		F6F132302D699BF6005FD2B5 /* BugsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F1322F2D699BE9005FD2B5 /* BugsView.swift */; };
 		F6FBC9562D660804008D2D1E /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6FBC9552D660804008D2D1E /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
@@ -222,7 +221,6 @@
 			files = (
 				F644AF732E066D23003EAE92 /* MarkdownUI in Frameworks */,
 				071C68702AC0615900A862AC /* Awesome in Frameworks */,
-				F6E724922E0FD4D40006138A /* SlothCreator in Frameworks */,
 				072DA5282AAF87C8000B2F1F /* Shimmer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,11 +9,15 @@ import SwiftUI
 import UIKit
 import os
 
+/// 用于展示头部轮播图的视图。
+/// 该视图会从网络获取轮播图数据并展示，如果数据为空则显示骨架屏。
 struct HeaderSlideView: View {
     @EnvironmentObject var appsettings: AppSettings
     @State private var slidedata = [SlideData]()
     @State private var transitionTime = "2"
-    
+
+    /// 视图的主体内容。
+    /// 根据 `slidedata` 是否为空，显示轮播图或骨架屏。
     var body: some View {
         VStack {
             if !slidedata.isEmpty {
@@ -26,7 +30,9 @@ struct HeaderSlideView: View {
             await fetchHeaderSlide()
         }
     }
-    
+
+    /// 异步获取头部轮播图数据。
+    /// 从指定 URL 获取数据并解析，若成功则更新轮播图数据和切换时间。
     private func fetchHeaderSlide() async {
         guard let url = URL(string: "\(appsettings.FlarumUrl)/api/header-slideshow/list") else {
             os_log("Invalid URL", log: .default, type: .error)

@@ -7,7 +7,9 @@
 
 import SwiftUI
 
+/// 用于加载并显示资产条件记录的骨架屏视图。
 struct MoneyConditionRecordContentLoader: View {
+    /// 视图的主体内容，展示当前资产和资产记录的骨架屏。
     var body: some View {
         List{
             Section("当前资产"){

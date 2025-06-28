@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import os
 
 enum FollowButtonMode {
     case follow
@@ -41,7 +42,7 @@ struct FavoriteButton: View {
                     sendFollowRequest(completion: { success in
                         showAlert = true
                         isUserSubscribed = false
-                        print("successfuly unfollow the post, ID: \(discussionId)")
+                        os_log("successfuly unfollow the post, ID: %{public}@", log: .default, type: .info, String(describing: discussionId))
                     }, mode: .unfollow)
                 }else{
                     subscription = true
@@ -50,7 +51,7 @@ struct FavoriteButton: View {
                     sendFollowRequest(completion: { success in
                         showAlert = true
                         isUserSubscribed = true
-                        print("successfuly follow the post, ID: \(discussionId)")
+                        os_log("successfuly follow the post, ID: %{public}@", log: .default, type: .info, String(describing: discussionId))
                     }, mode: .follow)
                 }
             }) {
@@ -78,11 +79,11 @@ struct FavoriteButton: View {
             follow = false
         }
         
-        print("current Token: \(appSettings.token)")
-        print("current FlarumUrl: \(appSettings.FlarumUrl)")
+        os_log("current Token: %{public}@", log: .default, type: .info, appSettings.token)
+        os_log("current FlarumUrl: %{public}@", log: .default, type: .info, appSettings.FlarumUrl)
         
         guard let url = URL(string: "\(appSettings.FlarumUrl)/api/discussions/\(self.discussionId)") else {
-            print("invalid Url!")
+            os_log("invalid Url!", log: .default, type: .error)
             completion(false)
             return
         }
@@ -99,7 +100,7 @@ struct FavoriteButton: View {
 
         
         guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters) else {
-            print("Failed to serialize post data to JSON!")
+            os_log("Failed to serialize post data to JSON!", log: .default, type: .error)
             completion(false)
             return
         }
@@ -112,20 +113,20 @@ struct FavoriteButton: View {
         if appSettings.token != ""{
             request.setValue("Token \(appSettings.token)", forHTTPHeaderField: "Authorization")
         }else{
-            print("Invalid Token Or Not Logged in Yet!")
+            os_log("Invalid Token Or Not Logged in Yet!", log: .default, type: .error)
         }
         
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                print("Error: \(error)")
+                os_log("Error: %{public}@", log: .default, type: .error, String(describing: error))
                 completion(false)
                 return
             }
             
             guard let httpResponse = response as? HTTPURLResponse,
                   (200...299).contains(httpResponse.statusCode) else {
-                print("Invalid response")
+                os_log("Invalid response", log: .default, type: .error)
                 completion(false)
                 return
             }

@@ -8,6 +8,7 @@
 import SwiftUI
 import UIKit
 import SafariServices // 保留Safari框架导入
+import os
 
 struct ProfileView: View {
     @State private var username: String = ""
@@ -388,10 +389,10 @@ struct ProfileView: View {
     
     private func fetchUserProfile() async {
         guard let url = URL(string: "\(appSettings.FlarumUrl)/api/users/\(appSettings.userId)") else {
-            print("Invalid URL")
+            os_log("Invalid URL", log: .default, type: .error)
             return
         }
-        print("Fetching User Info at: \(url)")
+        os_log("Fetching User Info at: %{public}@", log: .default, type: .info, url.absoluteString)
         
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
@@ -413,7 +414,7 @@ struct ProfileView: View {
                 bioHtml = decodedResponse.data.attributes.bioHtml ?? ""
             }
         } catch {
-            print("Fetch user profile failed: \(error)")
+            os_log("Fetch user profile failed: %{public}@", log: .default, type: .error, String(describing: error))
             // 可以添加更多错误处理逻辑，如显示提示框给用户
             // showAlert(message: "获取用户资料失败，请重试")
         }

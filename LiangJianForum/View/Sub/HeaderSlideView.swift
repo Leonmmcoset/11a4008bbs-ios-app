@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UIKit
+import os
 
 struct HeaderSlideView: View {
     @EnvironmentObject var appsettings: AppSettings
@@ -28,7 +29,7 @@ struct HeaderSlideView: View {
     
     private func fetchHeaderSlide() async {
         guard let url = URL(string: "\(appsettings.FlarumUrl)/api/header-slideshow/list") else {
-            print("Invalid URL")
+            os_log("Invalid URL", log: .default, type: .error)
             return
         }
 
@@ -36,7 +37,7 @@ struct HeaderSlideView: View {
             let (data, response) = try await URLSession.shared.data(from: url)
 
             if let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) {
-                print("HeaderSlide Exists")
+                os_log("HeaderSlide Exists", log: .default, type: .info)
 
                 if let decodedResponse = try? JSONDecoder().decode(HeaderSlideData.self, from: data) {
                     self.transitionTime = decodedResponse.transitionTime
@@ -44,7 +45,7 @@ struct HeaderSlideView: View {
                 }
             }
         } catch {
-            print("Error fetching Header Slide Data!", error)
+            os_log("Error fetching Header Slide Data! %{public}@", log: .default, type: .error, String(describing: error))
         }
     }
 

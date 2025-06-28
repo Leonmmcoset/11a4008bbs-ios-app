@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import os
 
 struct MoneyConditionRecord: View {
     let Usermoney : Double?
@@ -107,7 +108,7 @@ struct MoneyConditionRecord: View {
             
             fetchMoneyData { success in
                 if success{
-                    print("Successfully load MoneyRecord View!")
+                    os_log("Successfully load MoneyRecord View!", log: .default, type: .info)
                 }
             }
         }
@@ -151,10 +152,10 @@ struct MoneyConditionRecord: View {
     
     private func fetchUserProfile() async {
         guard let url = URL(string: "\(appSettings.FlarumUrl)/api/users/\(appSettings.userId)") else{
-                print("Invalid URL")
+                os_log("Invalid URL", log: .default, type: .error)
             return
         }
-        print("Fetching User Info at: \(url)")
+        os_log("Fetching User Info at: %{public}@", log: .default, type: .info, url.absoluteString)
         
         do{
             let (data, _) = try await URLSession.shared.data(from: url)
@@ -165,13 +166,13 @@ struct MoneyConditionRecord: View {
                 }
             }
         } catch {
-            print("Invalid user Data!" ,error)
+            os_log("Invalid user Data! %{public}@", log: .default, type: .error, String(describing: error))
         }
     }
     
     private func fetchMoneyData(completion: @escaping (Bool) -> Void) {
         guard let url = URL(string: "\(appSettings.FlarumUrl)/api/money-more/record/\(userId)?page=0") else {
-            print("Invalid URL")
+            os_log("Invalid URL", log: .default, type: .error)
             completion(false)
             return
         }
@@ -186,19 +187,19 @@ struct MoneyConditionRecord: View {
         if appSettings.token != "" {
             request.setValue("Token \(appSettings.token)", forHTTPHeaderField: "Authorization")
         } else {
-            print("Invalid token or not logged in yet!")
+            os_log("Invalid token or not logged in yet!", log: .default, type: .error)
         }
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                print("Error: \(error)")
+                os_log("Error: %{public}@", log: .default, type: .error, String(describing: error))
                 completion(false)
                 return
             }
             
             guard let httpResponse = response as? HTTPURLResponse,
                   (200...299).contains(httpResponse.statusCode) else {
-                print("Invalid response")
+                os_log("Invalid response", log: .default, type: .error)
                 completion(false)
                 return
             }
@@ -206,10 +207,10 @@ struct MoneyConditionRecord: View {
             // 在请求成功时处理数据
             if let data = data {
                 if let decodedResponse = try? JSONDecoder().decode(MoneyData.self, from: data) {
-                    print("Successfully decoding use MoneyData.self")
+                    os_log("Successfully decoding use MoneyData.self", log: .default, type: .info)
                     self.moneyData = decodedResponse.data
                 } else {
-                    print("Decoding to MoneyData Failed!")
+                    os_log("Decoding to MoneyData Failed!", log: .default, type: .error)
                 }
             }
             

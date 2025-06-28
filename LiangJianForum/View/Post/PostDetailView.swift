@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Shimmer
+import os
 
 struct PostDetailView: View {
     let postTitle: String
@@ -262,7 +263,7 @@ struct PostDetailView: View {
 
                                             Task {
                                                 fetchDetail(postID: postID){success in
-                                                    print("fetchDetail...(in load more button)")
+                                                    os_log("fetchDetail...(in load more button)", log: .default, type: .info)
                                                 }
                                                 isLoading = false
                                             }
@@ -302,7 +303,7 @@ struct PostDetailView: View {
                                     if !isLoading {
                                         isLoading = true
                                         fetchDetail(postID: postID){success in
-                                            print("fetchDetail... (on chage of seleted option)")
+                                            os_log("fetchDetail... (on chage of seleted option)", log: .default, type: .info)
                                         }
                                         isLoading = false
                                     }
@@ -399,7 +400,7 @@ struct PostDetailView: View {
             isLoading = true
             Task {
                 fetchDetail(postID: postID){success in
-                    print("fetchDetail...(fresh the page after posting)")
+                    os_log("fetchDetail...(fresh the page after posting)", log: .default, type: .info)
                 }
                 isLoading = false
             }
@@ -419,7 +420,7 @@ struct PostDetailView: View {
                 
                 isLoading = true
                 fetchDetail(postID: postID){success in
-                    print("fetchDetail... (in refreshable)")
+                    os_log("fetchDetail... (in refreshable)", log: .default, type: .info)
                 }
                 isLoading = false
             }
@@ -431,7 +432,7 @@ struct PostDetailView: View {
                 isLoading = true
                 clearData()
                 fetchDetail(postID: postID){success in
-                    print("fetchDetail...(in task)")
+                    os_log("fetchDetail...(in task)", log: .default, type: .info)
                 }
                 isLoading = false
             }
@@ -468,7 +469,7 @@ struct PostDetailView: View {
     private func fetchDetail(postID: String, completion: @escaping (Bool) -> Void) {
         // clearData()
         guard let url = URL(string: "\(appsettings.FlarumUrl)/api/discussions/\(postID)?page[number]=\(currentPage)") else {
-            print("Invalid URL")
+            os_log("Invalid URL", log: .default, type: .error)
             completion(false)
             return
         }
@@ -483,42 +484,42 @@ struct PostDetailView: View {
         if appsettings.token != "" {
             request.setValue("Token \(appsettings.token)", forHTTPHeaderField: "Authorization")
         } else {
-            print("Invalid Token Or Not Logged in Yet!")
+            os_log("Invalid Token Or Not Logged in Yet!", log: .default, type: .error)
         }
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                print("Error: \(error)")
+                os_log("Error: %{public}@", log: .default, type: .error, String(describing: error))
                 completion(false)
                 return
             }
             
             guard let httpResponse = response as? HTTPURLResponse,
                   (200...299).contains(httpResponse.statusCode) else {
-                print("Invalid response")
+                os_log("Invalid response", log: .default, type: .error)
                 completion(false)
                 return
             }
             
             // 在请求成功时处理数据
             if let data = data {
-                print("current page: \(currentPage)")
-                print("fetching postID: \(postID)")
+                os_log("current page: %{public}@", log: .default, type: .info, String(describing: currentPage))
+                os_log("fetching postID: %{public}@", log: .default, type: .info, String(describing: postID))
 
                 if let decodedResponse = try? JSONDecoder().decode(PostDataWithTag.self, from: data) {
-                    print("Successfully decoding use PostDataWithTag.self")
+                    os_log("Successfully decoding use PostDataWithTag.self", log: .default, type: .info)
                     include = decodedResponse.included
                     postsData = decodedResponse.data
                     
                     if let tagData = decodedResponse.data.relationships.tags?.data {
                         for tag in tagData {
                             tagsIdInPostDetail.append(tag.id)
-                            print("current post has tag with id: \(tag.id)")
+                            os_log("current post has tag with id: %{public}@", log: .default, type: .info, String(describing: tag.id))
                         }
                     }
                     processIncludedTagsArray(include)
                 } else {
-                    print("Decoding to PostData Failed!")
+                    os_log("Decoding to PostData Failed!", log: .default, type: .error)
                 }
             }
             
@@ -529,7 +530,7 @@ struct PostDetailView: View {
     }
 
     private func processIncludedTagsArray(_ includedArray: [Included5]) {
-        print("process Comment List Array...")
+        os_log("process Comment List Array...", log: .default, type: .info)
         //默认发帖顺序排序
         if selectedSortOption == NSLocalizedString("default_sort_option", comment: ""){
             for included in includedArray {
@@ -615,7 +616,7 @@ struct PostDetailView: View {
     
     private func fetchTagsData() async {
         guard let url = URL(string: "\(appsettings.FlarumUrl)/api/tags") else {
-            print("Invalid URL")
+            os_log("Invalid URL", log: .default, type: .error)
             return
         }
         
@@ -624,10 +625,10 @@ struct PostDetailView: View {
             
             if let decodedResponse = try? JSONDecoder().decode(TagsData.self, from: data) {
                 self.fetchedTags = decodedResponse.data
-                print("successfully decode tags data in postDetail View")
+                os_log("successfully decode tags data in postDetail View", log: .default, type: .info)
             }
         } catch {
-            print("Invalid Tags Data!", error)
+            os_log("Invalid Tags Data! %{public}@", log: .default, type: .error, String(describing: error))
         }
     }
         

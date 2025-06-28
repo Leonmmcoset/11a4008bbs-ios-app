@@ -8,6 +8,7 @@
 import WidgetKit
 import SwiftUI
 import Combine
+import os
 
 // 数据提供者，严格遵循 TimelineProvider 协议
 struct Provider: TimelineProvider {
@@ -76,7 +77,7 @@ struct Provider: TimelineProvider {
             }
 
             if let jsonString = String(data: data, encoding: .utf8) {
-                print("获取到的数据: \(jsonString)")
+                os_log("获取到的数据: %{public}@", log: .default, type: .info, jsonString)
             }
 
             do {
@@ -91,19 +92,19 @@ struct Provider: TimelineProvider {
             } catch let decodingError as DecodingError {
                 switch decodingError {
                 case .keyNotFound(let key, let context):
-                    print("解码错误: 未找到键 \(key)，路径: \(context.codingPath)，调试信息: \(context.debugDescription)")
+                    os_log("解码错误: 未找到键 %{public}@，路径: %{public}@，调试信息: %{public}@", log: .default, type: .error, key as! CVarArg, String(describing: context.codingPath), context.debugDescription)
                 case .typeMismatch(let type, let context):
-                    print("解码错误: 类型不匹配 \(type)，路径: \(context.codingPath)，调试信息: \(context.debugDescription)")
+                    os_log("解码错误: 类型不匹配 %{public}@，路径: %{public}@，调试信息: %{public}@", log: .default, type: .error, type as! CVarArg, String(describing: context.codingPath), context.debugDescription)
                 case .valueNotFound(let type, let context):
-                    print("解码错误: 未找到值 \(type)，路径: \(context.codingPath)，调试信息: \(context.debugDescription)")
+                    os_log("解码错误: 未找到值 %{public}@，路径: %{public}@，调试信息: %{public}@", log: .default, type: .error, type as! CVarArg, String(describing: context.codingPath), context.debugDescription)
                 case .dataCorrupted(let context):
-                    print("解码错误: 数据损坏，路径: \(context.codingPath)，调试信息: \(context.debugDescription)")
+                    os_log("解码错误: 数据损坏，路径: %{public}@，调试信息: %{public}@", log: .default, type: .error, String(describing: context.codingPath), context.debugDescription)
                 @unknown default:
-                    print("未知的解码错误: \(decodingError)")
+                    os_log("未知的解码错误: %{public}@", log: .default, type: .error, String(describing: decodingError))
                 }
                 completion(0, 0, 0, "数据解码错误: \(decodingError.localizedDescription)")
             } catch {
-                print("未知错误: \(error)")
+                os_log("未知错误: %{public}@", log: .default, type: .error, String(describing: error))
                 completion(0, 0, 0, "数据解码错误: \(error.localizedDescription)")
             }
         }.resume()

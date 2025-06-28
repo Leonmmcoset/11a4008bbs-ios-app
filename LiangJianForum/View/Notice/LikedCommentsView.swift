@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import os
 
 struct LikedCommentsView: View {
     let userId : String
@@ -196,7 +197,7 @@ struct LikedCommentsView: View {
         
     private func fetchCommentCount(_ id: String) async -> Int{
         guard let url = URL(string: "\(appsettings.FlarumUrl)/api/discussions/\(id)") else{
-            print("Invalid URL")
+            os_log("Invalid URL", log: .default, type: .error)
             return 0
         }
         
@@ -208,7 +209,7 @@ struct LikedCommentsView: View {
             }
             
         } catch {
-            print("Invalid Discussions Data In method fetchCommentCount()!" ,error)
+            os_log("Invalid Discussions Data In method fetchCommentCount()! %{public}@", log: .default, type: .error, String(describing: error))
         }
         
         return 0
@@ -216,7 +217,7 @@ struct LikedCommentsView: View {
     
     private func fetchUserLikedCommentsData(completion: @escaping (Bool) -> Void) {
         guard let url = URL(string: "\(appsettings.FlarumUrl)/api/posts?filter%5Btype%5D=comment&filter%5BlikedBy%5D=\(self.userId)&page%5Boffset%5D=\(currentPageOffset)&page%5Blimit%5D=20&sort=-createdAt") else {
-            print("Invalid URL")
+            os_log("Invalid URL", log: .default, type: .error)
             completion(false)
             return
         }
@@ -231,27 +232,27 @@ struct LikedCommentsView: View {
         if appsettings.token != "" {
             request.setValue("Token \(appsettings.token)", forHTTPHeaderField: "Authorization")
         } else {
-            print("Invalid Token or Not Logged in Yet!")
+            os_log("Invalid Token or Not Logged in Yet!", log: .default, type: .error)
         }
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                print("Error: \(error)")
+                os_log("Error: %{public}@", log: .default, type: .error, String(describing: error))
                 completion(false)
                 return
             }
             
             guard let httpResponse = response as? HTTPURLResponse,
                   (200...299).contains(httpResponse.statusCode) else {
-                print("Invalid response")
+                os_log("Invalid response", log: .default, type: .error)
                 completion(false)
                 return
             }
             
             // 在请求成功时处理数据
             if let data = data {
-                print("fetching from \(url)")
-                print("In CommentsView")
+                os_log("fetching from %{public}@", log: .default, type: .info, url.absoluteString)
+                os_log("In CommentsView", log: .default, type: .info)
                 
                 if let decodedResponse = try? JSONDecoder().decode(UserCommentData.self, from: data) {
                     self.userCommentData = decodedResponse.data
@@ -269,12 +270,12 @@ struct LikedCommentsView: View {
                         self.hasPrevPage = false
                     }
 
-                    print("successfully decode user's liked comment data")
-                    print("current page offset: \(currentPageOffset)")
-                    print("has next page: \(hasNextPage)")
-                    print("has prev page: \(hasPrevPage)")
+                    os_log("successfully decode user's liked comment data", log: .default, type: .info)
+                    os_log("current page offset: %{public}d", log: .default, type: .info, currentPageOffset)
+                    os_log("has next page: %{public}@", log: .default, type: .info, String(describing: hasNextPage))
+                    os_log("has prev page: %{public}@", log: .default, type: .info, String(describing: hasPrevPage))
                 } else {
-                    print("Invalid user's comment Data!")
+                    os_log("Invalid user's comment Data!", log: .default, type: .error)
                 }
             }
             
@@ -299,10 +300,10 @@ struct LikedCommentsView: View {
     
     private func fetchUserProfile(userId: String) async -> UserInfo {
         guard let url = URL(string: "\(appsettings.FlarumUrl)/api/users/\(userId)") else {
-            print("Invalid URL")
+            os_log("Invalid URL", log: .default, type: .error)
             return UserInfo(username: "", displayName: "", avatarUrl: "")
         }
-        print("Fetching User Info at: \(url) at LikedCommentsView")
+        os_log("Fetching User Info at: %{public}@ at LikedCommentsView", log: .default, type: .info, url.absoluteString)
 
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
@@ -312,15 +313,15 @@ struct LikedCommentsView: View {
                 let displayName = decodedResponse.data.attributes.displayName
                 let avatarUrl = decodedResponse.data.attributes.avatarURL ?? "" // Handle optional value
 
-                print("Successfully decoded user data")
-                print("Username: \(username)")
-                print("Display Name: \(displayName)")
-                print("Avatar URL: \(avatarUrl)")
+                os_log("Successfully decoded user data", log: .default, type: .info)
+                os_log("Username: %{public}@", log: .default, type: .info, username)
+                os_log("Display Name: %{public}@", log: .default, type: .info, displayName)
+                os_log("Avatar URL: %{public}@", log: .default, type: .info, avatarUrl)
 
                 return UserInfo(username: username, displayName: displayName, avatarUrl: avatarUrl)
             }
         } catch {
-            print("Invalid user Data!", error)
+            os_log("Invalid user Data! %{public}@", log: .default, type: .error, String(describing: error))
         }
 
         return UserInfo(username: "", displayName: "", avatarUrl: "")

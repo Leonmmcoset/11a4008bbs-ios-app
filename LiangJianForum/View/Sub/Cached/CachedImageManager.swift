@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import os
 
 final class CachedImageManager: ObservableObject {
     
@@ -22,7 +23,7 @@ final class CachedImageManager: ObservableObject {
         if let imageData = cache.object(forkey: imgUrl as NSString) {
             self.currentState = .success(data: imageData)
 //            #if DEBUG
-            print("✅ Fetching image from the cache: \(imgUrl)")
+            os_log("✅ Fetching image from the cache: %{public}@", log: .default, type: .info, imgUrl)
 //            #endif
             return
         }
@@ -33,7 +34,7 @@ final class CachedImageManager: ObservableObject {
             cache.set(object: data as NSData,
                       forKey: imgUrl as NSString)
 //            #if DEBUG
-            print("⬇️ Caching image: \(imgUrl)")
+            os_log("⬇️ Caching image: %{public}@", log: .default, type: .info, imgUrl)
 //            #endif
         } catch {
             self.currentState = .failed(error: error)

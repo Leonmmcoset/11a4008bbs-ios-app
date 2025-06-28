@@ -74,11 +74,13 @@
 		F643CF7A2D673C2F00F43A31 /* APPInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F643CF792D673C2F00F43A31 /* APPInfoView.swift */; };
 		F644AF732E066D23003EAE92 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = F644AF722E066D23003EAE92 /* MarkdownUI */; };
 		F66DE2F42E02FE4900618E3B /* ForumHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66DE2F32E02FE4900618E3B /* ForumHelpView.swift */; };
+		F6924E962E0FA6110054B081 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6924E952E0FA6110054B081 /* DebugView.swift */; };
 		F69CD0962E0973B200F2F49E /* bbsicon beta.icon in Resources */ = {isa = PBXBuildFile; fileRef = F69CD0952E0973B200F2F49E /* bbsicon beta.icon */; };
 		F6AC05C82E0197BE00E5782F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AC05C72E0197BE00E5782F /* SettingsView.swift */; };
 		F6C9915D2DB8FF6B00CC374C /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C9912F2DB8EEF700CC374C /* WidgetKit.framework */; };
 		F6C9915E2DB8FF6B00CC374C /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C991312DB8EEF700CC374C /* SwiftUI.framework */; };
 		F6C9916F2DB8FF6C00CC374C /* FlarumiOSAppWedgitExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F6C9915C2DB8FF6B00CC374C /* FlarumiOSAppWedgitExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F6E724922E0FD4D40006138A /* SlothCreator in Frameworks */ = {isa = PBXBuildFile; productRef = F6E724912E0FD4D40006138A /* SlothCreator */; };
 		F6F132302D699BF6005FD2B5 /* BugsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F1322F2D699BE9005FD2B5 /* BugsView.swift */; };
 		F6FBC9562D660804008D2D1E /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6FBC9552D660804008D2D1E /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
@@ -172,6 +174,7 @@
 		42ED9B9C42BCB58DB6FFFFE5 /* DiscussionDataWithId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussionDataWithId.swift; sourceTree = "<group>"; };
 		F643CF792D673C2F00F43A31 /* APPInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APPInfoView.swift; sourceTree = "<group>"; };
 		F66DE2F32E02FE4900618E3B /* ForumHelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumHelpView.swift; sourceTree = "<group>"; };
+		F6924E952E0FA6110054B081 /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
 		F69CD0952E0973B200F2F49E /* bbsicon beta.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = "bbsicon beta.icon"; sourceTree = "<group>"; };
 		F69CD0972E09740400F2F49E /* bbsicon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = bbsicon.icon; sourceTree = "<group>"; };
 		F69CD0982E09740400F2F49E /* bbsicon horror.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = "bbsicon horror.icon"; sourceTree = "<group>"; };
@@ -219,6 +222,7 @@
 			files = (
 				F644AF732E066D23003EAE92 /* MarkdownUI in Frameworks */,
 				071C68702AC0615900A862AC /* Awesome in Frameworks */,
+				F6E724922E0FD4D40006138A /* SlothCreator in Frameworks */,
 				072DA5282AAF87C8000B2F1F /* Shimmer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,6 +285,7 @@
 		07697A642A516340009C744E /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				F6924E952E0FA6110054B081 /* DebugView.swift */,
 				F66DE2F32E02FE4900618E3B /* ForumHelpView.swift */,
 				07EF7CAB2A4AA004008E41D4 /* Helper.swift */,
 				072636442A4BD82D0030DF8A /* AppSettings.swift */,
@@ -486,6 +491,7 @@
 				072DA5272AAF87C8000B2F1F /* Shimmer */,
 				071C686F2AC0615900A862AC /* Awesome */,
 				F644AF722E066D23003EAE92 /* MarkdownUI */,
+				F6E724912E0FD4D40006138A /* SlothCreator */,
 			);
 			productName = LiangJianForum;
 			productReference = 07A867FF2A3D879E00311F65 /* FlarumiOSApp.app */;
@@ -554,6 +560,7 @@
 				072DA5262AAF87C8000B2F1F /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
 				071C686E2AC0615900A862AC /* XCRemoteSwiftPackageReference "Awesome" */,
 				F644AF712E066D22003EAE92 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
+				F6E724902E0FD4D40006138A /* XCLocalSwiftPackageReference "../Downloads/SlothCreatorBuildingDocCDocumentationInXcode" */,
 			);
 			productRefGroup = 07A868002A3D879E00311F65 /* Products */;
 			projectDirPath = "";
@@ -596,6 +603,7 @@
 				0779EE1B2A5461A600EE3D93 /* LinksProfileView.swift in Sources */,
 				07CBD46D2A4EC1F8007854DA /* PostDetailView.swift in Sources */,
 				07F2E4042AC05DB10081343C /* CachedImageManager.swift in Sources */,
+				F6924E962E0FA6110054B081 /* DebugView.swift in Sources */,
 				0774753A2A643FC700581DCE /* CommentsView.swift in Sources */,
 				07CBD46B2A4EC076007854DA /* PostData.swift in Sources */,
 				079C84652AA816BD00A1D358 /* ShimmerEffectBox.swift in Sources */,
@@ -1003,6 +1011,13 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		F6E724902E0FD4D40006138A /* XCLocalSwiftPackageReference "../Downloads/SlothCreatorBuildingDocCDocumentationInXcode" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../Downloads/SlothCreatorBuildingDocCDocumentationInXcode;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCRemoteSwiftPackageReference section */
 		071C686E2AC0615900A862AC /* XCRemoteSwiftPackageReference "Awesome" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -1045,6 +1060,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F644AF712E066D22003EAE92 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
 			productName = MarkdownUI;
+		};
+		F6E724912E0FD4D40006138A /* SlothCreator */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SlothCreator;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

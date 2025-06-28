@@ -1,6 +1,7 @@
 import BackgroundTasks
 
 import SwiftUI
+import os
 
 
 
@@ -22,9 +23,9 @@ struct FlarumiOSApp: App {
                     if appSettings.isAutoCheckUpdate {
                     checkAutomaticVersionUpdate()
                 } else {
-                    print("自动检查更新已关闭，跳过检查。")
+                    os_log("自动检查更新已关闭，跳过检查。", log: .default, type: .info)
                     }
-                    print("rootViewController 状态: ", UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene, "的根视图控制器 ", (UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene)?.windows.first?.rootViewController)
+                    os_log("rootViewController 状态: %{public}@ 的根视图控制器 %{public}@", log: .default, type: .info, String(describing: UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene), String(describing: (UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene)?.windows.first?.rootViewController))
                 }
                .sheet(isPresented: $showPrivacySheet) {
                     PrivacyPolicySheet(
@@ -48,16 +49,16 @@ struct FlarumiOSApp: App {
     }
 
     private func refreshUser() async {
-        print("Refresh user token in Background...")
-        print("user identification : \(appSettings.identification)")
-        print("user password : \(appSettings.password)")
+        os_log("Refresh user token in Background...", log: .default, type: .info)
+        os_log("user identification : %{public}@", log: .default, type: .info, appSettings.identification)
+        os_log("user password : %{public}@", log: .default, type: .info, appSettings.password)
 
         let config = URLSessionConfiguration.background(withIdentifier: "refreshUser")
         config.sessionSendsLaunchEvents = true
         let session = URLSession(configuration: config)
 
         guard let url = URL(string: "\(appSettings.FlarumUrl)/api/token") else {
-            print("Invalid URL!")
+            os_log("Invalid URL!", log: .default, type: .error)
             return
         }
 
@@ -67,7 +68,7 @@ struct FlarumiOSApp: App {
         ]
 
         guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters) else {
-            print("Failed to convert username and password to JSON!")
+            os_log("Failed to convert username and password to JSON!", log: .default, type: .error)
             return
         }
 
@@ -83,7 +84,7 @@ struct FlarumiOSApp: App {
                 appSettings.token = tokenResponse.token
                 appSettings.userId = tokenResponse.userId
             } catch {
-                print("Failed to decode token response: \(error)")
+                os_log("Failed to decode token response: %{public}@", log: .default, type: .error, String(describing: error))
             }
         }
     }
@@ -96,9 +97,9 @@ func scheduleAppRefresh() {
 
     do {
         try BGTaskScheduler.shared.submit(request)
-        print("Scheduled app refresh for one hour later.")
+        os_log("Scheduled app refresh for one hour later.", log: .default, type: .info)
     } catch {
-        print("Error scheduling app refresh: \(error)")
+        os_log("Error scheduling app refresh: %{public}@", log: .default, type: .error, String(describing: error))
     }
 }
 
@@ -218,25 +219,25 @@ struct VersionInfo: Codable {
 }
 
 public func checkAutomaticVersionUpdate() {
-    print("开始执行自动版本检查函数")
+    os_log("开始执行自动版本检查函数", log: .default, type: .info)
     let neverRemind = UserDefaults.standard.bool(forKey: "neverRemindVersionUpdate")
     if neverRemind {
-        print("用户已设置永不提醒，自动检查不弹出提示")
+        os_log("用户已设置永不提醒，自动检查不弹出提示", log: .default, type: .info)
         return
     }
     guard let url = URL(string: "http://leonmmcoset.jjmm.ink:1000/web/update/11a4008bbsiosapp.json") else {
-        print("版本检查URL无效，函数退出")
+        os_log("版本检查URL无效，函数退出", log: .default, type: .error)
         return
     }
     let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
         if let error = error {
-            print("版本检查出错: \(error)")
+            os_log("版本检查出错: %{public}@", log: .default, type: .error, String(describing: error))
             return
         }
         if let data = data {
             do {
                 let decoder = JSONDecoder()
-                print("获取到的JSON数据: \(String(data: data, encoding: .utf8) ?? "无数据")")
+                os_log("获取到的JSON数据: %{public}@", log: .default, type: .info, String(data: data, encoding: .utf8) ?? "无数据")
                 let versionInfo = try decoder.decode(VersionInfo.self, from: data)
                 let currentVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
                 if versionInfo.version != currentVersion {
@@ -246,10 +247,10 @@ public func checkAutomaticVersionUpdate() {
                         }
                     }
                 } else {
-                    print("自动检测到无更新，不弹出提示框")
+                    os_log("自动检测到无更新，不弹出提示框", log: .default, type: .info)
                 }
             } catch {
-                print("解析版本信息出错: \(error)")
+                os_log("解析版本信息出错: %{public}@", log: .default, type: .error, String(describing: error))
             }
         }
     }
@@ -257,21 +258,21 @@ public func checkAutomaticVersionUpdate() {
 }
 
 public func checkManualVersionUpdate() {
-    print("开始执行手动版本检查函数")
+    os_log("开始执行手动版本检查函数", log: .default, type: .info)
     // 手动检查时忽略永不提醒设置
     guard let url = URL(string: "http://leonmmcoset.jjmm.ink:1000/web/update/11a4008bbsiosapp.json") else {
-        print("版本检查URL无效，函数退出")
+        os_log("版本检查URL无效，函数退出", log: .default, type: .error)
         return
     }
     let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
         if let error = error {
-            print("版本检查出错: \(error)")
+            os_log("版本检查出错: %{public}@", log: .default, type: .error, String(describing: error))
             return
         }
         if let data = data {
             do {
                 let decoder = JSONDecoder()
-                print("获取到的JSON数据: \(String(data: data, encoding: .utf8) ?? "无数据")")
+                os_log("获取到的JSON数据: %{public}@", log: .default, type: .info, String(data: data, encoding: .utf8) ?? "无数据")
                 let versionInfo = try decoder.decode(VersionInfo.self, from: data)
                 let currentVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
                 if versionInfo.version != currentVersion {
@@ -281,7 +282,7 @@ public func checkManualVersionUpdate() {
                         }
                     }
                 } else {
-                    print("手动检测到无更新，准备弹出提示框")
+                    os_log("手动检测到无更新，准备弹出提示框", log: .default, type: .info)
                     DispatchQueue.main.async {
                         let alert = UIAlertController(title: "提示", message: "现在无更新", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "确定", style: .default))
@@ -291,7 +292,7 @@ public func checkManualVersionUpdate() {
                     }
                 }
             } catch {
-                print("解析版本信息出错: \(error)")
+                os_log("解析版本信息出错: %{public}@", log: .default, type: .error, String(describing: error))
             }
         }
     }
@@ -323,7 +324,7 @@ func showVersionUpdateAlert(_ updateUrl: String, _ newVersion: String, isManualC
         // 检查是否设置了永不提醒
         let neverRemind = UserDefaults.standard.bool(forKey: "neverRemindVersionUpdate")
         if neverRemind {
-            print("用户已设置永不提醒版本更新，跳过检查。")
+            os_log("用户已设置永不提醒版本更新，跳过检查。", log: .default, type: .info)
             return
         }
     }

@@ -8,6 +8,7 @@
 import SwiftUI
 import Charts
 import UIKit
+import os
 
 struct PollChartView: View {
     @EnvironmentObject var appSettings: AppSettings
@@ -270,7 +271,7 @@ struct PollChartView: View {
             sendVoteRequest { success in
                 if success {
                     appSettings.refreshComment()
-                    print("success")
+                    os_log("success", log: .default, type: .info)
                     isLoading = false
 
                     // 设置投票完成标志
@@ -282,18 +283,18 @@ struct PollChartView: View {
                     appSettings.completedVotes[appSettings.userId] = completedVotes
                     
                 } else {
-                    print("failed")
+                    os_log("failed", log: .default, type: .error)
                     isLoading = false
                 }
             }
         }
     
     private func sendVoteRequest(completion: @escaping (Bool) -> Void) {
-        print("current Token: \(appSettings.token)")
-        print("current FlarumUrl: \(appSettings.FlarumUrl)")
+        os_log("current Token: %{public}@", log: .default, type: .info, appSettings.token)
+        os_log("current FlarumUrl: %{public}@", log: .default, type: .info, appSettings.FlarumUrl)
         
         guard let url = URL(string: "\(appSettings.FlarumUrl)/api/fof/polls/\(pollId)/votes") else {
-            print("invalid Url!")
+            os_log("invalid Url!", log: .default, type: .error)
             completion(false)
             return
         }
@@ -305,7 +306,7 @@ struct PollChartView: View {
         ]
         
         guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters) else {
-            print("Failed to serialize post data to JSON!")
+            os_log("Failed to serialize post data to JSON!", log: .default, type: .error)
             completion(false)
             return
         }
@@ -318,20 +319,20 @@ struct PollChartView: View {
         if appSettings.token != ""{
             request.setValue("Token \(appSettings.token)", forHTTPHeaderField: "Authorization")
         }else{
-            print("Invalid Token Or Not Logged in Yet!")
+            os_log("Invalid Token Or Not Logged in Yet!", log: .default, type: .error)
         }
         
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                print("Error: \(error)")
+                os_log("Error: %{public}@", log: .default, type: .error, String(describing: error))
                 completion(false)
                 return
             }
             
             guard let httpResponse = response as? HTTPURLResponse,
                   (200...299).contains(httpResponse.statusCode) else {
-                print("Invalid response")
+                os_log("Invalid response", log: .default, type: .error)
                 completion(false)
                 return
             }

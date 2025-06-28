@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import os
 
 struct RegistrationView: View {
     @State private var username = ""
@@ -198,7 +199,7 @@ struct RegistrationView: View {
         }
         
         guard let url = URL(string: "\(appSettings.FlarumUrl)/api/users") else {
-            print("Invalid URL!")
+            os_log("Invalid URL!", log: .default, type: .error)
             completion(false)
             return
         }
@@ -214,7 +215,7 @@ struct RegistrationView: View {
         ]
         
         guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters) else {
-            print("Failed to convert registraton info to JSON!")
+            os_log("Failed to convert registraton info to JSON!", log: .default, type: .error)
             completion(false)
             return
         }
@@ -228,7 +229,7 @@ struct RegistrationView: View {
         URLSession.shared.dataTask(with: request) { data, response, error in
             
             if let error = error {
-                print("Error: \(error)")
+                os_log("Error: %{public}@", log: .default, type: .error, String(describing: error))
                 completion(false)
                 return
             }
@@ -251,7 +252,7 @@ struct RegistrationView: View {
                     
                     completion(false)
                 } catch {
-                    print("Error decoding JSON when decoding RegistrationResponse")
+                    os_log("Error decoding JSON when decoding RegistrationResponse", log: .default, type: .error)
                     completion(false)
                 }
             } else {

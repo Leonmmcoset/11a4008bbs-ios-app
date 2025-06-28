@@ -5,6 +5,7 @@
 //  Created by Romantic D on 2023/6/26.
 //
 import SwiftUI
+import os
 
 struct TagField: View {
     @EnvironmentObject var appSettings: AppSettings
@@ -83,7 +84,7 @@ struct TagField: View {
        .onAppear {
             fetchTags { success in
                 if success {
-                    print("successfully decode tags data in TagField!")
+                    os_log("successfully decode tags data in TagField!", log: .default, type: .info)
                 }
             }
         }
@@ -92,7 +93,7 @@ struct TagField: View {
     private func fetchTags(completion: @escaping (Bool) -> Void) {
         // clearData()
         guard let url = URL(string: "\(appSettings.FlarumUrl)/api/tags") else {
-            print("Invalid URL")
+            os_log("Invalid URL", log: .default, type: .error)
             completion(false)
             return
         }
@@ -107,19 +108,19 @@ struct TagField: View {
         if appSettings.token != "" {
             request.setValue("Token \(appSettings.token)", forHTTPHeaderField: "Authorization")
         } else {
-            print("Invalid token or not logged in yet!")
+            os_log("Invalid token or not logged in yet!", log: .default, type: .error)
         }
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                print("Error: \(error)")
+                os_log("Error: %{public}@", log: .default, type: .error, String(describing: error))
                 completion(false)
                 return
             }
             
             guard let httpResponse = response as? HTTPURLResponse,
                   (200...299).contains(httpResponse.statusCode) else {
-                print("Invalid response")
+                os_log("Invalid response", log: .default, type: .error)
                 completion(false)
                 return
             }
@@ -127,10 +128,10 @@ struct TagField: View {
             // 在请求成功时处理数据
             if let data = data {
                 if let decodedResponse = try? JSONDecoder().decode(TagsData.self, from: data) {
-                    print("Successfully decoding use TagsData.self")
+                    os_log("Successfully decoding use TagsData.self", log: .default, type: .info)
                     self.tags = decodedResponse.data
                 } else {
-                    print("Decoding to TagsData Failed!")
+                    os_log("Decoding to TagsData Failed!", log: .default, type: .error)
                 }
             }
             

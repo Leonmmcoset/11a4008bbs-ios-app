@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import os
 
 enum ThemeMode: String, CaseIterable {
     case system
@@ -73,10 +74,10 @@ class AppSettings: ObservableObject {
     }
     
     func startTimer() {
-        print("Timer Start")
+        os_log("Timer Start", log: .default, type: .info)
         //cookie will expire
         timer = Timer.scheduledTimer(withTimeInterval: 55 * 60, repeats: false) { [weak self] _ in
-            print("Time out")
+            os_log("Time out", log: .default, type: .info)
             self?.isLoggedIn = false
         }
     }
@@ -197,7 +198,7 @@ func getIconNameFromFetching(from inputString: String?) -> String? {
                 }
             }
         } catch {
-            print("regex error：\(error)")
+            os_log("regex error：%{public}@", log: .default, type: .error, String(describing: error))
             // 可以添加更多错误处理逻辑，如显示提示框给用户
             // showAlert(message: "正则表达式处理失败，请检查输入")
         }

@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import os
 
 
 struct LoginPageView: View {
@@ -308,8 +309,8 @@ struct LoginPageView: View {
                     clearInputField()
                     rememberMeState = false
                 }
-                print("Token: \(appSettings.token)")
-                print("User ID: \(appSettings.userId)")
+                os_log("Token: %{public}@", log: .default, type: .info, appSettings.token)
+                os_log("User ID: %{public}@", log: .default, type: .info, String(describing: appSettings.userId))
                 completion(true) // Authentication success
             } else {
                 
@@ -323,7 +324,7 @@ struct LoginPageView: View {
 
     private func sendLoginRequest(completion: @escaping (Bool) -> Void) {
         guard let url = URL(string: "\(appSettings.FlarumUrl)/api/token") else {
-            print("Invalid URL!")
+            os_log("Invalid URL!", log: .default, type: .error)
             completion(false)
             return
         }
@@ -334,7 +335,7 @@ struct LoginPageView: View {
         ]
         
         guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters) else {
-            print("Failed to convert username and password to JSON!")
+            os_log("Failed to convert username and password to JSON!", log: .default, type: .error)
             completion(false)
             return
         }
@@ -346,14 +347,14 @@ struct LoginPageView: View {
 
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                print("Error: \(error)")
+                os_log("Error: %{public}@", log: .default, type: .error, String(describing: error))
                 completion(false)
                 return
             }
             
             guard let httpResponse = response as? HTTPURLResponse,
                   (200...299).contains(httpResponse.statusCode) else {
-                print("Invalid response from post /api/token")
+                os_log("Invalid response from post /api/token", log: .default, type: .error)
                 completion(false)
                 return
             }
@@ -368,7 +369,7 @@ struct LoginPageView: View {
                     
                     completion(true) // Authentication success
                 } catch {
-                    print("Error decoding JSON: \(error)")
+                    os_log("Error decoding JSON: %{public}@", log: .default, type: .error, String(describing: error))
                     completion(false)
                 }
             } else {
@@ -379,10 +380,10 @@ struct LoginPageView: View {
     
     private func fetchUserProfile() async {
         guard let url = URL(string: "\(appSettings.FlarumUrl)/api/users/\(appSettings.userId)") else{
-                print("Invalid URL")
+                os_log("Invalid URL", log: .default, type: .error)
             return
         }
-        print("Fetching User Info at: \(url)")
+        os_log("Fetching User Info at: %{public}@", log: .default, type: .info, url.absoluteString)
         
         do{
             let (data, _) = try await URLSession.shared.data(from: url)
@@ -425,16 +426,16 @@ struct LoginPageView: View {
                 appSettings.userExp = getUserLevelExp(commentCount: decodedResponse.data.attributes.commentCount, discussionCount: decodedResponse.data.attributes.discussionCount)
 
 
-                print("Successfully decoded user data when sign in success!")
-                print("username : \(appSettings.username)")
-                print("userId : \(appSettings.userId)")
-                print("canCheckIn : \(appSettings.canCheckIn)")
-                print("canCheckinContinuous : \(appSettings.canCheckinContinuous)")
-                print("totalContinuousCheckIn : \(appSettings.totalContinuousCheckIn)")
-                print("isAdmin : \(appSettings.isAdmin)")
+                os_log("Successfully decoded user data when sign in success!", log: .default, type: .info)
+                os_log("username : %{public}@", log: .default, type: .info, appSettings.username)
+                os_log("userId : %{public}@", log: .default, type: .info, String(describing: appSettings.userId))
+                os_log("canCheckIn : %{public}@", log: .default, type: .info, String(describing: appSettings.canCheckIn))
+                os_log("canCheckinContinuous : %{public}@", log: .default, type: .info, String(describing: appSettings.canCheckinContinuous))
+                os_log("totalContinuousCheckIn : %{public}@", log: .default, type: .info, String(describing: appSettings.totalContinuousCheckIn))
+                os_log("isAdmin : %{public}@", log: .default, type: .info, String(describing: appSettings.isAdmin))
             }
         } catch {
-            print("Invalid user Data!" ,error)
+            os_log("Invalid user Data! %{public}@", log: .default, type: .error, String(describing: error))
         }
     }
 

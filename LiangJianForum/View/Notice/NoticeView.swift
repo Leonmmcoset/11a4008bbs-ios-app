@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import os
 
 struct NoticeView: View {
     @Environment(\.colorScheme) var colorScheme
@@ -163,7 +164,7 @@ struct NoticeView: View {
     
     private func fetchUserCommentsData(completion: @escaping (Bool) -> Void) {
         guard let url = URL(string: "\(appsettings.FlarumUrl)/api/posts?filter%5Bauthor%5D=\(appsettings.username)&sort=-createdAt&page%5Boffset%5D=\(currentPageOffset)") else {
-            print("Invalid URL")
+            os_log("Invalid URL", log: .default, type: .error)
             completion(false)
             return
         }
@@ -178,27 +179,27 @@ struct NoticeView: View {
         if appsettings.token != "" {
             request.setValue("Token \(appsettings.token)", forHTTPHeaderField: "Authorization")
         } else {
-            print("Invalid Token or Not Logged in Yet!")
+            os_log("Invalid Token or Not Logged in Yet!", log: .default, type: .error)
         }
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                print("Error: \(error)")
+                os_log("Error: %{public}@", log: .default, type: .error, String(describing: error))
                 completion(false)
                 return
             }
             
             guard let httpResponse = response as? HTTPURLResponse,
                   (200...299).contains(httpResponse.statusCode) else {
-                print("Invalid response")
+                os_log("Invalid response", log: .default, type: .error)
                 completion(false)
                 return
             }
             
             // 在请求成功时处理数据
             if let data = data {
-                print("fetching from \(url)")
-                print("In CommentsView")
+                os_log("fetching from %{public}@", log: .default, type: .info, url.absoluteString)
+                os_log("In CommentsView", log: .default, type: .info)
                 
                 if let decodedResponse = try? JSONDecoder().decode(UserCommentData.self, from: data) {
                     self.userCommentData = decodedResponse.data
@@ -216,12 +217,12 @@ struct NoticeView: View {
                         self.hasPrevPage = false
                     }
 
-                    print("successfully decode user's comment data")
-                    print("current page offset: \(currentPageOffset)")
-                    print("has next page: \(hasNextPage)")
-                    print("has prev page: \(hasPrevPage)")
+                    os_log("successfully decode user's comment data", log: .default, type: .info)
+                    os_log("current page offset: %{public}d", log: .default, type: .info, currentPageOffset)
+                    os_log("has next page: %{public}@", log: .default, type: .info, String(describing: hasNextPage))
+                    os_log("has prev page: %{public}@", log: .default, type: .info, String(describing: hasPrevPage))
                 } else {
-                    print("Invalid user's comment Data!")
+                    os_log("Invalid user's comment Data!", log: .default, type: .error)
                 }
             }
             

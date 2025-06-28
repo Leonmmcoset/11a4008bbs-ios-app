@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import os
 
 struct CommentDisplayView: View {
     @EnvironmentObject var appSettings: AppSettings
@@ -108,7 +109,7 @@ struct CommentDisplayView: View {
                         if let paymentId = getPaymentId(contentHTML: contentHTML){
                             payToRead(paymentId: paymentId){success in
                                 if success{ withAnimation { isButtonClicked = "No" }
-                                    print("Successfully Paid!")
+                                    os_log("Successfully Paid!", log: .default, type: .info)
                                     appSettings.refreshComment()
                                 }
                             }
@@ -208,7 +209,7 @@ struct CommentDisplayView: View {
     //TODO: 修改方法逻辑，每次调用方法json提交paymentID数组的第一个数据并将其从数组中删除，若数组为空则直接return
     private func payToRead(paymentId: String, completion: @escaping (Bool) -> Void) {
         guard let url = URL(string: "\(appSettings.FlarumUrl)/api/pay-to-read/payment/pay") else {
-            print("invalid Url!")
+            os_log("invalid Url!", log: .default, type: .error)
             completion(false)
             return
         }
@@ -218,7 +219,7 @@ struct CommentDisplayView: View {
         ]
         
         guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters) else {
-            print("Failed to serialize post data to JSON!")
+            os_log("Failed to serialize post data to JSON!", log: .default, type: .error)
             completion(false)
             return
         }
@@ -231,20 +232,20 @@ struct CommentDisplayView: View {
         if appSettings.token != ""{
             request.setValue("Token \(appSettings.token)", forHTTPHeaderField: "Authorization")
         }else{
-            print("Invalid Token Or Not Logged in Yet!")
+            os_log("Invalid Token Or Not Logged in Yet!", log: .default, type: .error)
         }
         
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                print("Error: \(error)")
+                os_log("Error: %{public}@", log: .default, type: .error, String(describing: error))
                 completion(false)
                 return
             }
             
             guard let httpResponse = response as? HTTPURLResponse,
                   (200...299).contains(httpResponse.statusCode) else {
-                print("Invalid response")
+                os_log("Invalid response", log: .default, type: .error)
                 completion(false)
                 return
             }

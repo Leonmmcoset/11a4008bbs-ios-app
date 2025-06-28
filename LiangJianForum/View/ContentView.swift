@@ -8,6 +8,7 @@
 import SwiftUI
 import UIKit
 import Combine
+import os
 
 struct ContentView: View {
     @EnvironmentObject var appsettings: AppSettings
@@ -68,10 +69,10 @@ struct ContentView: View {
     
     private func retrieveCurrentUserInformation() async {
         guard let url = URL(string: "\(appsettings.FlarumUrl)/api/users/\(appsettings.userId)") else{
-            print("Invalid URL")
+            os_log("Invalid URL", log: .default, type: .error)
             return
         }
-        print("Fetching User Info : id \(appsettings.userId) at: \(url)")
+        os_log("Fetching User Info : id %{public}@ at: %{public}@", log: .default, type: .info, String(describing: appsettings.userId), url.absoluteString)
 
         do{
             let (data, _) = try await URLSession.shared.data(from: url)
@@ -85,7 +86,7 @@ struct ContentView: View {
                 }
             }
         } catch {
-            print("Invalid user Data!" ,error)
+            os_log("Invalid user Data! %{public}@", log: .default, type: .error, String(describing: error))
         }
     }
 }

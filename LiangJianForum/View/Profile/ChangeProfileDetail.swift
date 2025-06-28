@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UIKit
+import os
 
 struct ChangeProfileDetail: View {
     @Environment(\.dismiss) var dismiss
@@ -102,11 +103,11 @@ struct ChangeProfileDetail: View {
     }
     
     private func sendPostRequest() {
-        print("current userId when changing profile: \(appSettings.userId)")
+        os_log("current userId when changing profile: %{public}@", log: .default, type: .info, String(describing: appSettings.userId))
         
         
         guard let url = URL(string: "\(appSettings.FlarumUrl)/api/users/\(appSettings.userId)") else {
-            print("invalid Url!")
+            os_log("invalid Url!", log: .default, type: .error)
             return
         }
         
@@ -121,7 +122,7 @@ struct ChangeProfileDetail: View {
         ]
 
         guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters) else {
-            print("Failed to serialize post data(change profile) to JSON!")
+            os_log("Failed to serialize post data(change profile) to JSON!", log: .default, type: .error)
             return
         }
         
@@ -133,19 +134,19 @@ struct ChangeProfileDetail: View {
         if appSettings.token != ""{
             request.setValue("Token \(appSettings.token)", forHTTPHeaderField: "Authorization")
         }else{
-            print("Invalid Token Or Not Logged in Yet!")
+            os_log("Invalid Token Or Not Logged in Yet!", log: .default, type: .error)
         }
         
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                print("Error: \(error)")
+                os_log("Error: %{public}@", log: .default, type: .error, String(describing: error))
                 return
             }
             
             guard let httpResponse = response as? HTTPURLResponse,
                   (200...299).contains(httpResponse.statusCode) else {
-                print("Invalid response")
+                os_log("Invalid response", log: .default, type: .error)
                 return
             }
             

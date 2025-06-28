@@ -8,6 +8,7 @@
 import SwiftUI
 import UIKit
 import MarkdownUI
+import os
 
 struct newReply: View {
     @State private var isPreviewing = false // 控制预览弹窗显示
@@ -191,11 +192,11 @@ struct newReply: View {
         }
         
 func sendPostRequest(completion: @escaping (Bool) -> Void) {
-            print("current Token: \(appSettings.token)")
-            print("current FlarumUrl: \(appSettings.FlarumUrl)")
+            os_log("current Token: %{public}@", log: .default, type: .info, appSettings.token)
+            os_log("current FlarumUrl: %{public}@", log: .default, type: .info, appSettings.FlarumUrl)
             
             guard let url = URL(string: "\(appSettings.FlarumUrl)/api/posts") else {
-                print("invalid Url!")
+                os_log("invalid Url!", log: .default, type: .error)
                 return
             }
             
@@ -218,7 +219,7 @@ func sendPostRequest(completion: @escaping (Bool) -> Void) {
             
             
             guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters) else {
-                print("Failed to serialize comment to JSON!")
+                os_log("Failed to serialize comment to JSON!", log: .default, type: .error)
                 return
             }
             
@@ -230,20 +231,20 @@ func sendPostRequest(completion: @escaping (Bool) -> Void) {
             if appSettings.token != ""{
                 request.setValue("Token \(appSettings.token)", forHTTPHeaderField: "Authorization")
             }else{
-                print("Invalid Token Or Not Logged in Yet!")
+                os_log("Invalid Token Or Not Logged in Yet!", log: .default, type: .error)
             }
             
             
             URLSession.shared.dataTask(with: request) { data, response, error in
                 if let error = error {
-                    print("Error: \(error)")
+                    os_log("Error: %{public}@", log: .default, type: .error, String(describing: error))
                     completion(false) // 请求失败时调用回调闭包并传递失败状态
                     return
                 }
                 
                 guard let httpResponse = response as? HTTPURLResponse,
                       (200...299).contains(httpResponse.statusCode) else {
-                    print("Invalid response")
+                    os_log("Invalid response", log: .default, type: .error)
                     completion(false) // 请求失败时调用回调闭包并传递失败状态
                     return
                 }

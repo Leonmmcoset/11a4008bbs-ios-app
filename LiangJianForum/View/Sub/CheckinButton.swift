@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import os
 
 struct CheckinButton: View {
     @Environment(\.colorScheme) var colorScheme
@@ -21,7 +22,7 @@ struct CheckinButton: View {
                     Task{
                         await fetchUserProfile()
                     }
-                    print("successfully Check in !!!")
+                    os_log("successfully Check in !!!", log: .default, type: .info)
                 }
             }
             
@@ -33,10 +34,10 @@ struct CheckinButton: View {
     
     private func fetchUserProfile() async {
         guard let url = URL(string: "\(appSettings.FlarumUrl)/api/users/\(appSettings.userId)") else{
-                print("Invalid URL")
+                os_log("Invalid URL", log: .default, type: .error)
             return
         }
-        print("Fetching User Info at: \(url)")
+        os_log("Fetching User Info at: %{public}@", log: .default, type: .info, url.absoluteString)
         
         do{
             let (data, _) = try await URLSession.shared.data(from: url)
@@ -63,27 +64,27 @@ struct CheckinButton: View {
                 }
 
 
-                print("Successfully decoded user data when sign in success!")
-                print("username : \(appSettings.username)")
-                print("userId : \(appSettings.userId)")
-                print("canCheckIn : \(appSettings.canCheckIn)")
-                print("canCheckinContinuous : \(appSettings.canCheckinContinuous)")
-                print("totalContinuousCheckIn : \(appSettings.totalContinuousCheckIn)")
-                print("isAdmin : \(appSettings.isAdmin)")
+                os_log("Successfully decoded user data when sign in success!", log: .default, type: .info)
+                os_log("username : %{public}@", log: .default, type: .info, appSettings.username)
+                os_log("userId : %{public}@", log: .default, type: .info, String(describing: appSettings.userId))
+                os_log("canCheckIn : %{public}@", log: .default, type: .info, String(describing: appSettings.canCheckIn))
+                os_log("canCheckinContinuous : %{public}@", log: .default, type: .info, String(describing: appSettings.canCheckinContinuous))
+                os_log("totalContinuousCheckIn : %{public}@", log: .default, type: .info, String(describing: appSettings.totalContinuousCheckIn))
+                os_log("isAdmin : %{public}@", log: .default, type: .info, String(describing: appSettings.isAdmin))
             }
         } catch {
-            print("Invalid user Data!" ,error)
+            os_log("Invalid user Data! %{public}@", log: .default, type: .error, String(describing: error))
             showAlert(message: "获取用户数据失败，请重试")
         }
     }
     
     
     private func checkIn(completion: @escaping (Bool) -> Void) {
-        print("current Token: \(appSettings.token)")
-        print("current FlarumUrl: \(appSettings.FlarumUrl)")
+        os_log("current Token: %{public}@", log: .default, type: .info, appSettings.token)
+        os_log("current FlarumUrl: %{public}@", log: .default, type: .info, appSettings.FlarumUrl)
         
         guard let url = URL(string: "\(appSettings.FlarumUrl)/api/users/\(appSettings.userId)") else {
-            print("invalid Url!")
+            os_log("invalid Url!", log: .default, type: .error)
             completion(false)
             return
         }
@@ -101,7 +102,7 @@ struct CheckinButton: View {
 
         
         guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters) else {
-            print("Failed to serialize post data to JSON!")
+            os_log("Failed to serialize post data to JSON!", log: .default, type: .error)
             completion(false)
             return
         }
@@ -114,20 +115,20 @@ struct CheckinButton: View {
         if appSettings.token != ""{
             request.setValue("Token \(appSettings.token)", forHTTPHeaderField: "Authorization")
         }else{
-            print("Invalid Token Or Not Logged in Yet!")
+            os_log("Invalid Token Or Not Logged in Yet!", log: .default, type: .error)
         }
         
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                print("Error: \(error)")
+                os_log("Error: %{public}@", log: .default, type: .error, String(describing: error))
                 completion(false)
                 return
             }
             
             guard let httpResponse = response as? HTTPURLResponse,
                   (200...299).contains(httpResponse.statusCode) else {
-                print("Invalid response")
+                os_log("Invalid response", log: .default, type: .error)
                 completion(false)
                 return
             }

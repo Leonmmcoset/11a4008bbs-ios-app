@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import os
 
 struct TagDetail: View {
     let selectedTag : Datum6
@@ -258,11 +259,11 @@ struct TagDetail: View {
         url = URL(string: "\(appsettings.FlarumUrl)/api/discussions?include=user%2ClastPostedUser%2Ctags%2Ctags.parent%2CfirstPost&filter%5Btag%5D=\(selectedTag.attributes.slug)&sort=&page%5Boffset%5D=\(currentPageOffset)")
         
         
-        print("fetching from url: \(String(describing: url))")
+        os_log("fetching from url: %{public}@", log: .default, type: .info, String(describing: url))
         
         // 检查url是否为nil
         guard let url = url else {
-            print("Invalid URL")
+            os_log("Invalid URL", log: .default, type: .error)
             completion(false)
             return
         }
@@ -277,19 +278,19 @@ struct TagDetail: View {
         if appsettings.token != "" {
             request.setValue("Token \(appsettings.token)", forHTTPHeaderField: "Authorization")
         } else {
-            print("Invalid Token Or Not Logged in Yet!")
+            os_log("Invalid Token Or Not Logged in Yet!", log: .default, type: .error)
         }
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                print("Error: \(error)")
+                os_log("Error: %{public}@", log: .default, type: .error, String(describing: error))
                 completion(false)
                 return
             }
             
             guard let httpResponse = response as? HTTPURLResponse,
                   (200...299).contains(httpResponse.statusCode) else {
-                print("Invalid response")
+                os_log("Invalid response", log: .default, type: .error)
                 completion(false)
                 return
             }
@@ -297,7 +298,7 @@ struct TagDetail: View {
             // 在请求成功时处理数据
             if let data = data {
                 if let decodedResponse = try? JSONDecoder().decode(Discussion.self, from: data) {
-                    print("Successfully decoding use Discussion.self")
+                    os_log("Successfully decoding use Discussion.self", log: .default, type: .info)
                     discussionData = decodedResponse.data ?? []
                     discussionIncluded = decodedResponse.included
                     discussionLinksFirst = decodedResponse.links.first
@@ -314,9 +315,9 @@ struct TagDetail: View {
                         self.hasPrevPage = false
                     }
                     
-                    print("successfully decode discussions data")
+                    os_log("successfully decode discussions data", log: .default, type: .info)
                 } else {
-                    print("Invalid Discussions Overview And Title Data!")
+                    os_log("Invalid Discussions Overview And Title Data!", log: .default, type: .error)
                 }
             }
             

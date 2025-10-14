@@ -54,21 +54,22 @@
 "Reply successfully posted" = "La risposta è stata pubblicata con successo";
 "default_sort_option" = "Ordine di pubblicazione";
 "latest_sort_option" = "Ultime risposte";
+"subsription_sort" = "Le mie iscrizioni";
 "Failed to sign in" = "Accesso non riuscito";
 "Please check your username/password or check the Internet connetction" = "Per favore, controlla il tuo nome utente/la tua password o la connessione Internet";
 "🎀 Last seen at:" = "Ultima visualizzazione: ";
 "🎉 Join Time:" = "Data di iscrizione: ";
 "🎎 DisplayName: " = "Nome visualizzato: ";
+"💰 money: " = "Monete del forum: ";
 "🎊 Username: " = "Nome utente: ";
 "🏖️ Discussion Count: " = "Numero di discussioni pubblicate: ";
 "🧬 Comment Count: " = "Numero di commenti: ";
-"💰 money: " = "Monete del forum: ";
-"Information has been hidden" = "Le informazioni sono state nascoste";
-"Earned Badges" = "Insignie guadagnate";
-"No Badges Earned Yet" = "Non hai ancora guadagnato nessuna insignia";
 "comment_sector" = "Commenti";
 "like_sector" = "Piace";
 "money_sector" = "Registri finanziari";
+"Information has been hidden" = "Le informazioni sono state nascoste";
+"Earned Badges" = "Insignie guadagnate";
+"No Badges Earned Yet" = "Non hai ancora guadagnato nessuna insignia";
 "🍾 In" = "In";
 "username" = "Nome utente";
 "password" = "Password";
@@ -78,7 +79,6 @@
 "latest_sort_discussion" = "Ultimi post";
 "latest_sort_comment" = "Ultimi commenti";
 "default_sort" = "Predefinito nella home";
-"subsription_sort" = "Le mie iscrizioni";
 "sorted_by_text" = "Ordinato per";
 "days later" = "Dopo %d giorni";
 "hours later" = "Dopo %d ore";
@@ -117,10 +117,6 @@
 "打开应用设置" = "Apri le impostazioni dell'app";
 "继续" = "Continua";
 "同意" = "Accetta";
-"moneyauthor" = "Fai una donazione all'autore (importo a scelta)";
-"如有Bug，请在论坛汇报并@LeonMMcoset" = "Se trovi dei bug, per favore, segnalali sul forum e menziona @LeonMMcoset";
-"版本: \(appVersion) (构建版本: \(appBuild))" = "Versione: \(appVersion) (Build: \(appBuild))";
-// MARK: - RegistrationView
 "用户名(登录用 数字或字母组合)" = "Nome utente (per l'accesso, combinazione di numeri o lettere)";
 "密码" = "Password";
 "确认密码" = "Conferma la password";
@@ -135,8 +131,11 @@
 "请输入密码" = "Per favore, inserisci la password";
 "两次输入的密码不匹配" = "Le due password inserite non coincidono";
 "请输入有效的邮箱地址" = "Per favore, inserisci un indirizzo email valido";
-"注册" = "Registrati";
-// MARK: - BugsView
+"·注册" = "·Sign Up";
+"moneyauthor" = "Fai una donazione all'autore (importo a scelta)";
+"如有Bug，请在论坛汇报并@LeonMMcoset" = "Se trovi dei bug, per favore, segnalali sul forum e menziona @LeonMMcoset";
+"版本: \(appVersion) (构建版本: \(appBuild))" = "Versione: \(appVersion) (Build: \(appBuild))";
+// MARK: BugsView
 // Button
 "Bugs" = "Bug noti nell'app";
 // Page

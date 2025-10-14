@@ -54,21 +54,22 @@
 "Reply successfully posted" = "La respuesta se publicó exitosamente";
 "default_sort_option" = "Orden de publicación";
 "latest_sort_option" = "Últimas respuestas";
+"subsription_sort" = "Mis seguimientos";
 "Failed to sign in" = "Error al iniciar sesión";
 "Please check your username/password or check the Internet connetction" = "Por favor, revise su nombre de usuario/contraseña o revise la conexión a Internet";
 "🎀 Last seen at:" = "Última vez visto el: ";
 "🎉 Join Time:" = "Tiempo de unión: ";
 "🎎 DisplayName: " = "Nombre de visualización: ";
+"💰 money: " = "Cantidad de monedas del foro: ";
 "🎊 Username: " = "Nombre de usuario: ";
 "🏖️ Discussion Count: " = "Cantidad de temas publicados: ";
 "🧬 Comment Count: " = "Cantidad de comentarios: ";
-"💰 money: " = "Cantidad de monedas del foro: ";
-"Information has been hidden" = "La información ha sido ocultada";
-"Earned Badges" = "Insignias ganadas";
-"No Badges Earned Yet" = "Todavía no has ganado ninguna insignia";
 "comment_sector" = "Comentarios";
 "like_sector" = "Me gusta";
 "money_sector" = "Registros de activos";
+"Information has been hidden" = "La información ha sido ocultada";
+"Earned Badges" = "Insignias ganadas";
+"No Badges Earned Yet" = "Todavía no has ganado ninguna insignia";
 "🍾 In" = "En";
 "username" = "Nombre de usuario";
 "password" = "Contraseña";
@@ -78,7 +79,6 @@
 "latest_sort_discussion" = "Últimos mensajes";
 "latest_sort_comment" = "Últimos comentarios";
 "default_sort" = "Predeterminado en la página de inicio";
-"subsription_sort" = "Mis seguimientos";
 "sorted_by_text" = "Ordenado por";
 "days later" = "Dans %d días";
 "hours later" = "Dans %d horas";
@@ -117,10 +117,6 @@
 "打开应用设置" = "Abrir la configuración de la aplicación";
 "继续" = "Continuar";
 "同意" = "Aceptar";
-"moneyauthor" = "Hacer una donación al autor (importe personalizado)";
-"如有Bug，请在论坛汇报并@LeonMMcoset" = "Si hay algún error, por favor, reporte en el foro y mencione a @LeonMMcoset";
-"版本: \(appVersion) (构建版本: \(appBuild))" = "Versión: \(appVersion) (Versión de compilación: \(appBuild))";
-// MARK: - RegistrationView
 "用户名(登录用 数字或字母组合)" = "Nombre de usuario (para iniciar sesión, combinación de números o letras)";
 "密码" = "Contraseña";
 "确认密码" = "Confirmar contraseña";
@@ -135,14 +131,11 @@
 "请输入密码" = "Por favor, ingrese la contraseña";
 "两次输入的密码不匹配" = "Las dos contraseñas ingresadas no coinciden";
 "请输入有效的邮箱地址" = "Por favor, ingrese una dirección de correo electrónico válida";
-"在发送帖子时无法选择标签" = "No se pueden seleccionar etiquetas al enviar un mensaje";
-"注册只能用户名和昵称一样" = "Al registrarse, el nombre de usuario y el apodo deben ser iguales";
-"无法查看资产记录" = "No se pueden ver los registros de activos";
-"有些按钮无法点击" = "Algunos botones no se pueden hacer clic";
-"两次输入的密码不匹配" = "Las dos contraseñas ingresadas no coinciden";
-"请输入有效的邮箱地址" = "Por favor, ingrese una dirección de correo electrónico válida";
-"注册" = "Registrarse";
-// MARK: - BugsView
+"·注册" = "·Sign Up";
+"moneyauthor" = "Hacer una donación al autor (importe personalizado)";
+"如有Bug，请在论坛汇报并@LeonMMcoset" = "Si hay algún error, por favor, reporte en el foro y mencione a @LeonMMcoset";
+"版本: \(appVersion) (构建版本: \(appBuild))" = "Versión: \(appVersion) (Versión de compilación: \(appBuild))";
+// MARK: BugsView
 // Button
 "Bugs" = "Errores conocidos de la aplicación";
 // Page

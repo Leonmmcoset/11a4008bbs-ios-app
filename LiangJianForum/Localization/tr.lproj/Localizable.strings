@@ -54,21 +54,22 @@
 "Reply successfully posted" = "Yanıt başarıyla gönderildi";
 "default_sort_option" = "Gönderi Sırası";
 "latest_sort_option" = "En Son Yanıtlar";
+"subsription_sort" = "Takip Ettiklerim";
 "Failed to sign in" = "Giriş yapılamadı";
 "Please check your username/password or check the Internet connetction" = "Lütfen kullanıcı adınızı/şifrenizi kontrol edin veya internet bağlantınızı kontrol edin";
 "🎀 Last seen at:" = "Son Görülme Tarihi: ";
 "🎉 Join Time:" = "Katılım Tarihi: ";
 "🎎 DisplayName: " = "Görünen Ad: ";
+"💰 money: " = "Forum Parası: ";
 "🎊 Username: " = "Kullanıcı Adı: ";
 "🏖️ Discussion Count: " = "Gönderilen Konu Sayısı: ";
 "🧬 Comment Count: " = "Yorum Sayısı: ";
-"💰 money: " = "Forum Parası: ";
-"Information has been hidden" = "Bilgi gizlendi";
-"Earned Badges" = "Kazanılan Rozetler";
-"No Badges Earned Yet" = "Henüz hiç rozet kazanmadınız";
 "comment_sector" = "Yorumlar";
 "like_sector" = "Beğeniler";
 "money_sector" = "Varlık Kayıtları";
+"Information has been hidden" = "Bilgi gizlendi";
+"Earned Badges" = "Kazanılan Rozetler";
+"No Badges Earned Yet" = "Henüz hiç rozet kazanmadınız";
 "🍾 In" = "Tarihinde";
 "username" = "Kullanıcı Adı";
 "password" = "Şifre";
@@ -78,7 +79,6 @@
 "latest_sort_discussion" = "En Son Gönderiler";
 "latest_sort_comment" = "En Son Yorumlar";
 "default_sort" = "Ana Sayfa Varsayılanı";
-"subsription_sort" = "Takip Ettiklerim";
 "sorted_by_text" = "Sıralama Şekli";
 "days later" = "%d gün sonra";
 "hours later" = "%d saat sonra";
@@ -117,10 +117,6 @@
 "打开应用设置" = "Uygulama ayarlarını aç";
 "继续" = "Devam Et";
 "同意" = "Kabul Et";
-"moneyauthor" = "Yazarına bağış yap (isteğe bağlı miktar)";
-"如有Bug，请在论坛汇报并@LeonMMcoset" = "Eğer hatalar varsa, lütfen forumda bildirin ve @LeonMMcoset'ı etiketleyin";
-"版本: \(appVersion) (构建版本: \(appBuild))" = "Sürüm: \(appVersion) (Derleme Sürümü: \(appBuild))";
-// MARK: - RegistrationView
 "用户名(登录用 数字或字母组合)" = "Kullanıcı Adı (giriş için rakam veya harf kombinasyonu)";
 "密码" = "Şifre";
 "确认密码" = "Şifreyi Onayla";
@@ -135,8 +131,11 @@
 "请输入密码" = "Lütfen şifrenizi girin";
 "两次输入的密码不匹配" = "Girilen iki şifre uyuşmuyor";
 "请输入有效的邮箱地址" = "Lütfen geçerli bir e-posta adresi girin";
-"注册" = "Kayıt Ol";
-// MARK: - BugsView
+"·注册" = "·Sign Up";
+"moneyauthor" = "Yazarına bağış yap (isteğe bağlı miktar)";
+"如有Bug，请在论坛汇报并@LeonMMcoset" = "Eğer hatalar varsa, lütfen forumda bildirin ve @LeonMMcoset'ı etiketleyin";
+"版本: \(appVersion) (构建版本: \(appBuild))" = "Sürüm: \(appVersion) (Derleme Sürümü: \(appBuild))";
+// MARK: BugsView
 // Button
 "Bugs" = "Uygulamada Bilinen Hatalar";
 // Page

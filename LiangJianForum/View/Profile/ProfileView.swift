@@ -351,6 +351,14 @@ struct ProfileView: View {
                                 Label(NSLocalizedString("choose_to_quit", comment: ""), systemImage: "iphone.and.arrow.forward")
                             }
                         }
+                        Section(NSLocalizedString("APP选项", comment: "")) {
+//                            Button { SettingsView() } label: {
+//                                Label(NSLocalizedString("设置", comment: ""), systemImage: "gear")
+//                            }
+                            NavigationLink(destination: SettingsView()) {
+                                Label(NSLocalizedString("设置", comment: ""), systemImage: "gear")
+                            }
+                        }
                     } label: {
                         Image(systemName: "gear.circle")
                             .background(Color(uiColor: .secondarySystemGroupedBackground), in: Circle())
@@ -359,6 +367,7 @@ struct ProfileView: View {
             }
         }
         .navigationTitle("我")
+        .navigationSubtitle(appSettings.username)
         .navigationBarTitleDisplayMode(.inline)
         .listStyle(.automatic)
     }
@@ -394,29 +403,43 @@ struct ProfileView: View {
         }
         os_log("Fetching User Info at: %{public}@", log: .default, type: .info, url.absoluteString)
         
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            if let decodedResponse = try? JSONDecoder().decode(UserData.self, from: data) {
-                appSettings.username = decodedResponse.data.attributes.username
-                appSettings.canCheckIn = decodedResponse.data.attributes.canCheckin ?? false
-                appSettings.canCheckinContinuous = decodedResponse.data.attributes.canCheckinContinuous ?? false
-                appSettings.totalContinuousCheckIn = decodedResponse.data.attributes.totalContinuousCheckIn ?? 0
-                include = decodedResponse.included
-                username = decodedResponse.data.attributes.username
-                displayName = decodedResponse.data.attributes.displayName
-                avatarUrl = decodedResponse.data.attributes.avatarURL ?? ""
-                joinTime = calculateTimeDifference(from: decodedResponse.data.attributes.joinTime)
-                lastSeenAt = decodedResponse.data.attributes.lastSeenAt.map(calculateTimeDifference) ?? ""
-                discussionCount = decodedResponse.data.attributes.discussionCount
-                commentCount = decodedResponse.data.attributes.commentCount
-                money = decodedResponse.data.attributes.money ?? -1
-                cover = decodedResponse.data.attributes.cover ?? ""
-                bioHtml = decodedResponse.data.attributes.bioHtml ?? ""
+        // 使用Task.detached确保在后台线程执行，不阻塞主线程
+        await withTaskGroup(of: Void.self) { group in
+            group.addTask(priority: .userInitiated) { [self] in
+                // 创建多线程URLSession
+                let config = URLSessionConfiguration.default
+                config.httpMaximumConnectionsPerHost = 5
+                let operationQueue = OperationQueue()
+                operationQueue.maxConcurrentOperationCount = 5
+                operationQueue.qualityOfService = .userInitiated
+                let session = URLSession(configuration: config, delegate: nil, delegateQueue: operationQueue)
+                
+                do {
+                    let (data, _) = try await session.data(from: url)
+                    // 确保在主线程更新UI
+                    await MainActor.run { [self] in
+                        if let decodedResponse = try? JSONDecoder().decode(UserData.self, from: data) {
+                            appSettings.username = decodedResponse.data.attributes.username
+                            appSettings.canCheckIn = decodedResponse.data.attributes.canCheckin ?? false
+                            appSettings.canCheckinContinuous = decodedResponse.data.attributes.canCheckinContinuous ?? false
+                            appSettings.totalContinuousCheckIn = decodedResponse.data.attributes.totalContinuousCheckIn ?? 0
+                            include = decodedResponse.included
+                            username = decodedResponse.data.attributes.username
+                            displayName = decodedResponse.data.attributes.displayName
+                            avatarUrl = decodedResponse.data.attributes.avatarURL ?? ""
+                            joinTime = calculateTimeDifference(from: decodedResponse.data.attributes.joinTime)
+                            lastSeenAt = decodedResponse.data.attributes.lastSeenAt.map(calculateTimeDifference) ?? ""
+                            discussionCount = decodedResponse.data.attributes.discussionCount
+                            commentCount = decodedResponse.data.attributes.commentCount
+                            money = decodedResponse.data.attributes.money ?? -1
+                            cover = decodedResponse.data.attributes.cover ?? ""
+                            bioHtml = decodedResponse.data.attributes.bioHtml ?? ""
+                        }
+                    }
+                } catch {
+                    os_log("Fetch user profile failed: %{public}@", log: .default, type: .error, String(describing: error))
+                }
             }
-        } catch {
-            os_log("Fetch user profile failed: %{public}@", log: .default, type: .error, String(describing: error))
-            // 可以添加更多错误处理逻辑，如显示提示框给用户
-            // showAlert(message: "获取用户资料失败，请重试")
         }
     }
     

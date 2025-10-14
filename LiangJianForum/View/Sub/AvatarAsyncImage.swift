@@ -13,6 +13,10 @@ struct AvatarAsyncImage: View {
     let lineWidth: CGFloat
     let shadow: CGFloat
     var strokeColor: Color?
+    @State private var isLoading = true
+    
+    // 预加载的占位符图像，确保UI立即渲染而不等待网络请求
+    private let placeholderImage: Image = Image(systemName: "person.circle.fill")
         
     init(url: URL?, frameSize: CGFloat, lineWidth: CGFloat, shadow: CGFloat, strokeColor: Color? = nil) {
         self.url = url
@@ -26,32 +30,18 @@ struct AvatarAsyncImage: View {
     var body: some View {
         Group {
             if let url = url {
-                if let color = strokeColor{
-//                    AsyncImage(url: url) { image in
-//                        image
-//                            .resizable()
-//                            .aspectRatio(contentMode: .fill)
-//                            .frame(width: frameSize, height: frameSize)
-//                            .clipShape(Circle())
-//                            .overlay {
-//                                Circle().stroke(color, lineWidth: lineWidth)
-//                            }
-//                            .shadow(radius: shadow)
-//                    } placeholder: {
-//                        ShimmerEffectBox()
-//                            .frame(width: frameSize, height: frameSize)
-//                            .cornerRadius(frameSize / 2)
-//                    }
+                // 使用缓存图像，但优化渲染流程
+                // 首先显示占位符，然后异步加载实际图像
+                ZStack {
+                    // 立即显示占位符，确保UI不等待
+                    placeholderAvatar
                     
+                    // 异步加载实际图像，加载完成后自动覆盖占位符
                     CachedImage(url: url.absoluteString,
-                                animation: .spring(),
-                                transition: .scale.combined(with: .opacity)) { phase in
-                        
+                                animation: .spring(response: 0.3, dampingFraction: 0.8),
+                                transition: .opacity) { phase in
+                         
                         switch phase {
-                        case .empty:
-                            ShimmerEffectBox()
-                                .frame(width: frameSize, height: frameSize)
-                                .cornerRadius(frameSize / 2)
                         case .success(let image):
                             image
                                 .resizable()
@@ -59,49 +49,56 @@ struct AvatarAsyncImage: View {
                                 .frame(width: frameSize, height: frameSize)
                                 .clipShape(Circle())
                                 .overlay {
-                                    Circle().stroke(color, lineWidth: lineWidth)
+                                    Circle().stroke(strokeColor ?? .white, lineWidth: lineWidth)
                                 }
                                 .shadow(radius: shadow)
-                            
-                        case .failure(let error):
+                                .onAppear { isLoading = false }
+                             
+                        case .failure(_), .empty:
+                            // 加载失败或空状态时，保持占位符可见
                             EmptyView()
                         @unknown default:
                             EmptyView()
                         }
                     }
-                }else{
-                    CachedImage(url: url.absoluteString,
-                                animation: .spring(),
-                                transition: .scale.combined(with: .opacity)) { phase in
-                        
-                        switch phase {
-                        case .empty:
-                            ShimmerEffectBox()
-                                .frame(width: frameSize, height: frameSize)
-                                .cornerRadius(frameSize / 2)
-                        case .success(let image):
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
+                    
+                    // 加载指示器，在加载过程中显示
+                    if isLoading {
+                        ZStack {
+                            Color.gray.opacity(0.3)
                                 .frame(width: frameSize, height: frameSize)
                                 .clipShape(Circle())
-                                .overlay {
-                                    Circle().stroke(.white, lineWidth: lineWidth)
-                                }
-                                .shadow(radius: shadow)
-                            
-                        case .failure(let error):
-                            EmptyView()
-                        @unknown default:
-                            EmptyView()
+                            ProgressView()
+                                .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                                .scaleEffect(0.7)
                         }
+                        .transition(.opacity)
                     }
                 }
             } else {
-                ShimmerEffectBox()
-                    .frame(width: frameSize, height: frameSize)
-                    .cornerRadius(frameSize / 2)
+                // 没有URL时显示占位符
+                placeholderAvatar
             }
         }
+        // 确保视图尺寸固定，避免布局闪烁
+        .frame(width: frameSize, height: frameSize)
+    }
+    
+    // 预加载的占位符头像
+    private var placeholderAvatar: some View {
+        ZStack {
+            Color.gray.opacity(0.3)
+                .frame(width: frameSize, height: frameSize)
+                .clipShape(Circle())
+                .overlay {
+                    Circle().stroke(strokeColor ?? .white, lineWidth: lineWidth)
+                }
+            
+            placeholderImage
+                .resizable()
+                .frame(width: frameSize * 0.6, height: frameSize * 0.6)
+                .foregroundColor(.gray)
+        }
+        .shadow(radius: shadow)
     }
 }

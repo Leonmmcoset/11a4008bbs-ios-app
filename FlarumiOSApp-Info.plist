@@ -8,7 +8,6 @@
 	</array>
 	<key>CFBundleGetInfoString</key>
 	<string></string>
-	
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>

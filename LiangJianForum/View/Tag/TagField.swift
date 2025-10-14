@@ -73,7 +73,6 @@ struct TagField: View {
                                 }
                             }
                         }
-                       .listStyle(.grouped)
                        .navigationDestination(for: Datum6.self) { tag in
                             TagDetail(selectedTag: tag)
                         }

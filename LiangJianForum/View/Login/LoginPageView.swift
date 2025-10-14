@@ -98,7 +98,11 @@ struct LoginPageView: View {
                         }
                     }
                     .offset(y: passwordFieldOffset)
-
+                    
+                    // 换行，我忘了SwiftUI怎么换行了
+                    // 用两个Text()当换行吧
+                    Text("")
+                    Text("")
                     Button(action: {
                         withAnimation(.spring(response: 0.3, dampingFraction: 0.7).delay(0.05)) {
                             buttonScale = 0.9
@@ -147,18 +151,18 @@ struct LoginPageView: View {
                     }) {
                         Text("Sign in")
                             .fontWeight(.bold)
-                            .foregroundColor(.white)
+//                            .foregroundColor(.white)
                             .frame(width: 350, height: 50)
-                            .background(
-                                Color(hex: "A1C9CE")
-                                    .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 4)
-                                    .scaleEffect(buttonScale)
-                            )
-                            .cornerRadius(10)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color.white.opacity(0.1), lineWidth: 1)
-                            )
+//                            .background(
+//                                Color(hex: "A1C9CE")
+//                                    .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 4)
+//                                    .scaleEffect(buttonScale)
+//                            )
+//                            .cornerRadius(10)
+//                            .overlay(
+//                                RoundedRectangle(cornerRadius: 10)
+//                                    .stroke(Color.white.opacity(0.1), lineWidth: 1)
+//                            )
                     }
 //                    .navigationDestination(isPresented: $showingMainPageView, destination: {
 //                        ContentView().environmentObject(appSettings).navigationBarBackButtonHidden(true)
@@ -166,12 +170,13 @@ struct LoginPageView: View {
                     .opacity(isAnimating ? 0.9 : 0)
                     .offset(y: isAnimating ? 0 : 50)
                     .animation(.interpolatingSpring(stiffness: 100, damping: 10).delay(0.4), value: isAnimating)
+                    .buttonStyle(.glass)
                     .onDisappear {
                         storedUsername = username
                         storedPassword = password
                         rememberMeState = rememberMe
                     }
-                    .hoverEffect(.lift)
+//                    .hoverEffect(.lift)
                     
                     NavigationLink(destination: ContentView().environmentObject(appSettings).navigationBarBackButtonHidden(true), isActive: $showingMainPageView) {
                     }
@@ -186,7 +191,8 @@ struct LoginPageView: View {
                         ProgressView()
                             .padding(.top)
                     }
-
+                    
+                    Text("")
                     ZStack{
                         NavigationLink {
                             RegistrationView().environmentObject(appSettings).navigationBarBackButtonHidden(false)
@@ -296,7 +302,7 @@ struct LoginPageView: View {
                 // 使用原生实现 Toast 效果
                 DispatchQueue.main.async {
                     if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene, let window = windowScene.windows.first {
-                        let alert = UIAlertController(title: "登录成功", message: "欢迎回来，\(username)！\n您的ID：\(userId)", preferredStyle: .alert)
+                        let alert = UIAlertController(title: "登录成功", message: "欢迎回来，\(username)！\n您的ID：\(userId)\n页面正在加载，请稍安勿躁", preferredStyle: .alert)
                         window.rootViewController?.present(alert, animated: true, completion: nil)
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                             alert.dismiss(animated: true, completion: nil)

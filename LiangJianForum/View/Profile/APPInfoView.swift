@@ -86,7 +86,7 @@ struct APPInfoView: View {
                SafariView(url: URL(string: "https://github.com/leonmmcoset/11a4008bbs-ios-app")!)
            }
            .sheet(isPresented: $isPrivacyPolicyPresented) {
-                SafariView(url: URL(string: "https://11a.arw.pub/p/2-privacyagreement")!)
+                SafariView(url: URL(string: "https://leon.fuyunluntan.xyz/p/2-privacyagreement")!)
             }
         }
     }
@@ -122,7 +122,7 @@ struct YinSIZhengCeView : UIViewRepresentable {
         return WKWebView()
     }
     func updateUIView(_ uiView: WKWebView, context: Context) {
-        let req = URLRequest(url: URL(string: "https://11a.arw.pub/p/2-privacyagreement")!)
+        let req = URLRequest(url: URL(string: "https://leon.fuyunluntan.xyz/p/2-privacyagreement")!)
         uiView.load(req)
     }
 }

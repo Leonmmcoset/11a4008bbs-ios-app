@@ -10,14 +10,21 @@ import UIKit
 import Combine
 import os
 
+// 标签栏最小化修饰符
+extension View {
+    func tabBarMinimizeOnScrollDown() -> some View {
+        self
+    }
+}
+
 /// 应用的主内容视图，使用 `TabView` 实现多标签导航。
 struct ContentView: View {
     @EnvironmentObject var appsettings: AppSettings
-    @State private var selection: Tab = .post
+    @State private var selection: TabItem = .post
     @State private var feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
 
     /// 定义标签页的枚举类型。
-    enum Tab {
+    enum TabItem: Hashable {
         case post
         case profile
         case tag
@@ -28,32 +35,67 @@ struct ContentView: View {
     /// 视图的主体内容，根据用户登录状态显示不同的 `TabView`。
     var body: some View {
         if appsettings.isLoggedIn {
+//            TabView(selection: $selection) {
+//                PostView()
+//                    .tabItem { Label("Home", systemImage: "house") }
+//                    .tag(Tab.post)
+//                    .environmentObject(appsettings)
+//
+//                TagField()
+//                    .tabItem { Label("Tag", systemImage: "tag") }
+//                    .tag(Tab.tag)
+//                    .environmentObject(appsettings)
+//
+//                NoticeView()
+//                    .tabItem { Label("Message", systemImage: "bell") }
+//                    .tag(Tab.notice)
+//                    .environmentObject(appsettings)
+//
+//                ProfileView()
+//                    .tabItem { Label("Me", systemImage: "person") }
+//                    .tag(Tab.profile)
+//                    .environmentObject(appsettings)
+//
+////                SettingsView()
+////                    .tabItem { Label("设置", systemImage: "gear") }
+////                    .tag(Tab.settings)
+////                    .environmentObject(appsettings)
+//
             TabView(selection: $selection) {
-                PostView()
-                    .tabItem { Label("Home", systemImage: "house") }
-                    .tag(Tab.post)
-                    .environmentObject(appsettings)
-
-                TagField()
-                    .tabItem { Label("Tag", systemImage: "tag") }
-                    .tag(Tab.tag)
-                    .environmentObject(appsettings)
-
-                NoticeView()
-                    .tabItem { Label("Message", systemImage: "bell") }
-                    .tag(Tab.notice)
-                    .environmentObject(appsettings)
-
-                ProfileView()
-                    .tabItem { Label("Me", systemImage: "person") }
-                    .tag(Tab.profile)
-                    .environmentObject(appsettings)
-
-                SettingsView()
-                    .tabItem { Label("设置", systemImage: "gear") }
-                    .tag(Tab.settings)
-                    .environmentObject(appsettings)
+                Tab(value: TabItem.post, content: {
+                    PostView()
+                        .environmentObject(appsettings)
+                }, label: {
+                    Label("Home", systemImage: "house")
+                })
+                
+                Tab(value: TabItem.tag, content: {
+                    TagField()
+                        .environmentObject(appsettings)
+                }, label: {
+                    Label("Tag", systemImage: "tag")
+                })
+                
+                Tab(value: TabItem.notice, content: {
+                    NoticeView()
+                        .environmentObject(appsettings)
+                }, label: {
+                    Label("Message", systemImage: "bell")
+                })
+                
+                // 个人资料标签，显示用户头像
+                Tab(value: TabItem.profile, content: {
+                    ProfileView()
+                        .environmentObject(appsettings)
+                }, label: {
+                    Label("Me", systemImage: "person")
+                })
+//                Tab("设置", systemImage: "gear", value: TabItem.settings) {
+//                    SettingsView()
+//                        .environmentObject(appsettings)
+//                }
             }
+            .tabBarMinimizeBehavior(.onScrollDown)
             .animation(.spring(response: 0.3, dampingFraction: 0.8).delay(0.1), value: selection)
             .onReceive(Just(selection)) { newValue in
                 feedbackGenerator.impactOccurred()
@@ -64,6 +106,8 @@ struct ContentView: View {
                 }
             }
             .environmentObject(appsettings)
+            // 启用标签栏滚动最小化功能
+            .tabBarMinimizeOnScrollDown()
         } else {
             LoginPageView()
                 .environmentObject(appsettings)

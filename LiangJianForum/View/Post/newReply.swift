@@ -106,8 +106,8 @@ struct newReply: View {
                             }
                         }
                         .frame(maxWidth: .infinity)
-                        .buttonStyle(.borderedProminent)
-                        .tint(Color(hex: "565dd9"))
+                        .buttonStyle(.glass)
+                        .tint(Color(hex: "0000ff"))
                         .padding(.horizontal)
                         .disabled(isReplying)
                     }

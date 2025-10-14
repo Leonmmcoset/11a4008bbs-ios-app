@@ -169,6 +169,7 @@
 		07F2E4012AC05DB10081343C /* ImageRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRetriever.swift; sourceTree = "<group>"; };
 		07F2E4022AC05DB10081343C /* CachedImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CachedImage.swift; sourceTree = "<group>"; };
 		07F2E4072AC05E6A0081343C /* BadgeDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeDetail.swift; sourceTree = "<group>"; };
+		35DF98652E9BE80200CB8A15 /* FlarumiOSAppWedgitExtension copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "FlarumiOSAppWedgitExtension copy-Info.plist"; path = "/Users/leon/Documents/xcode/11a4008bbs-ios-app/FlarumiOSAppWedgitExtension copy-Info.plist"; sourceTree = "<absolute>"; };
 		42ED924319C2DF3E476F3CD1 /* UserCommentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCommentData.swift; sourceTree = "<group>"; };
 		42ED9B9C42BCB58DB6FFFFE5 /* DiscussionDataWithId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscussionDataWithId.swift; sourceTree = "<group>"; };
 		F643CF792D673C2F00F43A31 /* APPInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APPInfoView.swift; sourceTree = "<group>"; };
@@ -330,6 +331,7 @@
 				F6C991492DB8FF1100CC374C /* FlarumiOSAppWedgit */,
 				F6C9915F2DB8FF6B00CC374C /* FlarumiOSAppWedgit */,
 				F6C9912E2DB8EEF700CC374C /* Frameworks */,
+				35DF98652E9BE80200CB8A15 /* FlarumiOSAppWedgitExtension copy-Info.plist */,
 				07A868002A3D879E00311F65 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -525,7 +527,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1620;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					07A867FE2A3D879E00311F65 = {
 						CreatedOnToolsVersion = 15.0;
@@ -558,7 +560,6 @@
 				072DA5262AAF87C8000B2F1F /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
 				071C686E2AC0615900A862AC /* XCRemoteSwiftPackageReference "Awesome" */,
 				F644AF712E066D22003EAE92 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
-				F6E724902E0FD4D40006138A /* XCLocalSwiftPackageReference "../Downloads/SlothCreatorBuildingDocCDocumentationInXcode" */,
 			);
 			productRefGroup = 07A868002A3D879E00311F65 /* Products */;
 			projectDirPath = "";
@@ -716,6 +717,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -746,6 +748,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = UW7PBTF3KD;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -771,6 +774,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
@@ -782,6 +786,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -812,6 +817,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = UW7PBTF3KD;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -831,6 +837,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				VALIDATE_PRODUCT = YES;
@@ -848,24 +855,23 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 203;
 				DEVELOPMENT_ASSET_PATHS = "\"LiangJianForum/Preview Content\"";
-				DEVELOPMENT_TEAM = UW7PBTF3KD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FlarumiOSApp-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "11A4008深论坛-测试版";
+				INFOPLIST_KEY_CFBundleDisplayName = LeonBBS;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = "2.0-b3";
-				PRODUCT_BUNDLE_IDENTIFIER = ink.jjmm.leonmmcoset.BRTBBSDebug;
+				MARKETING_VERSION = "2.0-prerelease1";
+				PRODUCT_BUNDLE_IDENTIFIER = win.jjxmm.leonmmcoset.LeonBBS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -888,24 +894,23 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 203;
 				DEVELOPMENT_ASSET_PATHS = "\"LiangJianForum/Preview Content\"";
-				DEVELOPMENT_TEAM = UW7PBTF3KD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FlarumiOSApp-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "11A4008深论坛";
+				INFOPLIST_KEY_CFBundleDisplayName = LeonBBS;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = "2.0-b3";
-				PRODUCT_BUNDLE_IDENTIFIER = ink.jjmm.leonmmcoset.BRTBBS;
+				MARKETING_VERSION = "2.0-prerelease1";
+				PRODUCT_BUNDLE_IDENTIFIER = win.jjxmm.leonmmcoset.LeonBBS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -925,7 +930,6 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UW7PBTF3KD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FlarumiOSAppWedgit/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = FlarumiOSAppWedgit;
@@ -938,7 +942,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ink.jjmm.leonmmcoset.BRTBBSDebug.WedgitExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = win.jjxmm.leonmmcoset.LeonBBS.WedgitExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -955,7 +959,6 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UW7PBTF3KD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FlarumiOSAppWedgit/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = FlarumiOSAppWedgit;
@@ -968,7 +971,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ink.jjmm.leonmmcoset.BRTBBS.WedgitExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = win.jjxmm.leonmmcoset.LeonBBS.WedgitExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1008,13 +1011,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCLocalSwiftPackageReference section */
-		F6E724902E0FD4D40006138A /* XCLocalSwiftPackageReference "../Downloads/SlothCreatorBuildingDocCDocumentationInXcode" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../Downloads/SlothCreatorBuildingDocCDocumentationInXcode;
-		};
-/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
 		071C686E2AC0615900A862AC /* XCRemoteSwiftPackageReference "Awesome" */ = {

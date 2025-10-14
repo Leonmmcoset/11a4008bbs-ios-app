@@ -132,7 +132,7 @@ struct PrivacyPolicySheet: View {
                     .font(.subheadline)
                     .foregroundColor(Color(.label))
                 
-                Link("隐私条款", destination: URL(string: "https://11a.arw.pub/p/2-privacyagreement")!)
+                Link("隐私条款", destination: URL(string: "https://leon.fuyunluntan.xyz/p/2-privacyagreement")!)
                     .font(.subheadline)
                     .foregroundColor(Color(.systemBlue))
                     .underline()
@@ -200,6 +200,7 @@ struct PrivacyPolicySheet: View {
             .cornerRadius(20)
             .padding(.horizontal, 24)
             .padding(.bottom, 32)
+            .buttonStyle(.glass)
         }
         .background(Color(.systemBackground))
     }

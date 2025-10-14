@@ -114,6 +114,10 @@ struct RegistrationView: View {
                     .rotationEffect(.degrees(Double(wrongEmail != 0 ? (wrongEmail > 0 ? 5 : -5) : 0)))
                     .animation(.timingCurve(0.5, -0.5, 0.5, 1.5).repeatCount(2), value: wrongEmail)
                 
+                // 换行，我忘了SwiftUI怎么换行了
+                // 用两个Text()当换行吧
+                Text("")
+                Text("")
                 Button(action: {
                     withAnimation(.spring()) {
                         buttonScale = 0.95
@@ -134,23 +138,25 @@ struct RegistrationView: View {
                 }) {
                     Text("注册")
                         .fontWeight(.bold)
+                        .frame(width: 350, height: 50)
                 }
-                .foregroundColor(.white)
-                .frame(width: 350, height: 50)
-                .background(
-                    Color(hex: "A1C9CE")
-                        .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 4)
-                        .scaleEffect(buttonScale)
-                )
-                .cornerRadius(10)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.white.opacity(0.1), lineWidth: 1)
-                )
+//                .foregroundColor(.white)
+//                .frame(width: 350, height: 50)
+//                .background(
+//                    Color(hex: "A1C9CE")
+//                        .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 4)
+//                        .scaleEffect(buttonScale)
+//                )
+//                .cornerRadius(10)
+//                .overlay(
+//                    RoundedRectangle(cornerRadius: 10)
+//                        .stroke(Color.white.opacity(0.1), lineWidth: 1)
+//                )
                 .opacity(isAnimating ? 0.9 : 0)
                 .offset(y: isAnimating ? 0 : 50)
                 .animation(.interpolatingSpring(stiffness: 100, damping: 10).delay(0.5), value: isAnimating)
-                .hoverEffect(.lift)
+//                .hoverEffect(.lift)
+                .buttonStyle(.glass)
                 .alert(isPresented: $showAlert) {
                     if registrationSuccess {
                         return Alert(
